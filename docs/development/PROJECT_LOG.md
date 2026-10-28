@@ -144,8 +144,36 @@ This log maintains a chronological record of significant engineering progress, a
 - **Results**:
   - `docs/research/RESEARCH_QUESTIONS.md` established as the scientific guiding document for all future phases.
 - **Next Actions**:
-  - Submit Pull Request for SANKET-011.
-  - Proceed to SANKET-012 (Evaluation methodology).
+  - Review and merge PR #17 (SANKET-011).
+  - Complete SANKET-012 (Evaluation methodology).
+
+---
+
+### 2026-10-28 — SANKET-012: Evaluation Methodology & Benchmarking Standards
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-012
+- **Completed Work**:
+  - Authored comprehensive evaluation protocol in `docs/research/EVALUATION_METHODOLOGY.md` codifying strict Signer-Independent (Leave-Signers-Out) data partitioning.
+  - Formulated mathematical definitions for disjoint signer partitions: $S_{\text{train}} \cap S_{\text{val}} = \emptyset$, $S_{\text{train}} \cap S_{\text{test}} = \emptyset$, $S_{\text{val}} \cap S_{\text{test}} = \emptyset$, preventing biometric identity and background leakage.
+  - Formulated quantitative performance metrics: Top-1 Accuracy, Top-$k$ Accuracy, Macro-Averaged Precision, Recall, and F1-Score, and Multi-Class Matthew's Correlation Coefficient (MCC).
+  - Specified normalized confusion matrix heatmap standards and established a 5-tier phonological linguistic error taxonomy (Handshape $E_{\mathcal{H}}$, Location $E_{\mathcal{L}}$, Orientation $E_{\mathcal{O}}$, Movement $E_{\mathcal{M}}$, Tracking Failure $E_{\text{track}}$).
+  - Established operational runtime benchmark specifications: inference latency $\le 15$ ms (median), total pipeline latency $\le 35$ ms (median), throughput $\ge 25$ FPS sustained, peak RAM $\le 200$ MB, and model disk size $\le 30$ MB on non-GPU CPUs.
+  - Codified reproducibility protocols including random seed locking (`random`, `numpy`, `torch` = 42), structured JSON experiment manifests (`experiment_manifest.json`), and peer-review sign-off checklists.
+- **Decisions**:
+  - Designated Macro F1 (rather than weighted accuracy) as the official primary metric to prevent majority-class bias from masking failure on rare emergency signs.
+  - Mandated that all experimental evaluations in Phase 1 and beyond must be executed with fixed random seeds and logged manifests.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Results**:
+  - `docs/research/EVALUATION_METHODOLOGY.md` finalized as the binding benchmark standard.
+  - **Milestone 0 (Engineering Foundation) fully executed across all 12 planned issues (SANKET-001 through SANKET-012).**
+- **Next Actions**:
+  - Submit Pull Request for SANKET-012.
+  - Project owner review and merge of Milestone 0 PRs (#13, #14, #15, #16, #17, #18).
+  - Initiate Phase 1 (Milestone 1 — Isolated Sign Landmark Pipeline & Baseline Model).
+
 
 
 
