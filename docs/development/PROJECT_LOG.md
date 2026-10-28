@@ -174,7 +174,33 @@ This log maintains a chronological record of significant engineering progress, a
   - Project owner review and merge of Milestone 0 PRs (#13, #14, #15, #16, #17, #18).
   - Initiate Phase 1 (Milestone 1 — Isolated Sign Landmark Pipeline & Baseline Model).
 
+---
 
+### 2026-10-28 — SANKET-020: Dataset Ingestion Pipeline & Checksum Verification
 
-
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-020 (Issue #22)
+- **Completed Work**:
+  - Implemented modular dataset ingestion engine in \src/sanket/data/ingestion.py\ supporting automated download, archive extraction, streaming SHA-256 checksum verification, and target class filtering.
+  - Implemented license gate enforcement (\erify_dataset_license\) validating third-party dataset compliance against approved open licenses (\CC BY 4.0\, etc.) per \docs/datasets/DATASET_REGISTER.md\.
+  - Implemented strict 16-class vocabulary filter (\ilter_target_classes\) enforcing ingestion boundaries to the frozen vocabulary specified in \docs/research/INITIAL_VOCABULARY.md\.
+  - Developed operational CLI ingestion utility in \scripts/ingest_dataset.py\ supporting \--dry-run\, \--verify-only\, \--archive-path\, \--url\, and \--expected-sha256\ flags.
+  - Implemented structured manifest generator (\generate_ingestion_manifest\) producing immutable JSON run summaries recording file counts, byte sizes, and timestamps.
+  - Authored comprehensive test suite in \	ests/test_data_ingestion.py\ covering license gates, SHA-256 calculation, zip/tar filtering, dry-run simulation, and failure modes (9 unit tests).
+  - Updated root \.gitignore\ to use \/data/\ ensuring root-level video archives remain uncommitted while Python package \src/sanket/data/\ is properly tracked.
+- **Decisions**:
+  - Mandated that dataset ingestion must always output a machine-readable \ingestion_manifest.json\ before downstream processing.
+  - Enforced streaming chunked SHA-256 calculation (64 KB buffers) to handle multi-gigabyte archives safely without out-of-memory errors on constrained hardware.
+- **Experiments**:
+  - Validated dry-run simulation generating valid 16-class manifest structure.
+- **Problems & Mitigations**:
+  - *Problem*: Generic \data/\ rule in \.gitignore\ was matching \src/sanket/data/\.  
+    *Mitigation*: Anchored rule to root \/data/\, cleanly preserving isolation for raw video staging while allowing code tracking.
+- **Results**:
+  - Complete, reproducible ingestion pipeline operational and verified with 100% passing tests (13/13 unit tests passed).
+- **Next Actions**:
+  - Submit Pull Request for SANKET-020.
+  - Review and merge PR on GitHub.
+  - Proceed to SANKET-021 (Dataset inspection and label analysis).
 
