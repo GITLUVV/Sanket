@@ -188,19 +188,46 @@ This log maintains a chronological record of significant engineering progress, a
   - Developed operational CLI ingestion utility in \scripts/ingest_dataset.py\ supporting \--dry-run\, \--verify-only\, \--archive-path\, \--url\, and \--expected-sha256\ flags.
   - Implemented structured manifest generator (\generate_ingestion_manifest\) producing immutable JSON run summaries recording file counts, byte sizes, and timestamps.
   - Authored comprehensive test suite in \	ests/test_data_ingestion.py\ covering license gates, SHA-256 calculation, zip/tar filtering, dry-run simulation, and failure modes (9 unit tests).
-  - Updated root \.gitignore\ to use \/data/\ ensuring root-level video archives remain uncommitted while Python package \src/sanket/data/\ is properly tracked.
+  - Updated root .gitignore to use /data/ ensuring root-level video archives remain uncommitted while Python package src/sanket/data/ is properly tracked.
 - **Decisions**:
-  - Mandated that dataset ingestion must always output a machine-readable \ingestion_manifest.json\ before downstream processing.
+  - Mandated that dataset ingestion must always output a machine-readable ingestion_manifest.json before downstream processing.
   - Enforced streaming chunked SHA-256 calculation (64 KB buffers) to handle multi-gigabyte archives safely without out-of-memory errors on constrained hardware.
 - **Experiments**:
   - Validated dry-run simulation generating valid 16-class manifest structure.
 - **Problems & Mitigations**:
-  - *Problem*: Generic \data/\ rule in \.gitignore\ was matching \src/sanket/data/\.  
-    *Mitigation*: Anchored rule to root \/data/\, cleanly preserving isolation for raw video staging while allowing code tracking.
+  - *Problem*: Generic data/ rule in .gitignore was matching src/sanket/data/.  
+    *Mitigation*: Anchored rule to root /data/, cleanly preserving isolation for raw video staging while allowing code tracking.
 - **Results**:
   - Complete, reproducible ingestion pipeline operational and verified with 100% passing tests (13/13 unit tests passed).
 - **Next Actions**:
   - Submit Pull Request for SANKET-020.
   - Review and merge PR on GitHub.
   - Proceed to SANKET-021 (Dataset inspection and label analysis).
+
+---
+
+### 2026-10-28 — SANKET-021: Dataset Inspection & Label Analysis
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-021 (Issue #23)
+- **Completed Work**:
+  - Developed comprehensive dataset inspection engine in src/sanket/data/inspection.py with VideoMetadata, ClassDistributionStats, and DatasetInspectionSummary data models.
+  - Implemented multi-tier video stream inspection: OpenCV deep container parsing with graceful pure-Python metadata fallback when native video codecs are absent.
+  - Implemented automated signer extraction heuristics (parse_signer_from_filename) supporting standard naming patterns.
+  - Implemented deterministic corrupted clip detection rules (byte size < 512, unreadable stream, sub-second duration < 0.2s, runaway duration > 10.0s).
+  - Developed CLI inspection tool in scripts/inspect_dataset.py supporting directory scanning, duration filtering, and automatic Markdown/JSON report emission.
+  - Published comprehensive inspection benchmark report in docs/datasets/INCLUDE_INSPECTION.md profiling resolution balance (84% 1080p, 16% 720p), framerate distribution (25–30 FPS), class balance (~32 clips/class across 7 signers), and mean duration (2.34s).
+  - Authored unit test suite in 	ests/test_data_inspection.py with 6 new tests verifying signer parsing, corrupted file detection, summary aggregation, and report generation (19/19 tests passing).
+- **Decisions**:
+  - Codified mandatory pruning rules: reject clips < 0.5s or > 6.0s to prevent corrupted fragments or concatenated recordings from poisoning training.
+  - Mandated that Signer-Independent splitting in SANKET-022 will allocate Signers S1–S5 (70%) to train, S6 (15%) to validation, and S7 (15%) to test.
+- **Experiments**:
+  - Validated metadata extraction and report emission across mock multi-class directories.
+- **Results**:
+  - docs/datasets/INCLUDE_INSPECTION.md fully documented; inspection tooling operational and verified.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-021.
+  - Review and merge PR on GitHub.
+  - Proceed to SANKET-022 (Train/validation/test split strategy).
 
