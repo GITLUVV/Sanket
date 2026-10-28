@@ -88,8 +88,37 @@ This log maintains a chronological record of significant engineering progress, a
 - **Results**:
   - `docs/datasets/DATASET_REGISTER.md` fully audited, verified, and gated.
 - **Next Actions**:
-  - Submit Pull Request for SANKET-009.
-  - Proceed to SANKET-010 (Initial ISL vocabulary definition).
+  - Review and merge PR #15 (SANKET-009).
+  - Complete SANKET-010 (Initial ISL vocabulary definition).
+
+---
+
+### 2026-10-28 — SANKET-010: Initial ISL Vocabulary Definition
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-010
+- **Completed Work**:
+  - Defined a frozen 16-sign constrained vocabulary of high-frequency isolated Indian Sign Language signs in `docs/research/INITIAL_VOCABULARY.md`.
+  - Balanced vocabulary across 3 essential communicative domains: Greetings & Social Interaction, Core Needs & Assistance, and Emergency & Descriptive Signs.
+  - Documented complete phonological and articulatory profiles for each of the 16 signs, specifying handedness, Stokoe-style handshape classes, spatial location/signing space, orientation vectors, and movement dynamics.
+  - Formulated specific MediaPipe skeletal landmark extraction pipelines for each sign, mapping landmark geometric relationships (e.g. wrist-to-palm distance, finger joint angles, face anchor proximity).
+  - Performed pairwise confusion risk analysis across morphologically adjacent signs (e.g., `DOCTOR` vs `TIME`, `WATER` vs `FOOD`, `HELLO` vs `PLEASE`, `GOOD` vs `YES`, `STOP` vs `HELP`), detailing primary geometric disambiguation features.
+  - Established a formal vocabulary freeze protocol and project owner sign-off gate before dataset ingestion.
+- **Decisions**:
+  - Selected 16 signs aligning directly with the classes available in the CC BY 4.0 INCLUDE benchmark dataset to ensure unblocked data availability.
+  - Excluded static 2D finger-spelling / alphabet symbols from vocabulary to prioritize authentic dynamic ISL lexical signs.
+  - Mandated dual-hand + face anchor keypoint tracking (MediaPipe Hands + Pose) to disambiguate facial proximity and two-handed interaction.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Problems & Mitigations**:
+  - *Problem*: High geometric similarity between signs targeting similar body regions (e.g., `DOCTOR` and `TIME` both contacting the non-dominant wrist).  
+    *Mitigation*: Formulated precise vector-angle and palmar vs dorsal surface approach rules in the feature pipeline to differentiate volar arterial contact from dorsal wristwatch tapping.
+- **Results**:
+  - `docs/research/INITIAL_VOCABULARY.md` fully specified with 16 linguistic profiles and confusion matrices.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-010.
+  - Proceed to SANKET-011 (Research questions and hypotheses formulation).
 
 
 
