@@ -3,7 +3,8 @@
 ## Purpose
 The **GitHub Wiki** serves as the human-readable, educational, and conceptual knowledge base for **Sanket**. 
 
-While the repository's [`docs/`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/) directory stores version-controlled, auditable engineering and research artifacts (such as ADRs, dataset registers, and experiment logs), the Wiki explains concepts, operational workflows, and domain background for students, researchers, and community contributors.
+While the repository's `docs/` directory stores version-controlled, auditable engineering and research artifacts (such as ADRs, dataset registers, and experiment logs), the Wiki explains concepts, operational workflows, and domain background for students, researchers, and community contributors.
+
 
 ---
 
@@ -55,7 +56,8 @@ Wiki Root
 - **Focus**: Research standards: why signer-independent splits are mandatory, how to avoid camera background overfitting, how to define null hypotheses, and why negative experimental results must be faithfully recorded in `docs/experiments/`.
 
 ### 6. `Datasets.md`
-- **Focus**: Guide to Indian Sign Language datasets (e.g. INCLUDE, ISL-CSLTR), explaining the differences between isolated sign clips and continuous sentences, as well as the imperative of auditing third-party licenses in [`docs/datasets/DATASET_REGISTER.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/datasets/DATASET_REGISTER.md).
+- **Focus**: Guide to Indian Sign Language datasets (e.g. INCLUDE, ISL-CSLTR), explaining the differences between isolated sign clips and continuous sentences, as well as the imperative of auditing third-party licenses in `docs/datasets/DATASET_REGISTER.md`.
+
 
 ### 7. `ISL-Vocabulary.md`
 - **Focus**: Linguistic parameters of Indian Sign Language (handshape, location, movement, palm orientation, non-manual markers). Details the initial 10–25 sign constrained vocabulary and roadmap for expansion.

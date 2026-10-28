@@ -18,7 +18,8 @@ This directory preserves the empirical research records of all machine learning 
 ---
 
 ## How to Record an Experiment
-1. Copy [`EXPERIMENT_TEMPLATE.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/experiments/EXPERIMENT_TEMPLATE.md) to `EXP-XXX-<slug>.md`.
+1. Copy `docs/experiments/EXPERIMENT_TEMPLATE.md` to `EXP-XXX-<slug>.md`.
 2. Fill out all sections honestly, including negative results, confusion errors, and latency numbers.
 3. Add a row to the table above.
 4. Link the record in the corresponding GitHub Issue or Pull Request.
+

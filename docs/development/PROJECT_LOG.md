@@ -12,16 +12,16 @@ This log maintains a chronological record of significant engineering progress, a
 - **Milestone**: Milestone 0 — Engineering Foundation
 - **Completed Work**:
   - Initialized formal repository structure: `docs/`, `src/sanket/`, `tests/`, `configs/`, `scripts/`.
-  - Added Apache License 2.0 [`LICENSE`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/LICENSE).
-  - Configured comprehensive security policy [`SECURITY.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/SECURITY.md) covering camera/biometric privacy and vulnerability disclosures.
+  - Added Apache License 2.0 `LICENSE`.
+  - Configured comprehensive security policy `SECURITY.md` covering camera/biometric privacy and vulnerability disclosures.
   - Enabled GitHub Dependabot vulnerability alerts and automated security updates.
   - Enabled GitHub Secret Scanning and Push Protection.
   - Configured GitHub Ruleset protecting `main` from force pushes and requiring PR reviews.
   - Established standardized GitHub label taxonomy (27 labels across Type, Area, Priority, Phase).
   - Authored standard GitHub Issue templates (Feature, Bug, Research, Experiment, Docs) and PR template.
-  - Established Master Development Roadmap [`SANKET_ROADMAP.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/roadmap/SANKET_ROADMAP.md).
-  - Initialized Architecture Decision Record system with ADR-0001 [`ADR-0001-project-foundations.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/decisions/ADR-0001-project-foundations.md).
-  - Established Dataset Register [`DATASET_REGISTER.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/datasets/DATASET_REGISTER.md) and Experiment tracking framework.
+  - Established Master Development Roadmap `docs/roadmap/SANKET_ROADMAP.md`.
+  - Initialized Architecture Decision Record system with ADR-0001 `docs/decisions/ADR-0001-project-foundations.md`.
+  - Established Dataset Register `docs/datasets/DATASET_REGISTER.md` and Experiment tracking framework.
   - Configured Python project packaging with `pyproject.toml`, `requirements.txt`, and GitHub Actions CI.
   - Created Milestone 0 on GitHub and populated issues `SANKET-001` through `SANKET-012`.
 - **Decisions**:
@@ -32,7 +32,7 @@ This log maintains a chronological record of significant engineering progress, a
   - No ML experiments conducted yet (Phase 0).
 - **Problems & Mitigations**:
   - *Problem*: GitHub Wiki git repository is not provisioned until the first page is created.  
-    *Mitigation*: Authored comprehensive Wiki information architecture and drafting specifications in [`docs/architecture/WIKI_STRUCTURE.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/architecture/WIKI_STRUCTURE.md).
+    *Mitigation*: Authored comprehensive Wiki information architecture and drafting specifications in `docs/architecture/WIKI_STRUCTURE.md`.
 - **Results**:
   - Repository security posture validated (Dependabot, rulesets, secret scanning).
   - Unit tests verify packaging and baseline environment cleanly.
@@ -40,3 +40,5 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit foundation PR for human project-owner review.
   - Await project owner merge into `main`.
   - Proceed to SANKET-008 (Dataset research and comparison) upon phase progression.
+
+
