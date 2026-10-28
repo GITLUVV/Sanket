@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Sanket Research Questions & Discussions
+    url: https://github.com/anveshna25/Sanket/discussions
+    about: Ask research questions or discuss ISL methodology with the community.
+  - name: Security & Privacy Vulnerabilities
+    url: mailto:anveshna2025@gmail.com
+    about: Privately report security or privacy concerns without public disclosure.
