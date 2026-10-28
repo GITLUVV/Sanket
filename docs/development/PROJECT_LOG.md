@@ -117,8 +117,36 @@ This log maintains a chronological record of significant engineering progress, a
 - **Results**:
   - `docs/research/INITIAL_VOCABULARY.md` fully specified with 16 linguistic profiles and confusion matrices.
 - **Next Actions**:
-  - Submit Pull Request for SANKET-010.
-  - Proceed to SANKET-011 (Research questions and hypotheses formulation).
+  - Review and merge PR #16 (SANKET-010).
+  - Complete SANKET-011 (Research questions and hypotheses formulation).
+
+---
+
+### 2026-10-28 — SANKET-011: Research Questions & Hypotheses Formulation
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-011
+- **Completed Work**:
+  - Formulated 5 core scientific research questions and formal testable null ($H_0$) and alternative ($H_1$) hypotheses in `docs/research/RESEARCH_QUESTIONS.md`:
+    - **RQ1 (Representation Fidelity)**: Skeletal coordinates ($21 \times 3$ tensors) vs raw pixel CNNs under edge CPU compute constraints.
+    - **RQ2 (Coordinate Normalization)**: Wrist-centered origin and palm-scale Euclidean distance normalization resilience across camera distances (0.6m to 2.0m).
+    - **RQ3 (Inductive Bias & Sequence Dynamics)**: Classical shallow classifiers (Random Forest / SVM) vs deep temporal recurrent architectures (BiLSTM / 1D-CNN) partitioned by static vs dynamic sign morphology.
+    - **RQ4 (Biometric Leakage & Generalization Bounds)**: Quantitative evaluation of optimistic bias in random sample splits versus strict Signer-Independent partitioning.
+    - **RQ5 (Real-Time Pipeline Latency Budget)**: End-to-end stage decomposition (capture, detection, normalization, inference, rendering) under a 50 ms budget ($\ge 25$ FPS) on non-GPU CPUs.
+  - Constructed an explicit Research Questions to Planned Experiments Mapping Matrix linking each RQ to specific Phase 1/Phase 5 issues (SANKET-026, SANKET-028, SANKET-029, SANKET-030, SANKET-031, SANKET-032, SANKET-100, SANKET-102, SANKET-103).
+  - Codified a Scientific Rigor & Negative Result Policy guaranteeing transparent reporting of rejected hypotheses in Architecture Decision Records.
+- **Decisions**:
+  - Established paired two-tailed Wilcoxon signed-rank and Student's t-tests with $\alpha = 0.05$ as the formal statistical significance standard.
+  - Bound all Phase 1 baseline experiments to test these 5 explicit hypotheses rather than exploratory parameter tuning.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Results**:
+  - `docs/research/RESEARCH_QUESTIONS.md` established as the scientific guiding document for all future phases.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-011.
+  - Proceed to SANKET-012 (Evaluation methodology).
+
 
 
 
