@@ -9,15 +9,16 @@ Sanket is an academic and research-oriented AI engineering project. To preserve 
 ## 1. Project Principles
 
 1. **Keep the project modular**: Separate vision ingestion, feature extraction, model inference, and language rendering into clean interfaces.
-2. **Keep research decisions documented**: Every significant algorithmic or architectural choice must be recorded in an Architecture Decision Record ([`docs/decisions/`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/decisions/)).
+2. **Keep research decisions documented**: Every significant algorithmic or architectural choice must be recorded in an Architecture Decision Record (`docs/decisions/`).
 3. **Do not silently change technical decisions**: Major shifts in models, dataset choices, or dependencies require discussion and documentation.
-4. **Record experiments and results**: Every ML experiment must be logged in [`docs/experiments/`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/experiments/) with reproducible hyperparameters, metrics, and error analyses.
+4. **Record experiments and results**: Every ML experiment must be logged in `docs/experiments/` with reproducible hyperparameters, metrics, and error analyses.
 5. **Keep GitHub Issues focused**: Issues must correspond to concrete, actionable research or engineering tasks.
 6. **Use Pull Requests for meaningful changes**: Never push directly to `main`.
 7. **Small, reviewable PRs**: Prefer focused PRs addressing a single issue over massive monolithic submissions.
 8. **Do not overclaim**: Never claim "full continuous sign language translation" when the system currently implements constrained isolated sign recognition.
-9. **Strict dataset licensing**: Audit dataset licenses and redistribution rights in [`docs/datasets/DATASET_REGISTER.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/datasets/DATASET_REGISTER.md) prior to ingestion.
+9. **Strict dataset licensing**: Audit dataset licenses and redistribution rights in `docs/datasets/DATASET_REGISTER.md` prior to ingestion.
 10. **Privacy first**: Never commit camera footage, raw biometric recordings, credentials, or private datasets.
+
 
 ---
 

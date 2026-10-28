@@ -149,10 +149,10 @@ ISL Gesture Morphology Breakdown:
 ## 6. Final Dataset Recommendation & Action Plan
 
 ### Primary Decision:
-**Adopt the INCLUDE dataset** as the core research benchmark, restricting the initial Phase 1 training to a **constrained 15-class subset** matching [`docs/research/INITIAL_VOCABULARY.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/research/INITIAL_VOCABULARY.md).
+**Adopt the INCLUDE dataset** as the core research benchmark, restricting the initial Phase 1 training to a **constrained 15-class subset** matching `docs/research/INITIAL_VOCABULARY.md`.
 
 ### Implementation Steps (Phase 1):
-1. **SANKET-009 (Next Issue)**: Formally audit INCLUDE's CC BY 4.0 license, data provenance, and redistribution terms in [`docs/datasets/DATASET_REGISTER.md`](file:///c:/Users/WINNTUSIT/Desktop/Sanket/docs/datasets/DATASET_REGISTER.md).
+1. **SANKET-009 (Next Issue)**: Formally audit INCLUDE's CC BY 4.0 license, data provenance, and redistribution terms in `docs/datasets/DATASET_REGISTER.md`.
 2. **SANKET-020 (Phase 1 Pipeline)**: Author a reproducible dataset ingestion script `scripts/download_include_subset.py` that downloads and verifies SHA-256 hashes for the target 15 classes.
 3. **SANKET-022 (Data Split)**: Partition the subset strictly by Signer ID (Signers 1–5 for Train, Signer 6 for Val, Signer 7 for Test) to enforce true Signer-Independent validation.
 4. **SANKET-026 & SANKET-027**: Run offline MediaPipe landmark extraction, normalise coordinate geometry, and cache features as lightweight `.npz` or `.parquet` tensors for sub-second model training iterations.
