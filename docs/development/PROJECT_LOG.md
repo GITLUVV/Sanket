@@ -64,7 +64,32 @@ This log maintains a chronological record of significant engineering progress, a
 - **Results**:
   - Comprehensive survey and recommendation completed and recorded in `docs/research/DATASET_SURVEY.md`.
 - **Next Actions**:
-  - Submit Pull Request for SANKET-008.
-  - Proceed to SANKET-009 (Dataset licensing & access review) to formally audit INCLUDE's CC BY 4.0 terms in `DATASET_REGISTER.md`.
+  - Review and merge PR #14 (SANKET-008).
+  - Complete SANKET-009 (Dataset licensing & access review).
+
+---
+
+### 2026-10-28 — SANKET-009: Dataset Licensing & Access Review
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-009
+- **Completed Work**:
+  - Formally audited 4 candidate datasets in `docs/datasets/DATASET_REGISTER.md`: INCLUDE / INCLUDE-50, ISL-CSLTR, CISLR, and IIIT-Delhi ISL.
+  - Formulated the Project Licensing Non-Interference Policy, codifying that Sanket's Apache-2.0 license applies solely to software/docs and does not supersede third-party dataset restrictions.
+  - Established a mandatory Human Project-Owner Approval Gate prior to raw video download or local dataset ingestion.
+  - Audited biometric consent, facial identification risks, and derivative mathematical feature rights (MediaPipe 3D coordinate tensors).
+- **Decisions**:
+  - Approved **INCLUDE** under Creative Commons Attribution 4.0 (CC BY 4.0) as legally and ethically sound for Phase 1 isolated baseline training.
+  - Deferred **ISL-CSLTR** to Phase 3/4 pending formal academic MoU execution.
+  - Codified strict policy: No raw biometric video footage may ever be committed or pushed to the GitHub repository.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Results**:
+  - `docs/datasets/DATASET_REGISTER.md` fully audited, verified, and gated.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-009.
+  - Proceed to SANKET-010 (Initial ISL vocabulary definition).
+
 
 
