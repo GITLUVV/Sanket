@@ -64,7 +64,89 @@ This log maintains a chronological record of significant engineering progress, a
 - **Results**:
   - Comprehensive survey and recommendation completed and recorded in `docs/research/DATASET_SURVEY.md`.
 - **Next Actions**:
-  - Submit Pull Request for SANKET-008.
-  - Proceed to SANKET-009 (Dataset licensing & access review) to formally audit INCLUDE's CC BY 4.0 terms in `DATASET_REGISTER.md`.
+  - Review and merge PR #14 (SANKET-008).
+  - Complete SANKET-009 (Dataset licensing & access review).
+
+---
+
+### 2026-10-28 — SANKET-009: Dataset Licensing & Access Review
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-009
+- **Completed Work**:
+  - Formally audited 4 candidate datasets in `docs/datasets/DATASET_REGISTER.md`: INCLUDE / INCLUDE-50, ISL-CSLTR, CISLR, and IIIT-Delhi ISL.
+  - Formulated the Project Licensing Non-Interference Policy, codifying that Sanket's Apache-2.0 license applies solely to software/docs and does not supersede third-party dataset restrictions.
+  - Established a mandatory Human Project-Owner Approval Gate prior to raw video download or local dataset ingestion.
+  - Audited biometric consent, facial identification risks, and derivative mathematical feature rights (MediaPipe 3D coordinate tensors).
+- **Decisions**:
+  - Approved **INCLUDE** under Creative Commons Attribution 4.0 (CC BY 4.0) as legally and ethically sound for Phase 1 isolated baseline training.
+  - Deferred **ISL-CSLTR** to Phase 3/4 pending formal academic MoU execution.
+  - Codified strict policy: No raw biometric video footage may ever be committed or pushed to the GitHub repository.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Results**:
+  - `docs/datasets/DATASET_REGISTER.md` fully audited, verified, and gated.
+- **Next Actions**:
+  - Review and merge PR #15 (SANKET-009).
+  - Complete SANKET-010 (Initial ISL vocabulary definition).
+
+---
+
+### 2026-10-28 — SANKET-010: Initial ISL Vocabulary Definition
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-010
+- **Completed Work**:
+  - Defined a frozen 16-sign constrained vocabulary of high-frequency isolated Indian Sign Language signs in `docs/research/INITIAL_VOCABULARY.md`.
+  - Balanced vocabulary across 3 essential communicative domains: Greetings & Social Interaction, Core Needs & Assistance, and Emergency & Descriptive Signs.
+  - Documented complete phonological and articulatory profiles for each of the 16 signs, specifying handedness, Stokoe-style handshape classes, spatial location/signing space, orientation vectors, and movement dynamics.
+  - Formulated specific MediaPipe skeletal landmark extraction pipelines for each sign, mapping landmark geometric relationships (e.g. wrist-to-palm distance, finger joint angles, face anchor proximity).
+  - Performed pairwise confusion risk analysis across morphologically adjacent signs (e.g., `DOCTOR` vs `TIME`, `WATER` vs `FOOD`, `HELLO` vs `PLEASE`, `GOOD` vs `YES`, `STOP` vs `HELP`), detailing primary geometric disambiguation features.
+  - Established a formal vocabulary freeze protocol and project owner sign-off gate before dataset ingestion.
+- **Decisions**:
+  - Selected 16 signs aligning directly with the classes available in the CC BY 4.0 INCLUDE benchmark dataset to ensure unblocked data availability.
+  - Excluded static 2D finger-spelling / alphabet symbols from vocabulary to prioritize authentic dynamic ISL lexical signs.
+  - Mandated dual-hand + face anchor keypoint tracking (MediaPipe Hands + Pose) to disambiguate facial proximity and two-handed interaction.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Problems & Mitigations**:
+  - *Problem*: High geometric similarity between signs targeting similar body regions (e.g., `DOCTOR` and `TIME` both contacting the non-dominant wrist).  
+    *Mitigation*: Formulated precise vector-angle and palmar vs dorsal surface approach rules in the feature pipeline to differentiate volar arterial contact from dorsal wristwatch tapping.
+- **Results**:
+  - `docs/research/INITIAL_VOCABULARY.md` fully specified with 16 linguistic profiles and confusion matrices.
+- **Next Actions**:
+  - Review and merge PR #16 (SANKET-010).
+  - Complete SANKET-011 (Research questions and hypotheses formulation).
+
+---
+
+### 2026-10-28 — SANKET-011: Research Questions & Hypotheses Formulation
+
+- **Phase**: Phase 0 — Engineering & Research Foundation
+- **Milestone**: Milestone 0 — Engineering Foundation
+- **Related Issue**: SANKET-011
+- **Completed Work**:
+  - Formulated 5 core scientific research questions and formal testable null ($H_0$) and alternative ($H_1$) hypotheses in `docs/research/RESEARCH_QUESTIONS.md`:
+    - **RQ1 (Representation Fidelity)**: Skeletal coordinates ($21 \times 3$ tensors) vs raw pixel CNNs under edge CPU compute constraints.
+    - **RQ2 (Coordinate Normalization)**: Wrist-centered origin and palm-scale Euclidean distance normalization resilience across camera distances (0.6m to 2.0m).
+    - **RQ3 (Inductive Bias & Sequence Dynamics)**: Classical shallow classifiers (Random Forest / SVM) vs deep temporal recurrent architectures (BiLSTM / 1D-CNN) partitioned by static vs dynamic sign morphology.
+    - **RQ4 (Biometric Leakage & Generalization Bounds)**: Quantitative evaluation of optimistic bias in random sample splits versus strict Signer-Independent partitioning.
+    - **RQ5 (Real-Time Pipeline Latency Budget)**: End-to-end stage decomposition (capture, detection, normalization, inference, rendering) under a 50 ms budget ($\ge 25$ FPS) on non-GPU CPUs.
+  - Constructed an explicit Research Questions to Planned Experiments Mapping Matrix linking each RQ to specific Phase 1/Phase 5 issues (SANKET-026, SANKET-028, SANKET-029, SANKET-030, SANKET-031, SANKET-032, SANKET-100, SANKET-102, SANKET-103).
+  - Codified a Scientific Rigor & Negative Result Policy guaranteeing transparent reporting of rejected hypotheses in Architecture Decision Records.
+- **Decisions**:
+  - Established paired two-tailed Wilcoxon signed-rank and Student's t-tests with $\alpha = 0.05$ as the formal statistical significance standard.
+  - Bound all Phase 1 baseline experiments to test these 5 explicit hypotheses rather than exploratory parameter tuning.
+- **Experiments**:
+  - No model training conducted (Phase 0).
+- **Results**:
+  - `docs/research/RESEARCH_QUESTIONS.md` established as the scientific guiding document for all future phases.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-011.
+  - Proceed to SANKET-012 (Evaluation methodology).
+
+
 
 
