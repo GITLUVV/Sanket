@@ -3,7 +3,7 @@
 
 Usage examples:
     python scripts/ingest_dataset.py --dry-run
-    python scripts/ingest_dataset.py --archive-path data/archives/include_subset.zip --output-dir data/raw/include
+    python scripts/ingest_dataset.py --archive-path data/archives/include.zip
 """
 
 from __future__ import annotations
@@ -11,15 +11,15 @@ from __future__ import annotations
 import argparse
 import json
 import logging
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Ensure src/ is on sys.path for direct script execution
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT / "src"))
 
-from sanket.data.ingestion import (
+from sanket.data.ingestion import (  # noqa: E402
     IngestionConfig,
     compute_file_sha256,
     ingest_dataset,

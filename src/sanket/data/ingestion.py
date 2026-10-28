@@ -10,12 +10,12 @@ import datetime
 import hashlib
 import json
 import logging
-from pathlib import Path
 import shutil
 import tarfile
-from typing import Any
 import urllib.request
 import zipfile
+from pathlib import Path
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -279,7 +279,8 @@ def ingest_dataset(
     if config.dry_run:
         logger.info("Executing dry-run ingestion for %s", config.name)
         simulated_files = [
-            config.output_dir / cls / f"{cls.lower()}_sample_01.mp4" for cls in config.target_classes
+            config.output_dir / cls / f"{cls.lower()}_sample_01.mp4"
+            for cls in config.target_classes
         ]
         manifest = generate_ingestion_manifest(config, simulated_files, config.expected_sha256)
         manifest_path = config.output_dir / "ingestion_manifest.json"

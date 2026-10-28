@@ -1,7 +1,7 @@
 """Unit tests for dataset ingestion, checksum verification, and class filtering."""
 
-from pathlib import Path
 import zipfile
+from pathlib import Path
 
 import pytest
 
