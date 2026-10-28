@@ -1,7 +1,7 @@
 """Foundational unit tests verifying package imports, versioning, and configs."""
 
 from pathlib import Path
-import pytest
+
 import sanket
 from sanket.core.config import AppConfig, load_config
 

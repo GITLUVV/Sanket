@@ -1,11 +1,13 @@
 """Configuration management models using Pydantic."""
 
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 try:
     import yaml
+
     HAVE_YAML = True
 except ImportError:
     HAVE_YAML = False
@@ -13,6 +15,7 @@ except ImportError:
 
 class CameraConfig(BaseModel):
     """Configuration for video input and camera device capture."""
+
     device_id: int = Field(default=0, description="Video capture device index or camera ID")
     width: int = Field(default=640, description="Capture frame width")
     height: int = Field(default=480, description="Capture frame height")
@@ -21,31 +24,40 @@ class CameraConfig(BaseModel):
 
 class LandmarkConfig(BaseModel):
     """Configuration for MediaPipe landmark extraction and tracking."""
+
     max_num_hands: int = Field(default=2, description="Maximum number of hands to detect")
     min_detection_confidence: float = Field(default=0.7, ge=0.0, le=1.0)
     min_tracking_confidence: float = Field(default=0.5, ge=0.0, le=1.0)
-    normalize_coordinates: bool = Field(default=True, description="Enable scale and origin normalization")
+    normalize_coordinates: bool = Field(
+        default=True, description="Enable scale and origin normalization"
+    )
 
 
 class ModelConfig(BaseModel):
     """Configuration for machine learning recognition models."""
-    architecture: str = Field(default="random_forest", description="Baseline model architecture name")
+
+    architecture: str = Field(
+        default="random_forest", description="Baseline model architecture name"
+    )
     confidence_threshold: float = Field(default=0.75, ge=0.0, le=1.0)
-    smoothing_window_size: int = Field(default=5, ge=1, description="Frames for rolling prediction smoothing")
-    weights_path: Optional[str] = Field(default=None, description="Path to serialised model weights")
+    smoothing_window_size: int = Field(
+        default=5, ge=1, description="Frames for rolling prediction smoothing"
+    )
+    weights_path: str | None = Field(default=None, description="Path to serialised model weights")
 
 
 class AppConfig(BaseModel):
     """Master application configuration."""
+
     camera: CameraConfig = Field(default_factory=CameraConfig)
     landmarks: LandmarkConfig = Field(default_factory=LandmarkConfig)
     model: ModelConfig = Field(default_factory=ModelConfig)
 
 
-def _parse_simple_yaml(text: str) -> Dict[str, Any]:
+def _parse_simple_yaml(text: str) -> dict[str, Any]:
     """Lightweight fallback parser for basic nested key-value YAML files."""
-    result: Dict[str, Any] = {}
-    current_section: Optional[str] = None
+    result: dict[str, Any] = {}
+    current_section: str | None = None
 
     for raw_line in text.splitlines():
         line = raw_line.split("#")[0].rstrip()
@@ -65,9 +77,9 @@ def _parse_simple_yaml(text: str) -> Dict[str, Any]:
                 val = False
             elif val_str in ("null", "None", "~", ""):
                 val = None
-            elif val_str.startswith('"') and val_str.endswith('"'):
-                val = val_str[1:-1]
-            elif val_str.startswith("'") and val_str.endswith("'"):
+            elif (val_str.startswith('"') and val_str.endswith('"')) or (
+                val_str.startswith("'") and val_str.endswith("'")
+            ):
                 val = val_str[1:-1]
             else:
                 try:
@@ -79,7 +91,7 @@ def _parse_simple_yaml(text: str) -> Dict[str, Any]:
     return result
 
 
-def load_config(config_path: Optional[Path] = None) -> AppConfig:
+def load_config(config_path: Path | None = None) -> AppConfig:
     """Load configuration from a YAML file or return default configuration.
 
     Args:
@@ -93,7 +105,7 @@ def load_config(config_path: Optional[Path] = None) -> AppConfig:
 
     text = Path(config_path).read_text(encoding="utf-8")
     if HAVE_YAML:
-        data: Dict[str, Any] = yaml.safe_load(text) or {}
+        data: dict[str, Any] = yaml.safe_load(text) or {}
     else:
         data = _parse_simple_yaml(text)
 
