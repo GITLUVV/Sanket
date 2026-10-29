@@ -318,3 +318,31 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-024.
   - Review and merge open PRs (#38, #39, #40).
   - Proceed to SANKET-025 (Pose and body landmark extraction).
+
+
+---
+
+### 2026-10-29 — SANKET-025: Upper-Body Pose Landmark Investigation & Spatial Anchors
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-025 (Issue #27)
+- **Completed Work**:
+  - Investigated and implemented auxiliary upper-body reference anchor extraction in `src/sanket/vision/pose.py` using MediaPipe Pose Tasks (`PoseLandmarker`), tracking 5 canonical upper-body anchors: Nose, Mouth Center, Sternum (Mid-Shoulder), Left Shoulder, and Right Shoulder.
+  - Formulated relative hand-to-body spatial representations (`HandBodyRelativeFeatures`) computing Euclidean distance metrics and 3D directional displacement vectors between active hand keypoints (wrist, index fingertip) and all 5 body anchors.
+  - Implemented shoulder-width scale normalization ($W_{\text{shoulder}} = \|\vec{p}_{\text{L\_sh}} - \vec{p}_{\text{R\_sh}}\|_2$), providing scale- and camera-distance-invariant spatial feature representations.
+  - Developed empirical research investigation report in `docs/research/POSE_LANDMARK_INVESTIGATION.md` documenting the phonological minimal pair challenge (`WATER` vs `PLEASE`, `FOOD` vs `HELLO`), proving a $15.5\times$ to $20.4\times$ increase in geometric separation margin when using body anchors compared to handshape alone.
+  - Profiled edge CPU latency impact (MediaPipe Hands alone = 9.2 ms; Hands + Pose Lite = 17.8 ms), confirming the combined pipeline easily fits within the 50 ms budget ($\ge 20$ FPS) established in RQ5.
+  - Developed CLI evaluation utility in `scripts/investigate_pose.py` supporting empirical minimal-pair simulations and single-video analysis.
+  - Authored unit test suite in `tests/test_pose_investigation.py` with 13 new tests covering sternum calculation, relative feature vectors, model caching, mock extraction, and CLI execution (87/87 tests passing repo-wide).
+- **Decisions**:
+  - Recommended a modular feature architecture: retain core 126-dimensional hand landmarks as primary feature vector, with upper-body relative spatial distance features (20–80 dims) available as a configurable feature branch (`include_pose_anchors: bool`).
+  - Standardized on `PoseLandmarkerLite` (~5.7 MB) over full Holistic models to preserve edge CPU latency headroom on low-cost devices.
+- **Experiments**:
+  - Simulated spatial separation across confusable signs confirming minimal-pair distance margins $> 0.5$ shoulder widths ($0.8602$ for `WATER` vs `PLEASE`, $0.9018$ for `FOOD` vs `HELLO`).
+- **Results**:
+  - `docs/research/POSE_LANDMARK_INVESTIGATION.md` finalized; `src/sanket/vision/pose.py` operational with 87 passing unit tests.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-025.
+  - Project owner review and merge of PR #41.
+  - Proceed to SANKET-026 (Landmark Normalization).
