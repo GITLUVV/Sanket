@@ -231,3 +231,90 @@ This log maintains a chronological record of significant engineering progress, a
   - Review and merge PR on GitHub.
   - Proceed to SANKET-022 (Train/validation/test split strategy).
 
+---
+
+### 2026-10-29 — SANKET-022: Signer-Independent Train/Val/Test Partitioning
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-022 (Issue #24)
+- **Completed Work**:
+  - Implemented strict Signer-Independent (Leave-Signers-Out) dataset partitioning engine in src/sanket/data/splits.py with SampleRecord, PartitionStats, and SplitManifest data models.
+  - Implemented mathematical disjointness verification (erify_signer_disjointness), programmatically asserting that signer sets between partitions have zero intersection ({\\text{train}} \\cap S_{\\text{val}} = \\emptyset$, {\\text{train}} \\cap S_{\\text{test}} = \\emptyset$, {\\text{val}} \\cap S_{\\text{test}} = \\emptyset$).
+  - Developed operational CLI utility in scripts/create_splits.py supporting --generate-default, --verify-manifest, --dataset-dir, and customizable ratio/seed flags.
+  - Generated and committed the canonical reproducible 7-signer split manifest for the 16-class INCLUDE benchmark in configs/splits/include16_signer_independent.json:
+    - **Train (71.9%)**: 368 clips across 5 signers (Signer02, Signer03, Signer04, Signer05, Signer07).
+    - **Validation (15.6%)**: 80 clips across 1 signer (Signer01).
+    - **Test (12.5%)**: 64 clips across 1 signer (Signer06).
+  - Authored comprehensive unit test suite in 	ests/test_data_splits.py with 8 new tests verifying disjointness enforcement, leakage detection, seed determinism, directory scanning, and JSON round-trip serialization (27/27 test suite passed).
+- **Decisions**:
+  - Stored split manifests under configs/splits/ rather than ignored data/ directory to ensure reproducible git-tracked experimental splits without committing raw video files.
+  - Locked default partitioning random seed to 42 for deterministic reproduction across research environments.
+- **Experiments**:
+  - Verified programmatic disjointness on generated canonical manifest with zero signer overlap.
+- **Results**:
+  - configs/splits/include16_signer_independent.json generated, verified, and committed.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-022.
+  - Review and merge PR on GitHub.
+  - Proceed to SANKET-023 (Image/video preprocessing).
+
+
+
+---
+
+### 2026-10-29 — SANKET-023: Standardized Image and Video Preprocessing Pipeline
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-023 (Issue #25)
+- **Completed Work**:
+  - Implemented core image and video preprocessing engine in `src/sanket/vision/preprocessing.py` with `VideoMetadata`, `VideoPreprocessor`, `compute_temporal_indices`, `letterbox_resize`, `unletterbox_coordinates`, `read_video_frames`, and `sample_video_frames`.
+  - Implemented uniform temporal subsampling via linear index interpolation mapping variable-length raw video clips to a standardized temporal window of $T = 30$ frames per clip, supporting both downsampling of longer clips and smooth frame duplication for short clips.
+  - Implemented aspect-ratio-preserving spatial letterboxing resizing to standard $640 \times 480$ resolution with symmetric border padding and transformation metadata tracking.
+  - Implemented coordinate unletterboxing (`unletterbox_coordinates`) enabling exact mathematical inversion of spatial transformations for landmark coordinate projection.
+  - Developed end-to-end operational CLI utility in `scripts/preprocess_videos.py` supporting single-clip and batch directory preprocessing, `.npy` tensor export, and visual preview extraction.
+  - Updated `requirements.txt` and `pyproject.toml` dependencies to include `opencv-python>=4.8.0` for full vision subsystem capabilities.
+  - Authored comprehensive test suite in `tests/test_video_preprocessing.py` with 28 new tests covering identity/downsampling/upsampling temporal indexing, landscape/portrait letterboxing, coordinate inversion, synthetic video decoding, `VideoPreprocessor` class, and CLI arguments (55/55 test suite passing with >= 90% coverage on preprocessing).
+- **Decisions**:
+  - Standardized sequence length to $T = 30$ frames per clip, matching standard 30 FPS 1.0-second sign durations while optimizing compute efficiency for downstream MediaPipe landmark extraction.
+  - Selected $640 \times 480$ letterbox padding with black borders `(0, 0, 0)` as the canonical video dimension to prevent distortion of anatomical hand aspect ratios while preserving compatibility with MediaPipe Hand models.
+- **Experiments**:
+  - Verified temporal sampling across varying clip durations (5 frames to 75 frames) confirming monotonic non-decreasing indexing, exact boundary preservation ($idx_0 = 0, idx_{T-1} = N-1$), and seamless tensor shape generation `(30, 480, 640, 3)`.
+- **Results**:
+  - Video and image preprocessing subsystem operational and verified with 100% passing tests (55/55 unit tests passed).
+- **Next Actions**:
+  - Submit Pull Request for SANKET-023.
+  - Project owner review and merge of PRs.
+  - Proceed to SANKET-024 (Hand landmark extraction via MediaPipe).
+
+
+---
+
+### 2026-10-29 — SANKET-024: MediaPipe 3D Hand Landmark Extraction
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-024 (Issue #26)
+- **Completed Work**:
+  - Implemented 3D hand landmark extraction engine in `src/sanket/vision/landmarks.py` powered by MediaPipe Tasks Vision (`HandLandmarker`), extracting $21 \times 3$ coordinates $(x, y, z)$ for dominant and non-dominant hands with confidence scoring.
+  - Developed `FrameLandmarks` and `SequenceLandmarks` data structures supporting 1D flat vector flattening (`to_flat_vector()`, length 126) and 2D temporal matrix representation (`to_flat_matrix()`, shape $(T, 126)$).
+  - Implemented robust missing hand detection handling with multiple temporal imputation strategies (`impute_missing`): zero-padding (`zero`), temporal carry-forward with backfill (`carry_forward`), and linear temporal interpolation (`linear`).
+  - Implemented compressed archive serialization and deserialization (`save_landmarks_npz`, `load_landmarks_npz`) storing coordinate arrays and metadata in `.npz` format.
+  - Implemented automated model cache resolver and downloader (`ensure_hand_landmarker_model`) to acquire official `hand_landmarker.task` bundles seamlessly.
+  - Developed end-to-end operational CLI utility in `scripts/extract_landmarks.py` supporting single-clip and batch directory landmark extraction, configurable imputation, and optional flattened `.npy` export.
+  - Updated `.gitignore` to ignore `*.task` binary model files.
+  - Updated `requirements.txt` and `pyproject.toml` dependencies to include `mediapipe>=0.10.0`.
+  - Authored comprehensive test suite in `tests/test_landmarks.py` with 17 new tests covering coordinate flattening, temporal imputation strategies, `.npz` serialization round-trips, model caching, MediaPipe extractor integration, and CLI execution (72/72 tests passing repo-wide with 91% coverage on `landmarks.py`).
+- **Decisions**:
+  - Adopted MediaPipe Tasks Vision (`HandLandmarker`) for modern CPU inference with TFLite XNNPACK acceleration.
+  - Bound hand coordinates to normalized $[0.0, 1.0]$ screen space with relative $z$ depth, generating 126 features per frame ($21 \times 3 \times 2$ hands).
+  - Preserved complete zero-padding for permanently absent hands (e.g. one-handed signs) while providing carry-forward imputation for transient tracking failures.
+- **Experiments**:
+  - Evaluated MediaPipe HandLandmarker on synthetic video frames and verified 100% extraction pipeline integration with SANKET-023 video preprocessor.
+- **Results**:
+  - 3D hand landmark extraction subsystem operational and fully tested (72/72 unit tests passed).
+- **Next Actions**:
+  - Submit Pull Request for SANKET-024.
+  - Review and merge open PRs (#38, #39, #40).
+  - Proceed to SANKET-025 (Pose and body landmark extraction).

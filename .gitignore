@@ -73,6 +73,7 @@ models/weights/
 *.joblib
 *.pkl
 *.h5
+*.task
 
 # Datasets, Raw Video & Media Artifacts (STRICT: Do not commit private/camera data)
 /data/
