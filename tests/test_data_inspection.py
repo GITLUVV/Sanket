@@ -149,7 +149,17 @@ def test_inspect_dataset_directory_and_save_report(tmp_path: Path) -> None:
     hello_dir.mkdir(parents=True, exist_ok=True)
 
     dummy_clip = hello_dir / "Signer01_HELLO_01.mp4"
-    dummy_clip.write_bytes(b"A" * 2048)
+    try:
+        import cv2
+        import numpy as np
+
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        out = cv2.VideoWriter(str(dummy_clip), fourcc, 10.0, (100, 100))
+        for _ in range(5):
+            out.write(np.zeros((100, 100, 3), dtype=np.uint8))
+        out.release()
+    except ImportError:
+        dummy_clip.write_bytes(b"A" * 2048)
 
     summary = inspect_dataset_directory(dataset_dir=dataset_dir, dataset_name="MOCK-INCLUDE")
     assert summary.total_videos == 1

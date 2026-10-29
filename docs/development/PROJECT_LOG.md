@@ -259,3 +259,31 @@ This log maintains a chronological record of significant engineering progress, a
   - Review and merge PR on GitHub.
   - Proceed to SANKET-023 (Image/video preprocessing).
 
+
+
+---
+
+### 2026-10-29 — SANKET-023: Standardized Image and Video Preprocessing Pipeline
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-023 (Issue #25)
+- **Completed Work**:
+  - Implemented core image and video preprocessing engine in `src/sanket/vision/preprocessing.py` with `VideoMetadata`, `VideoPreprocessor`, `compute_temporal_indices`, `letterbox_resize`, `unletterbox_coordinates`, `read_video_frames`, and `sample_video_frames`.
+  - Implemented uniform temporal subsampling via linear index interpolation mapping variable-length raw video clips to a standardized temporal window of $T = 30$ frames per clip, supporting both downsampling of longer clips and smooth frame duplication for short clips.
+  - Implemented aspect-ratio-preserving spatial letterboxing resizing to standard $640 \times 480$ resolution with symmetric border padding and transformation metadata tracking.
+  - Implemented coordinate unletterboxing (`unletterbox_coordinates`) enabling exact mathematical inversion of spatial transformations for landmark coordinate projection.
+  - Developed end-to-end operational CLI utility in `scripts/preprocess_videos.py` supporting single-clip and batch directory preprocessing, `.npy` tensor export, and visual preview extraction.
+  - Updated `requirements.txt` and `pyproject.toml` dependencies to include `opencv-python>=4.8.0` for full vision subsystem capabilities.
+  - Authored comprehensive test suite in `tests/test_video_preprocessing.py` with 28 new tests covering identity/downsampling/upsampling temporal indexing, landscape/portrait letterboxing, coordinate inversion, synthetic video decoding, `VideoPreprocessor` class, and CLI arguments (55/55 test suite passing with >= 90% coverage on preprocessing).
+- **Decisions**:
+  - Standardized sequence length to $T = 30$ frames per clip, matching standard 30 FPS 1.0-second sign durations while optimizing compute efficiency for downstream MediaPipe landmark extraction.
+  - Selected $640 \times 480$ letterbox padding with black borders `(0, 0, 0)` as the canonical video dimension to prevent distortion of anatomical hand aspect ratios while preserving compatibility with MediaPipe Hand models.
+- **Experiments**:
+  - Verified temporal sampling across varying clip durations (5 frames to 75 frames) confirming monotonic non-decreasing indexing, exact boundary preservation ($idx_0 = 0, idx_{T-1} = N-1$), and seamless tensor shape generation `(30, 480, 640, 3)`.
+- **Results**:
+  - Video and image preprocessing subsystem operational and verified with 100% passing tests (55/55 unit tests passed).
+- **Next Actions**:
+  - Submit Pull Request for SANKET-023.
+  - Project owner review and merge of PRs.
+  - Proceed to SANKET-024 (Hand landmark extraction via MediaPipe).
