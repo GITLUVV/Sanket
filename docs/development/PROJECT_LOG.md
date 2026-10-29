@@ -231,3 +231,31 @@ This log maintains a chronological record of significant engineering progress, a
   - Review and merge PR on GitHub.
   - Proceed to SANKET-022 (Train/validation/test split strategy).
 
+---
+
+### 2026-10-29 — SANKET-022: Signer-Independent Train/Val/Test Partitioning
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-022 (Issue #24)
+- **Completed Work**:
+  - Implemented strict Signer-Independent (Leave-Signers-Out) dataset partitioning engine in src/sanket/data/splits.py with SampleRecord, PartitionStats, and SplitManifest data models.
+  - Implemented mathematical disjointness verification (erify_signer_disjointness), programmatically asserting that signer sets between partitions have zero intersection ({\\text{train}} \\cap S_{\\text{val}} = \\emptyset$, {\\text{train}} \\cap S_{\\text{test}} = \\emptyset$, {\\text{val}} \\cap S_{\\text{test}} = \\emptyset$).
+  - Developed operational CLI utility in scripts/create_splits.py supporting --generate-default, --verify-manifest, --dataset-dir, and customizable ratio/seed flags.
+  - Generated and committed the canonical reproducible 7-signer split manifest for the 16-class INCLUDE benchmark in configs/splits/include16_signer_independent.json:
+    - **Train (71.9%)**: 368 clips across 5 signers (Signer02, Signer03, Signer04, Signer05, Signer07).
+    - **Validation (15.6%)**: 80 clips across 1 signer (Signer01).
+    - **Test (12.5%)**: 64 clips across 1 signer (Signer06).
+  - Authored comprehensive unit test suite in 	ests/test_data_splits.py with 8 new tests verifying disjointness enforcement, leakage detection, seed determinism, directory scanning, and JSON round-trip serialization (27/27 test suite passed).
+- **Decisions**:
+  - Stored split manifests under configs/splits/ rather than ignored data/ directory to ensure reproducible git-tracked experimental splits without committing raw video files.
+  - Locked default partitioning random seed to 42 for deterministic reproduction across research environments.
+- **Experiments**:
+  - Verified programmatic disjointness on generated canonical manifest with zero signer overlap.
+- **Results**:
+  - configs/splits/include16_signer_independent.json generated, verified, and committed.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-022.
+  - Review and merge PR on GitHub.
+  - Proceed to SANKET-023 (Image/video preprocessing).
+

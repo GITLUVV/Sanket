@@ -1,0 +1,3706 @@
+{
+  "dataset_name": "INCLUDE-16",
+  "created_at_utc": "2026-10-29T15:07:05.811261+00:00",
+  "random_seed": 42,
+  "target_classes": [
+    "HELLO",
+    "THANK_YOU",
+    "PLEASE",
+    "YES",
+    "NO",
+    "HELP",
+    "WATER",
+    "FOOD",
+    "DOCTOR",
+    "TIME",
+    "WHERE",
+    "STOP",
+    "NAME",
+    "GOOD",
+    "BAD",
+    "ME"
+  ],
+  "signer_allocation": {
+    "Signer02": "train",
+    "Signer03": "train",
+    "Signer04": "train",
+    "Signer05": "train",
+    "Signer07": "train",
+    "Signer01": "val",
+    "Signer06": "test"
+  },
+  "partitions": {
+    "train": {
+      "partition_name": "train",
+      "total_samples": 368,
+      "signers": [
+        "Signer02",
+        "Signer03",
+        "Signer04",
+        "Signer05",
+        "Signer07"
+      ],
+      "class_distribution": {
+        "HELLO": 23,
+        "THANK_YOU": 23,
+        "PLEASE": 23,
+        "YES": 23,
+        "NO": 23,
+        "HELP": 23,
+        "WATER": 23,
+        "FOOD": 23,
+        "DOCTOR": 23,
+        "TIME": 23,
+        "WHERE": 23,
+        "STOP": 23,
+        "NAME": 23,
+        "GOOD": 23,
+        "BAD": 23,
+        "ME": 23
+      },
+      "sample_ids": [
+        "HELLO_Signer02_02",
+        "HELLO_Signer03_03",
+        "HELLO_Signer04_04",
+        "HELLO_Signer05_05",
+        "HELLO_Signer07_07",
+        "HELLO_Signer02_09",
+        "HELLO_Signer03_10",
+        "HELLO_Signer04_11",
+        "HELLO_Signer05_12",
+        "HELLO_Signer07_14",
+        "HELLO_Signer02_16",
+        "HELLO_Signer03_17",
+        "HELLO_Signer04_18",
+        "HELLO_Signer05_19",
+        "HELLO_Signer07_21",
+        "HELLO_Signer02_23",
+        "HELLO_Signer03_24",
+        "HELLO_Signer04_25",
+        "HELLO_Signer05_26",
+        "HELLO_Signer07_28",
+        "HELLO_Signer02_30",
+        "HELLO_Signer03_31",
+        "HELLO_Signer04_32",
+        "THANK_YOU_Signer02_02",
+        "THANK_YOU_Signer03_03",
+        "THANK_YOU_Signer04_04",
+        "THANK_YOU_Signer05_05",
+        "THANK_YOU_Signer07_07",
+        "THANK_YOU_Signer02_09",
+        "THANK_YOU_Signer03_10",
+        "THANK_YOU_Signer04_11",
+        "THANK_YOU_Signer05_12",
+        "THANK_YOU_Signer07_14",
+        "THANK_YOU_Signer02_16",
+        "THANK_YOU_Signer03_17",
+        "THANK_YOU_Signer04_18",
+        "THANK_YOU_Signer05_19",
+        "THANK_YOU_Signer07_21",
+        "THANK_YOU_Signer02_23",
+        "THANK_YOU_Signer03_24",
+        "THANK_YOU_Signer04_25",
+        "THANK_YOU_Signer05_26",
+        "THANK_YOU_Signer07_28",
+        "THANK_YOU_Signer02_30",
+        "THANK_YOU_Signer03_31",
+        "THANK_YOU_Signer04_32",
+        "PLEASE_Signer02_02",
+        "PLEASE_Signer03_03",
+        "PLEASE_Signer04_04",
+        "PLEASE_Signer05_05",
+        "PLEASE_Signer07_07",
+        "PLEASE_Signer02_09",
+        "PLEASE_Signer03_10",
+        "PLEASE_Signer04_11",
+        "PLEASE_Signer05_12",
+        "PLEASE_Signer07_14",
+        "PLEASE_Signer02_16",
+        "PLEASE_Signer03_17",
+        "PLEASE_Signer04_18",
+        "PLEASE_Signer05_19",
+        "PLEASE_Signer07_21",
+        "PLEASE_Signer02_23",
+        "PLEASE_Signer03_24",
+        "PLEASE_Signer04_25",
+        "PLEASE_Signer05_26",
+        "PLEASE_Signer07_28",
+        "PLEASE_Signer02_30",
+        "PLEASE_Signer03_31",
+        "PLEASE_Signer04_32",
+        "YES_Signer02_02",
+        "YES_Signer03_03",
+        "YES_Signer04_04",
+        "YES_Signer05_05",
+        "YES_Signer07_07",
+        "YES_Signer02_09",
+        "YES_Signer03_10",
+        "YES_Signer04_11",
+        "YES_Signer05_12",
+        "YES_Signer07_14",
+        "YES_Signer02_16",
+        "YES_Signer03_17",
+        "YES_Signer04_18",
+        "YES_Signer05_19",
+        "YES_Signer07_21",
+        "YES_Signer02_23",
+        "YES_Signer03_24",
+        "YES_Signer04_25",
+        "YES_Signer05_26",
+        "YES_Signer07_28",
+        "YES_Signer02_30",
+        "YES_Signer03_31",
+        "YES_Signer04_32",
+        "NO_Signer02_02",
+        "NO_Signer03_03",
+        "NO_Signer04_04",
+        "NO_Signer05_05",
+        "NO_Signer07_07",
+        "NO_Signer02_09",
+        "NO_Signer03_10",
+        "NO_Signer04_11",
+        "NO_Signer05_12",
+        "NO_Signer07_14",
+        "NO_Signer02_16",
+        "NO_Signer03_17",
+        "NO_Signer04_18",
+        "NO_Signer05_19",
+        "NO_Signer07_21",
+        "NO_Signer02_23",
+        "NO_Signer03_24",
+        "NO_Signer04_25",
+        "NO_Signer05_26",
+        "NO_Signer07_28",
+        "NO_Signer02_30",
+        "NO_Signer03_31",
+        "NO_Signer04_32",
+        "HELP_Signer02_02",
+        "HELP_Signer03_03",
+        "HELP_Signer04_04",
+        "HELP_Signer05_05",
+        "HELP_Signer07_07",
+        "HELP_Signer02_09",
+        "HELP_Signer03_10",
+        "HELP_Signer04_11",
+        "HELP_Signer05_12",
+        "HELP_Signer07_14",
+        "HELP_Signer02_16",
+        "HELP_Signer03_17",
+        "HELP_Signer04_18",
+        "HELP_Signer05_19",
+        "HELP_Signer07_21",
+        "HELP_Signer02_23",
+        "HELP_Signer03_24",
+        "HELP_Signer04_25",
+        "HELP_Signer05_26",
+        "HELP_Signer07_28",
+        "HELP_Signer02_30",
+        "HELP_Signer03_31",
+        "HELP_Signer04_32",
+        "WATER_Signer02_02",
+        "WATER_Signer03_03",
+        "WATER_Signer04_04",
+        "WATER_Signer05_05",
+        "WATER_Signer07_07",
+        "WATER_Signer02_09",
+        "WATER_Signer03_10",
+        "WATER_Signer04_11",
+        "WATER_Signer05_12",
+        "WATER_Signer07_14",
+        "WATER_Signer02_16",
+        "WATER_Signer03_17",
+        "WATER_Signer04_18",
+        "WATER_Signer05_19",
+        "WATER_Signer07_21",
+        "WATER_Signer02_23",
+        "WATER_Signer03_24",
+        "WATER_Signer04_25",
+        "WATER_Signer05_26",
+        "WATER_Signer07_28",
+        "WATER_Signer02_30",
+        "WATER_Signer03_31",
+        "WATER_Signer04_32",
+        "FOOD_Signer02_02",
+        "FOOD_Signer03_03",
+        "FOOD_Signer04_04",
+        "FOOD_Signer05_05",
+        "FOOD_Signer07_07",
+        "FOOD_Signer02_09",
+        "FOOD_Signer03_10",
+        "FOOD_Signer04_11",
+        "FOOD_Signer05_12",
+        "FOOD_Signer07_14",
+        "FOOD_Signer02_16",
+        "FOOD_Signer03_17",
+        "FOOD_Signer04_18",
+        "FOOD_Signer05_19",
+        "FOOD_Signer07_21",
+        "FOOD_Signer02_23",
+        "FOOD_Signer03_24",
+        "FOOD_Signer04_25",
+        "FOOD_Signer05_26",
+        "FOOD_Signer07_28",
+        "FOOD_Signer02_30",
+        "FOOD_Signer03_31",
+        "FOOD_Signer04_32",
+        "DOCTOR_Signer02_02",
+        "DOCTOR_Signer03_03",
+        "DOCTOR_Signer04_04",
+        "DOCTOR_Signer05_05",
+        "DOCTOR_Signer07_07",
+        "DOCTOR_Signer02_09",
+        "DOCTOR_Signer03_10",
+        "DOCTOR_Signer04_11",
+        "DOCTOR_Signer05_12",
+        "DOCTOR_Signer07_14",
+        "DOCTOR_Signer02_16",
+        "DOCTOR_Signer03_17",
+        "DOCTOR_Signer04_18",
+        "DOCTOR_Signer05_19",
+        "DOCTOR_Signer07_21",
+        "DOCTOR_Signer02_23",
+        "DOCTOR_Signer03_24",
+        "DOCTOR_Signer04_25",
+        "DOCTOR_Signer05_26",
+        "DOCTOR_Signer07_28",
+        "DOCTOR_Signer02_30",
+        "DOCTOR_Signer03_31",
+        "DOCTOR_Signer04_32",
+        "TIME_Signer02_02",
+        "TIME_Signer03_03",
+        "TIME_Signer04_04",
+        "TIME_Signer05_05",
+        "TIME_Signer07_07",
+        "TIME_Signer02_09",
+        "TIME_Signer03_10",
+        "TIME_Signer04_11",
+        "TIME_Signer05_12",
+        "TIME_Signer07_14",
+        "TIME_Signer02_16",
+        "TIME_Signer03_17",
+        "TIME_Signer04_18",
+        "TIME_Signer05_19",
+        "TIME_Signer07_21",
+        "TIME_Signer02_23",
+        "TIME_Signer03_24",
+        "TIME_Signer04_25",
+        "TIME_Signer05_26",
+        "TIME_Signer07_28",
+        "TIME_Signer02_30",
+        "TIME_Signer03_31",
+        "TIME_Signer04_32",
+        "WHERE_Signer02_02",
+        "WHERE_Signer03_03",
+        "WHERE_Signer04_04",
+        "WHERE_Signer05_05",
+        "WHERE_Signer07_07",
+        "WHERE_Signer02_09",
+        "WHERE_Signer03_10",
+        "WHERE_Signer04_11",
+        "WHERE_Signer05_12",
+        "WHERE_Signer07_14",
+        "WHERE_Signer02_16",
+        "WHERE_Signer03_17",
+        "WHERE_Signer04_18",
+        "WHERE_Signer05_19",
+        "WHERE_Signer07_21",
+        "WHERE_Signer02_23",
+        "WHERE_Signer03_24",
+        "WHERE_Signer04_25",
+        "WHERE_Signer05_26",
+        "WHERE_Signer07_28",
+        "WHERE_Signer02_30",
+        "WHERE_Signer03_31",
+        "WHERE_Signer04_32",
+        "STOP_Signer02_02",
+        "STOP_Signer03_03",
+        "STOP_Signer04_04",
+        "STOP_Signer05_05",
+        "STOP_Signer07_07",
+        "STOP_Signer02_09",
+        "STOP_Signer03_10",
+        "STOP_Signer04_11",
+        "STOP_Signer05_12",
+        "STOP_Signer07_14",
+        "STOP_Signer02_16",
+        "STOP_Signer03_17",
+        "STOP_Signer04_18",
+        "STOP_Signer05_19",
+        "STOP_Signer07_21",
+        "STOP_Signer02_23",
+        "STOP_Signer03_24",
+        "STOP_Signer04_25",
+        "STOP_Signer05_26",
+        "STOP_Signer07_28",
+        "STOP_Signer02_30",
+        "STOP_Signer03_31",
+        "STOP_Signer04_32",
+        "NAME_Signer02_02",
+        "NAME_Signer03_03",
+        "NAME_Signer04_04",
+        "NAME_Signer05_05",
+        "NAME_Signer07_07",
+        "NAME_Signer02_09",
+        "NAME_Signer03_10",
+        "NAME_Signer04_11",
+        "NAME_Signer05_12",
+        "NAME_Signer07_14",
+        "NAME_Signer02_16",
+        "NAME_Signer03_17",
+        "NAME_Signer04_18",
+        "NAME_Signer05_19",
+        "NAME_Signer07_21",
+        "NAME_Signer02_23",
+        "NAME_Signer03_24",
+        "NAME_Signer04_25",
+        "NAME_Signer05_26",
+        "NAME_Signer07_28",
+        "NAME_Signer02_30",
+        "NAME_Signer03_31",
+        "NAME_Signer04_32",
+        "GOOD_Signer02_02",
+        "GOOD_Signer03_03",
+        "GOOD_Signer04_04",
+        "GOOD_Signer05_05",
+        "GOOD_Signer07_07",
+        "GOOD_Signer02_09",
+        "GOOD_Signer03_10",
+        "GOOD_Signer04_11",
+        "GOOD_Signer05_12",
+        "GOOD_Signer07_14",
+        "GOOD_Signer02_16",
+        "GOOD_Signer03_17",
+        "GOOD_Signer04_18",
+        "GOOD_Signer05_19",
+        "GOOD_Signer07_21",
+        "GOOD_Signer02_23",
+        "GOOD_Signer03_24",
+        "GOOD_Signer04_25",
+        "GOOD_Signer05_26",
+        "GOOD_Signer07_28",
+        "GOOD_Signer02_30",
+        "GOOD_Signer03_31",
+        "GOOD_Signer04_32",
+        "BAD_Signer02_02",
+        "BAD_Signer03_03",
+        "BAD_Signer04_04",
+        "BAD_Signer05_05",
+        "BAD_Signer07_07",
+        "BAD_Signer02_09",
+        "BAD_Signer03_10",
+        "BAD_Signer04_11",
+        "BAD_Signer05_12",
+        "BAD_Signer07_14",
+        "BAD_Signer02_16",
+        "BAD_Signer03_17",
+        "BAD_Signer04_18",
+        "BAD_Signer05_19",
+        "BAD_Signer07_21",
+        "BAD_Signer02_23",
+        "BAD_Signer03_24",
+        "BAD_Signer04_25",
+        "BAD_Signer05_26",
+        "BAD_Signer07_28",
+        "BAD_Signer02_30",
+        "BAD_Signer03_31",
+        "BAD_Signer04_32",
+        "ME_Signer02_02",
+        "ME_Signer03_03",
+        "ME_Signer04_04",
+        "ME_Signer05_05",
+        "ME_Signer07_07",
+        "ME_Signer02_09",
+        "ME_Signer03_10",
+        "ME_Signer04_11",
+        "ME_Signer05_12",
+        "ME_Signer07_14",
+        "ME_Signer02_16",
+        "ME_Signer03_17",
+        "ME_Signer04_18",
+        "ME_Signer05_19",
+        "ME_Signer07_21",
+        "ME_Signer02_23",
+        "ME_Signer03_24",
+        "ME_Signer04_25",
+        "ME_Signer05_26",
+        "ME_Signer07_28",
+        "ME_Signer02_30",
+        "ME_Signer03_31",
+        "ME_Signer04_32"
+      ]
+    },
+    "val": {
+      "partition_name": "val",
+      "total_samples": 80,
+      "signers": [
+        "Signer01"
+      ],
+      "class_distribution": {
+        "HELLO": 5,
+        "THANK_YOU": 5,
+        "PLEASE": 5,
+        "YES": 5,
+        "NO": 5,
+        "HELP": 5,
+        "WATER": 5,
+        "FOOD": 5,
+        "DOCTOR": 5,
+        "TIME": 5,
+        "WHERE": 5,
+        "STOP": 5,
+        "NAME": 5,
+        "GOOD": 5,
+        "BAD": 5,
+        "ME": 5
+      },
+      "sample_ids": [
+        "HELLO_Signer01_01",
+        "HELLO_Signer01_08",
+        "HELLO_Signer01_15",
+        "HELLO_Signer01_22",
+        "HELLO_Signer01_29",
+        "THANK_YOU_Signer01_01",
+        "THANK_YOU_Signer01_08",
+        "THANK_YOU_Signer01_15",
+        "THANK_YOU_Signer01_22",
+        "THANK_YOU_Signer01_29",
+        "PLEASE_Signer01_01",
+        "PLEASE_Signer01_08",
+        "PLEASE_Signer01_15",
+        "PLEASE_Signer01_22",
+        "PLEASE_Signer01_29",
+        "YES_Signer01_01",
+        "YES_Signer01_08",
+        "YES_Signer01_15",
+        "YES_Signer01_22",
+        "YES_Signer01_29",
+        "NO_Signer01_01",
+        "NO_Signer01_08",
+        "NO_Signer01_15",
+        "NO_Signer01_22",
+        "NO_Signer01_29",
+        "HELP_Signer01_01",
+        "HELP_Signer01_08",
+        "HELP_Signer01_15",
+        "HELP_Signer01_22",
+        "HELP_Signer01_29",
+        "WATER_Signer01_01",
+        "WATER_Signer01_08",
+        "WATER_Signer01_15",
+        "WATER_Signer01_22",
+        "WATER_Signer01_29",
+        "FOOD_Signer01_01",
+        "FOOD_Signer01_08",
+        "FOOD_Signer01_15",
+        "FOOD_Signer01_22",
+        "FOOD_Signer01_29",
+        "DOCTOR_Signer01_01",
+        "DOCTOR_Signer01_08",
+        "DOCTOR_Signer01_15",
+        "DOCTOR_Signer01_22",
+        "DOCTOR_Signer01_29",
+        "TIME_Signer01_01",
+        "TIME_Signer01_08",
+        "TIME_Signer01_15",
+        "TIME_Signer01_22",
+        "TIME_Signer01_29",
+        "WHERE_Signer01_01",
+        "WHERE_Signer01_08",
+        "WHERE_Signer01_15",
+        "WHERE_Signer01_22",
+        "WHERE_Signer01_29",
+        "STOP_Signer01_01",
+        "STOP_Signer01_08",
+        "STOP_Signer01_15",
+        "STOP_Signer01_22",
+        "STOP_Signer01_29",
+        "NAME_Signer01_01",
+        "NAME_Signer01_08",
+        "NAME_Signer01_15",
+        "NAME_Signer01_22",
+        "NAME_Signer01_29",
+        "GOOD_Signer01_01",
+        "GOOD_Signer01_08",
+        "GOOD_Signer01_15",
+        "GOOD_Signer01_22",
+        "GOOD_Signer01_29",
+        "BAD_Signer01_01",
+        "BAD_Signer01_08",
+        "BAD_Signer01_15",
+        "BAD_Signer01_22",
+        "BAD_Signer01_29",
+        "ME_Signer01_01",
+        "ME_Signer01_08",
+        "ME_Signer01_15",
+        "ME_Signer01_22",
+        "ME_Signer01_29"
+      ]
+    },
+    "test": {
+      "partition_name": "test",
+      "total_samples": 64,
+      "signers": [
+        "Signer06"
+      ],
+      "class_distribution": {
+        "HELLO": 4,
+        "THANK_YOU": 4,
+        "PLEASE": 4,
+        "YES": 4,
+        "NO": 4,
+        "HELP": 4,
+        "WATER": 4,
+        "FOOD": 4,
+        "DOCTOR": 4,
+        "TIME": 4,
+        "WHERE": 4,
+        "STOP": 4,
+        "NAME": 4,
+        "GOOD": 4,
+        "BAD": 4,
+        "ME": 4
+      },
+      "sample_ids": [
+        "HELLO_Signer06_06",
+        "HELLO_Signer06_13",
+        "HELLO_Signer06_20",
+        "HELLO_Signer06_27",
+        "THANK_YOU_Signer06_06",
+        "THANK_YOU_Signer06_13",
+        "THANK_YOU_Signer06_20",
+        "THANK_YOU_Signer06_27",
+        "PLEASE_Signer06_06",
+        "PLEASE_Signer06_13",
+        "PLEASE_Signer06_20",
+        "PLEASE_Signer06_27",
+        "YES_Signer06_06",
+        "YES_Signer06_13",
+        "YES_Signer06_20",
+        "YES_Signer06_27",
+        "NO_Signer06_06",
+        "NO_Signer06_13",
+        "NO_Signer06_20",
+        "NO_Signer06_27",
+        "HELP_Signer06_06",
+        "HELP_Signer06_13",
+        "HELP_Signer06_20",
+        "HELP_Signer06_27",
+        "WATER_Signer06_06",
+        "WATER_Signer06_13",
+        "WATER_Signer06_20",
+        "WATER_Signer06_27",
+        "FOOD_Signer06_06",
+        "FOOD_Signer06_13",
+        "FOOD_Signer06_20",
+        "FOOD_Signer06_27",
+        "DOCTOR_Signer06_06",
+        "DOCTOR_Signer06_13",
+        "DOCTOR_Signer06_20",
+        "DOCTOR_Signer06_27",
+        "TIME_Signer06_06",
+        "TIME_Signer06_13",
+        "TIME_Signer06_20",
+        "TIME_Signer06_27",
+        "WHERE_Signer06_06",
+        "WHERE_Signer06_13",
+        "WHERE_Signer06_20",
+        "WHERE_Signer06_27",
+        "STOP_Signer06_06",
+        "STOP_Signer06_13",
+        "STOP_Signer06_20",
+        "STOP_Signer06_27",
+        "NAME_Signer06_06",
+        "NAME_Signer06_13",
+        "NAME_Signer06_20",
+        "NAME_Signer06_27",
+        "GOOD_Signer06_06",
+        "GOOD_Signer06_13",
+        "GOOD_Signer06_20",
+        "GOOD_Signer06_27",
+        "BAD_Signer06_06",
+        "BAD_Signer06_13",
+        "BAD_Signer06_20",
+        "BAD_Signer06_27",
+        "ME_Signer06_06",
+        "ME_Signer06_13",
+        "ME_Signer06_20",
+        "ME_Signer06_27"
+      ]
+    }
+  },
+  "is_signer_disjoint": true,
+  "samples": [
+    {
+      "sample_id": "HELLO_Signer01_01",
+      "class_name": "HELLO",
+      "signer_id": "Signer01",
+      "relative_path": "HELLO/Signer01_HELLO_01.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer02_02",
+      "class_name": "HELLO",
+      "signer_id": "Signer02",
+      "relative_path": "HELLO/Signer02_HELLO_02.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer03_03",
+      "class_name": "HELLO",
+      "signer_id": "Signer03",
+      "relative_path": "HELLO/Signer03_HELLO_03.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer04_04",
+      "class_name": "HELLO",
+      "signer_id": "Signer04",
+      "relative_path": "HELLO/Signer04_HELLO_04.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer05_05",
+      "class_name": "HELLO",
+      "signer_id": "Signer05",
+      "relative_path": "HELLO/Signer05_HELLO_05.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer06_06",
+      "class_name": "HELLO",
+      "signer_id": "Signer06",
+      "relative_path": "HELLO/Signer06_HELLO_06.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer07_07",
+      "class_name": "HELLO",
+      "signer_id": "Signer07",
+      "relative_path": "HELLO/Signer07_HELLO_07.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer01_08",
+      "class_name": "HELLO",
+      "signer_id": "Signer01",
+      "relative_path": "HELLO/Signer01_HELLO_08.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer02_09",
+      "class_name": "HELLO",
+      "signer_id": "Signer02",
+      "relative_path": "HELLO/Signer02_HELLO_09.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer03_10",
+      "class_name": "HELLO",
+      "signer_id": "Signer03",
+      "relative_path": "HELLO/Signer03_HELLO_10.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer04_11",
+      "class_name": "HELLO",
+      "signer_id": "Signer04",
+      "relative_path": "HELLO/Signer04_HELLO_11.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer05_12",
+      "class_name": "HELLO",
+      "signer_id": "Signer05",
+      "relative_path": "HELLO/Signer05_HELLO_12.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer06_13",
+      "class_name": "HELLO",
+      "signer_id": "Signer06",
+      "relative_path": "HELLO/Signer06_HELLO_13.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer07_14",
+      "class_name": "HELLO",
+      "signer_id": "Signer07",
+      "relative_path": "HELLO/Signer07_HELLO_14.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer01_15",
+      "class_name": "HELLO",
+      "signer_id": "Signer01",
+      "relative_path": "HELLO/Signer01_HELLO_15.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer02_16",
+      "class_name": "HELLO",
+      "signer_id": "Signer02",
+      "relative_path": "HELLO/Signer02_HELLO_16.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer03_17",
+      "class_name": "HELLO",
+      "signer_id": "Signer03",
+      "relative_path": "HELLO/Signer03_HELLO_17.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer04_18",
+      "class_name": "HELLO",
+      "signer_id": "Signer04",
+      "relative_path": "HELLO/Signer04_HELLO_18.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer05_19",
+      "class_name": "HELLO",
+      "signer_id": "Signer05",
+      "relative_path": "HELLO/Signer05_HELLO_19.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer06_20",
+      "class_name": "HELLO",
+      "signer_id": "Signer06",
+      "relative_path": "HELLO/Signer06_HELLO_20.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer07_21",
+      "class_name": "HELLO",
+      "signer_id": "Signer07",
+      "relative_path": "HELLO/Signer07_HELLO_21.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer01_22",
+      "class_name": "HELLO",
+      "signer_id": "Signer01",
+      "relative_path": "HELLO/Signer01_HELLO_22.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer02_23",
+      "class_name": "HELLO",
+      "signer_id": "Signer02",
+      "relative_path": "HELLO/Signer02_HELLO_23.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer03_24",
+      "class_name": "HELLO",
+      "signer_id": "Signer03",
+      "relative_path": "HELLO/Signer03_HELLO_24.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer04_25",
+      "class_name": "HELLO",
+      "signer_id": "Signer04",
+      "relative_path": "HELLO/Signer04_HELLO_25.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer05_26",
+      "class_name": "HELLO",
+      "signer_id": "Signer05",
+      "relative_path": "HELLO/Signer05_HELLO_26.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer06_27",
+      "class_name": "HELLO",
+      "signer_id": "Signer06",
+      "relative_path": "HELLO/Signer06_HELLO_27.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer07_28",
+      "class_name": "HELLO",
+      "signer_id": "Signer07",
+      "relative_path": "HELLO/Signer07_HELLO_28.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer01_29",
+      "class_name": "HELLO",
+      "signer_id": "Signer01",
+      "relative_path": "HELLO/Signer01_HELLO_29.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer02_30",
+      "class_name": "HELLO",
+      "signer_id": "Signer02",
+      "relative_path": "HELLO/Signer02_HELLO_30.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer03_31",
+      "class_name": "HELLO",
+      "signer_id": "Signer03",
+      "relative_path": "HELLO/Signer03_HELLO_31.mp4"
+    },
+    {
+      "sample_id": "HELLO_Signer04_32",
+      "class_name": "HELLO",
+      "signer_id": "Signer04",
+      "relative_path": "HELLO/Signer04_HELLO_32.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer01_01",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer01",
+      "relative_path": "THANK_YOU/Signer01_THANK_YOU_01.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer02_02",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer02",
+      "relative_path": "THANK_YOU/Signer02_THANK_YOU_02.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer03_03",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer03",
+      "relative_path": "THANK_YOU/Signer03_THANK_YOU_03.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer04_04",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer04",
+      "relative_path": "THANK_YOU/Signer04_THANK_YOU_04.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer05_05",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer05",
+      "relative_path": "THANK_YOU/Signer05_THANK_YOU_05.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer06_06",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer06",
+      "relative_path": "THANK_YOU/Signer06_THANK_YOU_06.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer07_07",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer07",
+      "relative_path": "THANK_YOU/Signer07_THANK_YOU_07.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer01_08",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer01",
+      "relative_path": "THANK_YOU/Signer01_THANK_YOU_08.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer02_09",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer02",
+      "relative_path": "THANK_YOU/Signer02_THANK_YOU_09.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer03_10",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer03",
+      "relative_path": "THANK_YOU/Signer03_THANK_YOU_10.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer04_11",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer04",
+      "relative_path": "THANK_YOU/Signer04_THANK_YOU_11.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer05_12",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer05",
+      "relative_path": "THANK_YOU/Signer05_THANK_YOU_12.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer06_13",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer06",
+      "relative_path": "THANK_YOU/Signer06_THANK_YOU_13.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer07_14",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer07",
+      "relative_path": "THANK_YOU/Signer07_THANK_YOU_14.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer01_15",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer01",
+      "relative_path": "THANK_YOU/Signer01_THANK_YOU_15.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer02_16",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer02",
+      "relative_path": "THANK_YOU/Signer02_THANK_YOU_16.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer03_17",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer03",
+      "relative_path": "THANK_YOU/Signer03_THANK_YOU_17.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer04_18",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer04",
+      "relative_path": "THANK_YOU/Signer04_THANK_YOU_18.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer05_19",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer05",
+      "relative_path": "THANK_YOU/Signer05_THANK_YOU_19.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer06_20",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer06",
+      "relative_path": "THANK_YOU/Signer06_THANK_YOU_20.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer07_21",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer07",
+      "relative_path": "THANK_YOU/Signer07_THANK_YOU_21.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer01_22",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer01",
+      "relative_path": "THANK_YOU/Signer01_THANK_YOU_22.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer02_23",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer02",
+      "relative_path": "THANK_YOU/Signer02_THANK_YOU_23.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer03_24",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer03",
+      "relative_path": "THANK_YOU/Signer03_THANK_YOU_24.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer04_25",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer04",
+      "relative_path": "THANK_YOU/Signer04_THANK_YOU_25.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer05_26",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer05",
+      "relative_path": "THANK_YOU/Signer05_THANK_YOU_26.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer06_27",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer06",
+      "relative_path": "THANK_YOU/Signer06_THANK_YOU_27.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer07_28",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer07",
+      "relative_path": "THANK_YOU/Signer07_THANK_YOU_28.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer01_29",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer01",
+      "relative_path": "THANK_YOU/Signer01_THANK_YOU_29.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer02_30",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer02",
+      "relative_path": "THANK_YOU/Signer02_THANK_YOU_30.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer03_31",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer03",
+      "relative_path": "THANK_YOU/Signer03_THANK_YOU_31.mp4"
+    },
+    {
+      "sample_id": "THANK_YOU_Signer04_32",
+      "class_name": "THANK_YOU",
+      "signer_id": "Signer04",
+      "relative_path": "THANK_YOU/Signer04_THANK_YOU_32.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer01_01",
+      "class_name": "PLEASE",
+      "signer_id": "Signer01",
+      "relative_path": "PLEASE/Signer01_PLEASE_01.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer02_02",
+      "class_name": "PLEASE",
+      "signer_id": "Signer02",
+      "relative_path": "PLEASE/Signer02_PLEASE_02.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer03_03",
+      "class_name": "PLEASE",
+      "signer_id": "Signer03",
+      "relative_path": "PLEASE/Signer03_PLEASE_03.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer04_04",
+      "class_name": "PLEASE",
+      "signer_id": "Signer04",
+      "relative_path": "PLEASE/Signer04_PLEASE_04.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer05_05",
+      "class_name": "PLEASE",
+      "signer_id": "Signer05",
+      "relative_path": "PLEASE/Signer05_PLEASE_05.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer06_06",
+      "class_name": "PLEASE",
+      "signer_id": "Signer06",
+      "relative_path": "PLEASE/Signer06_PLEASE_06.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer07_07",
+      "class_name": "PLEASE",
+      "signer_id": "Signer07",
+      "relative_path": "PLEASE/Signer07_PLEASE_07.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer01_08",
+      "class_name": "PLEASE",
+      "signer_id": "Signer01",
+      "relative_path": "PLEASE/Signer01_PLEASE_08.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer02_09",
+      "class_name": "PLEASE",
+      "signer_id": "Signer02",
+      "relative_path": "PLEASE/Signer02_PLEASE_09.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer03_10",
+      "class_name": "PLEASE",
+      "signer_id": "Signer03",
+      "relative_path": "PLEASE/Signer03_PLEASE_10.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer04_11",
+      "class_name": "PLEASE",
+      "signer_id": "Signer04",
+      "relative_path": "PLEASE/Signer04_PLEASE_11.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer05_12",
+      "class_name": "PLEASE",
+      "signer_id": "Signer05",
+      "relative_path": "PLEASE/Signer05_PLEASE_12.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer06_13",
+      "class_name": "PLEASE",
+      "signer_id": "Signer06",
+      "relative_path": "PLEASE/Signer06_PLEASE_13.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer07_14",
+      "class_name": "PLEASE",
+      "signer_id": "Signer07",
+      "relative_path": "PLEASE/Signer07_PLEASE_14.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer01_15",
+      "class_name": "PLEASE",
+      "signer_id": "Signer01",
+      "relative_path": "PLEASE/Signer01_PLEASE_15.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer02_16",
+      "class_name": "PLEASE",
+      "signer_id": "Signer02",
+      "relative_path": "PLEASE/Signer02_PLEASE_16.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer03_17",
+      "class_name": "PLEASE",
+      "signer_id": "Signer03",
+      "relative_path": "PLEASE/Signer03_PLEASE_17.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer04_18",
+      "class_name": "PLEASE",
+      "signer_id": "Signer04",
+      "relative_path": "PLEASE/Signer04_PLEASE_18.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer05_19",
+      "class_name": "PLEASE",
+      "signer_id": "Signer05",
+      "relative_path": "PLEASE/Signer05_PLEASE_19.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer06_20",
+      "class_name": "PLEASE",
+      "signer_id": "Signer06",
+      "relative_path": "PLEASE/Signer06_PLEASE_20.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer07_21",
+      "class_name": "PLEASE",
+      "signer_id": "Signer07",
+      "relative_path": "PLEASE/Signer07_PLEASE_21.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer01_22",
+      "class_name": "PLEASE",
+      "signer_id": "Signer01",
+      "relative_path": "PLEASE/Signer01_PLEASE_22.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer02_23",
+      "class_name": "PLEASE",
+      "signer_id": "Signer02",
+      "relative_path": "PLEASE/Signer02_PLEASE_23.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer03_24",
+      "class_name": "PLEASE",
+      "signer_id": "Signer03",
+      "relative_path": "PLEASE/Signer03_PLEASE_24.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer04_25",
+      "class_name": "PLEASE",
+      "signer_id": "Signer04",
+      "relative_path": "PLEASE/Signer04_PLEASE_25.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer05_26",
+      "class_name": "PLEASE",
+      "signer_id": "Signer05",
+      "relative_path": "PLEASE/Signer05_PLEASE_26.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer06_27",
+      "class_name": "PLEASE",
+      "signer_id": "Signer06",
+      "relative_path": "PLEASE/Signer06_PLEASE_27.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer07_28",
+      "class_name": "PLEASE",
+      "signer_id": "Signer07",
+      "relative_path": "PLEASE/Signer07_PLEASE_28.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer01_29",
+      "class_name": "PLEASE",
+      "signer_id": "Signer01",
+      "relative_path": "PLEASE/Signer01_PLEASE_29.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer02_30",
+      "class_name": "PLEASE",
+      "signer_id": "Signer02",
+      "relative_path": "PLEASE/Signer02_PLEASE_30.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer03_31",
+      "class_name": "PLEASE",
+      "signer_id": "Signer03",
+      "relative_path": "PLEASE/Signer03_PLEASE_31.mp4"
+    },
+    {
+      "sample_id": "PLEASE_Signer04_32",
+      "class_name": "PLEASE",
+      "signer_id": "Signer04",
+      "relative_path": "PLEASE/Signer04_PLEASE_32.mp4"
+    },
+    {
+      "sample_id": "YES_Signer01_01",
+      "class_name": "YES",
+      "signer_id": "Signer01",
+      "relative_path": "YES/Signer01_YES_01.mp4"
+    },
+    {
+      "sample_id": "YES_Signer02_02",
+      "class_name": "YES",
+      "signer_id": "Signer02",
+      "relative_path": "YES/Signer02_YES_02.mp4"
+    },
+    {
+      "sample_id": "YES_Signer03_03",
+      "class_name": "YES",
+      "signer_id": "Signer03",
+      "relative_path": "YES/Signer03_YES_03.mp4"
+    },
+    {
+      "sample_id": "YES_Signer04_04",
+      "class_name": "YES",
+      "signer_id": "Signer04",
+      "relative_path": "YES/Signer04_YES_04.mp4"
+    },
+    {
+      "sample_id": "YES_Signer05_05",
+      "class_name": "YES",
+      "signer_id": "Signer05",
+      "relative_path": "YES/Signer05_YES_05.mp4"
+    },
+    {
+      "sample_id": "YES_Signer06_06",
+      "class_name": "YES",
+      "signer_id": "Signer06",
+      "relative_path": "YES/Signer06_YES_06.mp4"
+    },
+    {
+      "sample_id": "YES_Signer07_07",
+      "class_name": "YES",
+      "signer_id": "Signer07",
+      "relative_path": "YES/Signer07_YES_07.mp4"
+    },
+    {
+      "sample_id": "YES_Signer01_08",
+      "class_name": "YES",
+      "signer_id": "Signer01",
+      "relative_path": "YES/Signer01_YES_08.mp4"
+    },
+    {
+      "sample_id": "YES_Signer02_09",
+      "class_name": "YES",
+      "signer_id": "Signer02",
+      "relative_path": "YES/Signer02_YES_09.mp4"
+    },
+    {
+      "sample_id": "YES_Signer03_10",
+      "class_name": "YES",
+      "signer_id": "Signer03",
+      "relative_path": "YES/Signer03_YES_10.mp4"
+    },
+    {
+      "sample_id": "YES_Signer04_11",
+      "class_name": "YES",
+      "signer_id": "Signer04",
+      "relative_path": "YES/Signer04_YES_11.mp4"
+    },
+    {
+      "sample_id": "YES_Signer05_12",
+      "class_name": "YES",
+      "signer_id": "Signer05",
+      "relative_path": "YES/Signer05_YES_12.mp4"
+    },
+    {
+      "sample_id": "YES_Signer06_13",
+      "class_name": "YES",
+      "signer_id": "Signer06",
+      "relative_path": "YES/Signer06_YES_13.mp4"
+    },
+    {
+      "sample_id": "YES_Signer07_14",
+      "class_name": "YES",
+      "signer_id": "Signer07",
+      "relative_path": "YES/Signer07_YES_14.mp4"
+    },
+    {
+      "sample_id": "YES_Signer01_15",
+      "class_name": "YES",
+      "signer_id": "Signer01",
+      "relative_path": "YES/Signer01_YES_15.mp4"
+    },
+    {
+      "sample_id": "YES_Signer02_16",
+      "class_name": "YES",
+      "signer_id": "Signer02",
+      "relative_path": "YES/Signer02_YES_16.mp4"
+    },
+    {
+      "sample_id": "YES_Signer03_17",
+      "class_name": "YES",
+      "signer_id": "Signer03",
+      "relative_path": "YES/Signer03_YES_17.mp4"
+    },
+    {
+      "sample_id": "YES_Signer04_18",
+      "class_name": "YES",
+      "signer_id": "Signer04",
+      "relative_path": "YES/Signer04_YES_18.mp4"
+    },
+    {
+      "sample_id": "YES_Signer05_19",
+      "class_name": "YES",
+      "signer_id": "Signer05",
+      "relative_path": "YES/Signer05_YES_19.mp4"
+    },
+    {
+      "sample_id": "YES_Signer06_20",
+      "class_name": "YES",
+      "signer_id": "Signer06",
+      "relative_path": "YES/Signer06_YES_20.mp4"
+    },
+    {
+      "sample_id": "YES_Signer07_21",
+      "class_name": "YES",
+      "signer_id": "Signer07",
+      "relative_path": "YES/Signer07_YES_21.mp4"
+    },
+    {
+      "sample_id": "YES_Signer01_22",
+      "class_name": "YES",
+      "signer_id": "Signer01",
+      "relative_path": "YES/Signer01_YES_22.mp4"
+    },
+    {
+      "sample_id": "YES_Signer02_23",
+      "class_name": "YES",
+      "signer_id": "Signer02",
+      "relative_path": "YES/Signer02_YES_23.mp4"
+    },
+    {
+      "sample_id": "YES_Signer03_24",
+      "class_name": "YES",
+      "signer_id": "Signer03",
+      "relative_path": "YES/Signer03_YES_24.mp4"
+    },
+    {
+      "sample_id": "YES_Signer04_25",
+      "class_name": "YES",
+      "signer_id": "Signer04",
+      "relative_path": "YES/Signer04_YES_25.mp4"
+    },
+    {
+      "sample_id": "YES_Signer05_26",
+      "class_name": "YES",
+      "signer_id": "Signer05",
+      "relative_path": "YES/Signer05_YES_26.mp4"
+    },
+    {
+      "sample_id": "YES_Signer06_27",
+      "class_name": "YES",
+      "signer_id": "Signer06",
+      "relative_path": "YES/Signer06_YES_27.mp4"
+    },
+    {
+      "sample_id": "YES_Signer07_28",
+      "class_name": "YES",
+      "signer_id": "Signer07",
+      "relative_path": "YES/Signer07_YES_28.mp4"
+    },
+    {
+      "sample_id": "YES_Signer01_29",
+      "class_name": "YES",
+      "signer_id": "Signer01",
+      "relative_path": "YES/Signer01_YES_29.mp4"
+    },
+    {
+      "sample_id": "YES_Signer02_30",
+      "class_name": "YES",
+      "signer_id": "Signer02",
+      "relative_path": "YES/Signer02_YES_30.mp4"
+    },
+    {
+      "sample_id": "YES_Signer03_31",
+      "class_name": "YES",
+      "signer_id": "Signer03",
+      "relative_path": "YES/Signer03_YES_31.mp4"
+    },
+    {
+      "sample_id": "YES_Signer04_32",
+      "class_name": "YES",
+      "signer_id": "Signer04",
+      "relative_path": "YES/Signer04_YES_32.mp4"
+    },
+    {
+      "sample_id": "NO_Signer01_01",
+      "class_name": "NO",
+      "signer_id": "Signer01",
+      "relative_path": "NO/Signer01_NO_01.mp4"
+    },
+    {
+      "sample_id": "NO_Signer02_02",
+      "class_name": "NO",
+      "signer_id": "Signer02",
+      "relative_path": "NO/Signer02_NO_02.mp4"
+    },
+    {
+      "sample_id": "NO_Signer03_03",
+      "class_name": "NO",
+      "signer_id": "Signer03",
+      "relative_path": "NO/Signer03_NO_03.mp4"
+    },
+    {
+      "sample_id": "NO_Signer04_04",
+      "class_name": "NO",
+      "signer_id": "Signer04",
+      "relative_path": "NO/Signer04_NO_04.mp4"
+    },
+    {
+      "sample_id": "NO_Signer05_05",
+      "class_name": "NO",
+      "signer_id": "Signer05",
+      "relative_path": "NO/Signer05_NO_05.mp4"
+    },
+    {
+      "sample_id": "NO_Signer06_06",
+      "class_name": "NO",
+      "signer_id": "Signer06",
+      "relative_path": "NO/Signer06_NO_06.mp4"
+    },
+    {
+      "sample_id": "NO_Signer07_07",
+      "class_name": "NO",
+      "signer_id": "Signer07",
+      "relative_path": "NO/Signer07_NO_07.mp4"
+    },
+    {
+      "sample_id": "NO_Signer01_08",
+      "class_name": "NO",
+      "signer_id": "Signer01",
+      "relative_path": "NO/Signer01_NO_08.mp4"
+    },
+    {
+      "sample_id": "NO_Signer02_09",
+      "class_name": "NO",
+      "signer_id": "Signer02",
+      "relative_path": "NO/Signer02_NO_09.mp4"
+    },
+    {
+      "sample_id": "NO_Signer03_10",
+      "class_name": "NO",
+      "signer_id": "Signer03",
+      "relative_path": "NO/Signer03_NO_10.mp4"
+    },
+    {
+      "sample_id": "NO_Signer04_11",
+      "class_name": "NO",
+      "signer_id": "Signer04",
+      "relative_path": "NO/Signer04_NO_11.mp4"
+    },
+    {
+      "sample_id": "NO_Signer05_12",
+      "class_name": "NO",
+      "signer_id": "Signer05",
+      "relative_path": "NO/Signer05_NO_12.mp4"
+    },
+    {
+      "sample_id": "NO_Signer06_13",
+      "class_name": "NO",
+      "signer_id": "Signer06",
+      "relative_path": "NO/Signer06_NO_13.mp4"
+    },
+    {
+      "sample_id": "NO_Signer07_14",
+      "class_name": "NO",
+      "signer_id": "Signer07",
+      "relative_path": "NO/Signer07_NO_14.mp4"
+    },
+    {
+      "sample_id": "NO_Signer01_15",
+      "class_name": "NO",
+      "signer_id": "Signer01",
+      "relative_path": "NO/Signer01_NO_15.mp4"
+    },
+    {
+      "sample_id": "NO_Signer02_16",
+      "class_name": "NO",
+      "signer_id": "Signer02",
+      "relative_path": "NO/Signer02_NO_16.mp4"
+    },
+    {
+      "sample_id": "NO_Signer03_17",
+      "class_name": "NO",
+      "signer_id": "Signer03",
+      "relative_path": "NO/Signer03_NO_17.mp4"
+    },
+    {
+      "sample_id": "NO_Signer04_18",
+      "class_name": "NO",
+      "signer_id": "Signer04",
+      "relative_path": "NO/Signer04_NO_18.mp4"
+    },
+    {
+      "sample_id": "NO_Signer05_19",
+      "class_name": "NO",
+      "signer_id": "Signer05",
+      "relative_path": "NO/Signer05_NO_19.mp4"
+    },
+    {
+      "sample_id": "NO_Signer06_20",
+      "class_name": "NO",
+      "signer_id": "Signer06",
+      "relative_path": "NO/Signer06_NO_20.mp4"
+    },
+    {
+      "sample_id": "NO_Signer07_21",
+      "class_name": "NO",
+      "signer_id": "Signer07",
+      "relative_path": "NO/Signer07_NO_21.mp4"
+    },
+    {
+      "sample_id": "NO_Signer01_22",
+      "class_name": "NO",
+      "signer_id": "Signer01",
+      "relative_path": "NO/Signer01_NO_22.mp4"
+    },
+    {
+      "sample_id": "NO_Signer02_23",
+      "class_name": "NO",
+      "signer_id": "Signer02",
+      "relative_path": "NO/Signer02_NO_23.mp4"
+    },
+    {
+      "sample_id": "NO_Signer03_24",
+      "class_name": "NO",
+      "signer_id": "Signer03",
+      "relative_path": "NO/Signer03_NO_24.mp4"
+    },
+    {
+      "sample_id": "NO_Signer04_25",
+      "class_name": "NO",
+      "signer_id": "Signer04",
+      "relative_path": "NO/Signer04_NO_25.mp4"
+    },
+    {
+      "sample_id": "NO_Signer05_26",
+      "class_name": "NO",
+      "signer_id": "Signer05",
+      "relative_path": "NO/Signer05_NO_26.mp4"
+    },
+    {
+      "sample_id": "NO_Signer06_27",
+      "class_name": "NO",
+      "signer_id": "Signer06",
+      "relative_path": "NO/Signer06_NO_27.mp4"
+    },
+    {
+      "sample_id": "NO_Signer07_28",
+      "class_name": "NO",
+      "signer_id": "Signer07",
+      "relative_path": "NO/Signer07_NO_28.mp4"
+    },
+    {
+      "sample_id": "NO_Signer01_29",
+      "class_name": "NO",
+      "signer_id": "Signer01",
+      "relative_path": "NO/Signer01_NO_29.mp4"
+    },
+    {
+      "sample_id": "NO_Signer02_30",
+      "class_name": "NO",
+      "signer_id": "Signer02",
+      "relative_path": "NO/Signer02_NO_30.mp4"
+    },
+    {
+      "sample_id": "NO_Signer03_31",
+      "class_name": "NO",
+      "signer_id": "Signer03",
+      "relative_path": "NO/Signer03_NO_31.mp4"
+    },
+    {
+      "sample_id": "NO_Signer04_32",
+      "class_name": "NO",
+      "signer_id": "Signer04",
+      "relative_path": "NO/Signer04_NO_32.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer01_01",
+      "class_name": "HELP",
+      "signer_id": "Signer01",
+      "relative_path": "HELP/Signer01_HELP_01.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer02_02",
+      "class_name": "HELP",
+      "signer_id": "Signer02",
+      "relative_path": "HELP/Signer02_HELP_02.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer03_03",
+      "class_name": "HELP",
+      "signer_id": "Signer03",
+      "relative_path": "HELP/Signer03_HELP_03.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer04_04",
+      "class_name": "HELP",
+      "signer_id": "Signer04",
+      "relative_path": "HELP/Signer04_HELP_04.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer05_05",
+      "class_name": "HELP",
+      "signer_id": "Signer05",
+      "relative_path": "HELP/Signer05_HELP_05.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer06_06",
+      "class_name": "HELP",
+      "signer_id": "Signer06",
+      "relative_path": "HELP/Signer06_HELP_06.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer07_07",
+      "class_name": "HELP",
+      "signer_id": "Signer07",
+      "relative_path": "HELP/Signer07_HELP_07.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer01_08",
+      "class_name": "HELP",
+      "signer_id": "Signer01",
+      "relative_path": "HELP/Signer01_HELP_08.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer02_09",
+      "class_name": "HELP",
+      "signer_id": "Signer02",
+      "relative_path": "HELP/Signer02_HELP_09.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer03_10",
+      "class_name": "HELP",
+      "signer_id": "Signer03",
+      "relative_path": "HELP/Signer03_HELP_10.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer04_11",
+      "class_name": "HELP",
+      "signer_id": "Signer04",
+      "relative_path": "HELP/Signer04_HELP_11.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer05_12",
+      "class_name": "HELP",
+      "signer_id": "Signer05",
+      "relative_path": "HELP/Signer05_HELP_12.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer06_13",
+      "class_name": "HELP",
+      "signer_id": "Signer06",
+      "relative_path": "HELP/Signer06_HELP_13.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer07_14",
+      "class_name": "HELP",
+      "signer_id": "Signer07",
+      "relative_path": "HELP/Signer07_HELP_14.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer01_15",
+      "class_name": "HELP",
+      "signer_id": "Signer01",
+      "relative_path": "HELP/Signer01_HELP_15.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer02_16",
+      "class_name": "HELP",
+      "signer_id": "Signer02",
+      "relative_path": "HELP/Signer02_HELP_16.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer03_17",
+      "class_name": "HELP",
+      "signer_id": "Signer03",
+      "relative_path": "HELP/Signer03_HELP_17.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer04_18",
+      "class_name": "HELP",
+      "signer_id": "Signer04",
+      "relative_path": "HELP/Signer04_HELP_18.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer05_19",
+      "class_name": "HELP",
+      "signer_id": "Signer05",
+      "relative_path": "HELP/Signer05_HELP_19.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer06_20",
+      "class_name": "HELP",
+      "signer_id": "Signer06",
+      "relative_path": "HELP/Signer06_HELP_20.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer07_21",
+      "class_name": "HELP",
+      "signer_id": "Signer07",
+      "relative_path": "HELP/Signer07_HELP_21.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer01_22",
+      "class_name": "HELP",
+      "signer_id": "Signer01",
+      "relative_path": "HELP/Signer01_HELP_22.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer02_23",
+      "class_name": "HELP",
+      "signer_id": "Signer02",
+      "relative_path": "HELP/Signer02_HELP_23.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer03_24",
+      "class_name": "HELP",
+      "signer_id": "Signer03",
+      "relative_path": "HELP/Signer03_HELP_24.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer04_25",
+      "class_name": "HELP",
+      "signer_id": "Signer04",
+      "relative_path": "HELP/Signer04_HELP_25.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer05_26",
+      "class_name": "HELP",
+      "signer_id": "Signer05",
+      "relative_path": "HELP/Signer05_HELP_26.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer06_27",
+      "class_name": "HELP",
+      "signer_id": "Signer06",
+      "relative_path": "HELP/Signer06_HELP_27.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer07_28",
+      "class_name": "HELP",
+      "signer_id": "Signer07",
+      "relative_path": "HELP/Signer07_HELP_28.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer01_29",
+      "class_name": "HELP",
+      "signer_id": "Signer01",
+      "relative_path": "HELP/Signer01_HELP_29.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer02_30",
+      "class_name": "HELP",
+      "signer_id": "Signer02",
+      "relative_path": "HELP/Signer02_HELP_30.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer03_31",
+      "class_name": "HELP",
+      "signer_id": "Signer03",
+      "relative_path": "HELP/Signer03_HELP_31.mp4"
+    },
+    {
+      "sample_id": "HELP_Signer04_32",
+      "class_name": "HELP",
+      "signer_id": "Signer04",
+      "relative_path": "HELP/Signer04_HELP_32.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer01_01",
+      "class_name": "WATER",
+      "signer_id": "Signer01",
+      "relative_path": "WATER/Signer01_WATER_01.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer02_02",
+      "class_name": "WATER",
+      "signer_id": "Signer02",
+      "relative_path": "WATER/Signer02_WATER_02.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer03_03",
+      "class_name": "WATER",
+      "signer_id": "Signer03",
+      "relative_path": "WATER/Signer03_WATER_03.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer04_04",
+      "class_name": "WATER",
+      "signer_id": "Signer04",
+      "relative_path": "WATER/Signer04_WATER_04.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer05_05",
+      "class_name": "WATER",
+      "signer_id": "Signer05",
+      "relative_path": "WATER/Signer05_WATER_05.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer06_06",
+      "class_name": "WATER",
+      "signer_id": "Signer06",
+      "relative_path": "WATER/Signer06_WATER_06.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer07_07",
+      "class_name": "WATER",
+      "signer_id": "Signer07",
+      "relative_path": "WATER/Signer07_WATER_07.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer01_08",
+      "class_name": "WATER",
+      "signer_id": "Signer01",
+      "relative_path": "WATER/Signer01_WATER_08.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer02_09",
+      "class_name": "WATER",
+      "signer_id": "Signer02",
+      "relative_path": "WATER/Signer02_WATER_09.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer03_10",
+      "class_name": "WATER",
+      "signer_id": "Signer03",
+      "relative_path": "WATER/Signer03_WATER_10.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer04_11",
+      "class_name": "WATER",
+      "signer_id": "Signer04",
+      "relative_path": "WATER/Signer04_WATER_11.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer05_12",
+      "class_name": "WATER",
+      "signer_id": "Signer05",
+      "relative_path": "WATER/Signer05_WATER_12.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer06_13",
+      "class_name": "WATER",
+      "signer_id": "Signer06",
+      "relative_path": "WATER/Signer06_WATER_13.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer07_14",
+      "class_name": "WATER",
+      "signer_id": "Signer07",
+      "relative_path": "WATER/Signer07_WATER_14.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer01_15",
+      "class_name": "WATER",
+      "signer_id": "Signer01",
+      "relative_path": "WATER/Signer01_WATER_15.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer02_16",
+      "class_name": "WATER",
+      "signer_id": "Signer02",
+      "relative_path": "WATER/Signer02_WATER_16.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer03_17",
+      "class_name": "WATER",
+      "signer_id": "Signer03",
+      "relative_path": "WATER/Signer03_WATER_17.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer04_18",
+      "class_name": "WATER",
+      "signer_id": "Signer04",
+      "relative_path": "WATER/Signer04_WATER_18.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer05_19",
+      "class_name": "WATER",
+      "signer_id": "Signer05",
+      "relative_path": "WATER/Signer05_WATER_19.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer06_20",
+      "class_name": "WATER",
+      "signer_id": "Signer06",
+      "relative_path": "WATER/Signer06_WATER_20.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer07_21",
+      "class_name": "WATER",
+      "signer_id": "Signer07",
+      "relative_path": "WATER/Signer07_WATER_21.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer01_22",
+      "class_name": "WATER",
+      "signer_id": "Signer01",
+      "relative_path": "WATER/Signer01_WATER_22.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer02_23",
+      "class_name": "WATER",
+      "signer_id": "Signer02",
+      "relative_path": "WATER/Signer02_WATER_23.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer03_24",
+      "class_name": "WATER",
+      "signer_id": "Signer03",
+      "relative_path": "WATER/Signer03_WATER_24.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer04_25",
+      "class_name": "WATER",
+      "signer_id": "Signer04",
+      "relative_path": "WATER/Signer04_WATER_25.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer05_26",
+      "class_name": "WATER",
+      "signer_id": "Signer05",
+      "relative_path": "WATER/Signer05_WATER_26.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer06_27",
+      "class_name": "WATER",
+      "signer_id": "Signer06",
+      "relative_path": "WATER/Signer06_WATER_27.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer07_28",
+      "class_name": "WATER",
+      "signer_id": "Signer07",
+      "relative_path": "WATER/Signer07_WATER_28.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer01_29",
+      "class_name": "WATER",
+      "signer_id": "Signer01",
+      "relative_path": "WATER/Signer01_WATER_29.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer02_30",
+      "class_name": "WATER",
+      "signer_id": "Signer02",
+      "relative_path": "WATER/Signer02_WATER_30.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer03_31",
+      "class_name": "WATER",
+      "signer_id": "Signer03",
+      "relative_path": "WATER/Signer03_WATER_31.mp4"
+    },
+    {
+      "sample_id": "WATER_Signer04_32",
+      "class_name": "WATER",
+      "signer_id": "Signer04",
+      "relative_path": "WATER/Signer04_WATER_32.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer01_01",
+      "class_name": "FOOD",
+      "signer_id": "Signer01",
+      "relative_path": "FOOD/Signer01_FOOD_01.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer02_02",
+      "class_name": "FOOD",
+      "signer_id": "Signer02",
+      "relative_path": "FOOD/Signer02_FOOD_02.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer03_03",
+      "class_name": "FOOD",
+      "signer_id": "Signer03",
+      "relative_path": "FOOD/Signer03_FOOD_03.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer04_04",
+      "class_name": "FOOD",
+      "signer_id": "Signer04",
+      "relative_path": "FOOD/Signer04_FOOD_04.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer05_05",
+      "class_name": "FOOD",
+      "signer_id": "Signer05",
+      "relative_path": "FOOD/Signer05_FOOD_05.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer06_06",
+      "class_name": "FOOD",
+      "signer_id": "Signer06",
+      "relative_path": "FOOD/Signer06_FOOD_06.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer07_07",
+      "class_name": "FOOD",
+      "signer_id": "Signer07",
+      "relative_path": "FOOD/Signer07_FOOD_07.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer01_08",
+      "class_name": "FOOD",
+      "signer_id": "Signer01",
+      "relative_path": "FOOD/Signer01_FOOD_08.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer02_09",
+      "class_name": "FOOD",
+      "signer_id": "Signer02",
+      "relative_path": "FOOD/Signer02_FOOD_09.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer03_10",
+      "class_name": "FOOD",
+      "signer_id": "Signer03",
+      "relative_path": "FOOD/Signer03_FOOD_10.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer04_11",
+      "class_name": "FOOD",
+      "signer_id": "Signer04",
+      "relative_path": "FOOD/Signer04_FOOD_11.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer05_12",
+      "class_name": "FOOD",
+      "signer_id": "Signer05",
+      "relative_path": "FOOD/Signer05_FOOD_12.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer06_13",
+      "class_name": "FOOD",
+      "signer_id": "Signer06",
+      "relative_path": "FOOD/Signer06_FOOD_13.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer07_14",
+      "class_name": "FOOD",
+      "signer_id": "Signer07",
+      "relative_path": "FOOD/Signer07_FOOD_14.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer01_15",
+      "class_name": "FOOD",
+      "signer_id": "Signer01",
+      "relative_path": "FOOD/Signer01_FOOD_15.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer02_16",
+      "class_name": "FOOD",
+      "signer_id": "Signer02",
+      "relative_path": "FOOD/Signer02_FOOD_16.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer03_17",
+      "class_name": "FOOD",
+      "signer_id": "Signer03",
+      "relative_path": "FOOD/Signer03_FOOD_17.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer04_18",
+      "class_name": "FOOD",
+      "signer_id": "Signer04",
+      "relative_path": "FOOD/Signer04_FOOD_18.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer05_19",
+      "class_name": "FOOD",
+      "signer_id": "Signer05",
+      "relative_path": "FOOD/Signer05_FOOD_19.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer06_20",
+      "class_name": "FOOD",
+      "signer_id": "Signer06",
+      "relative_path": "FOOD/Signer06_FOOD_20.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer07_21",
+      "class_name": "FOOD",
+      "signer_id": "Signer07",
+      "relative_path": "FOOD/Signer07_FOOD_21.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer01_22",
+      "class_name": "FOOD",
+      "signer_id": "Signer01",
+      "relative_path": "FOOD/Signer01_FOOD_22.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer02_23",
+      "class_name": "FOOD",
+      "signer_id": "Signer02",
+      "relative_path": "FOOD/Signer02_FOOD_23.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer03_24",
+      "class_name": "FOOD",
+      "signer_id": "Signer03",
+      "relative_path": "FOOD/Signer03_FOOD_24.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer04_25",
+      "class_name": "FOOD",
+      "signer_id": "Signer04",
+      "relative_path": "FOOD/Signer04_FOOD_25.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer05_26",
+      "class_name": "FOOD",
+      "signer_id": "Signer05",
+      "relative_path": "FOOD/Signer05_FOOD_26.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer06_27",
+      "class_name": "FOOD",
+      "signer_id": "Signer06",
+      "relative_path": "FOOD/Signer06_FOOD_27.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer07_28",
+      "class_name": "FOOD",
+      "signer_id": "Signer07",
+      "relative_path": "FOOD/Signer07_FOOD_28.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer01_29",
+      "class_name": "FOOD",
+      "signer_id": "Signer01",
+      "relative_path": "FOOD/Signer01_FOOD_29.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer02_30",
+      "class_name": "FOOD",
+      "signer_id": "Signer02",
+      "relative_path": "FOOD/Signer02_FOOD_30.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer03_31",
+      "class_name": "FOOD",
+      "signer_id": "Signer03",
+      "relative_path": "FOOD/Signer03_FOOD_31.mp4"
+    },
+    {
+      "sample_id": "FOOD_Signer04_32",
+      "class_name": "FOOD",
+      "signer_id": "Signer04",
+      "relative_path": "FOOD/Signer04_FOOD_32.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer01_01",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer01",
+      "relative_path": "DOCTOR/Signer01_DOCTOR_01.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer02_02",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer02",
+      "relative_path": "DOCTOR/Signer02_DOCTOR_02.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer03_03",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer03",
+      "relative_path": "DOCTOR/Signer03_DOCTOR_03.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer04_04",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer04",
+      "relative_path": "DOCTOR/Signer04_DOCTOR_04.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer05_05",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer05",
+      "relative_path": "DOCTOR/Signer05_DOCTOR_05.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer06_06",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer06",
+      "relative_path": "DOCTOR/Signer06_DOCTOR_06.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer07_07",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer07",
+      "relative_path": "DOCTOR/Signer07_DOCTOR_07.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer01_08",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer01",
+      "relative_path": "DOCTOR/Signer01_DOCTOR_08.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer02_09",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer02",
+      "relative_path": "DOCTOR/Signer02_DOCTOR_09.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer03_10",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer03",
+      "relative_path": "DOCTOR/Signer03_DOCTOR_10.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer04_11",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer04",
+      "relative_path": "DOCTOR/Signer04_DOCTOR_11.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer05_12",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer05",
+      "relative_path": "DOCTOR/Signer05_DOCTOR_12.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer06_13",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer06",
+      "relative_path": "DOCTOR/Signer06_DOCTOR_13.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer07_14",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer07",
+      "relative_path": "DOCTOR/Signer07_DOCTOR_14.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer01_15",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer01",
+      "relative_path": "DOCTOR/Signer01_DOCTOR_15.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer02_16",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer02",
+      "relative_path": "DOCTOR/Signer02_DOCTOR_16.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer03_17",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer03",
+      "relative_path": "DOCTOR/Signer03_DOCTOR_17.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer04_18",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer04",
+      "relative_path": "DOCTOR/Signer04_DOCTOR_18.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer05_19",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer05",
+      "relative_path": "DOCTOR/Signer05_DOCTOR_19.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer06_20",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer06",
+      "relative_path": "DOCTOR/Signer06_DOCTOR_20.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer07_21",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer07",
+      "relative_path": "DOCTOR/Signer07_DOCTOR_21.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer01_22",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer01",
+      "relative_path": "DOCTOR/Signer01_DOCTOR_22.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer02_23",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer02",
+      "relative_path": "DOCTOR/Signer02_DOCTOR_23.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer03_24",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer03",
+      "relative_path": "DOCTOR/Signer03_DOCTOR_24.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer04_25",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer04",
+      "relative_path": "DOCTOR/Signer04_DOCTOR_25.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer05_26",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer05",
+      "relative_path": "DOCTOR/Signer05_DOCTOR_26.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer06_27",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer06",
+      "relative_path": "DOCTOR/Signer06_DOCTOR_27.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer07_28",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer07",
+      "relative_path": "DOCTOR/Signer07_DOCTOR_28.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer01_29",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer01",
+      "relative_path": "DOCTOR/Signer01_DOCTOR_29.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer02_30",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer02",
+      "relative_path": "DOCTOR/Signer02_DOCTOR_30.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer03_31",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer03",
+      "relative_path": "DOCTOR/Signer03_DOCTOR_31.mp4"
+    },
+    {
+      "sample_id": "DOCTOR_Signer04_32",
+      "class_name": "DOCTOR",
+      "signer_id": "Signer04",
+      "relative_path": "DOCTOR/Signer04_DOCTOR_32.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer01_01",
+      "class_name": "TIME",
+      "signer_id": "Signer01",
+      "relative_path": "TIME/Signer01_TIME_01.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer02_02",
+      "class_name": "TIME",
+      "signer_id": "Signer02",
+      "relative_path": "TIME/Signer02_TIME_02.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer03_03",
+      "class_name": "TIME",
+      "signer_id": "Signer03",
+      "relative_path": "TIME/Signer03_TIME_03.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer04_04",
+      "class_name": "TIME",
+      "signer_id": "Signer04",
+      "relative_path": "TIME/Signer04_TIME_04.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer05_05",
+      "class_name": "TIME",
+      "signer_id": "Signer05",
+      "relative_path": "TIME/Signer05_TIME_05.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer06_06",
+      "class_name": "TIME",
+      "signer_id": "Signer06",
+      "relative_path": "TIME/Signer06_TIME_06.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer07_07",
+      "class_name": "TIME",
+      "signer_id": "Signer07",
+      "relative_path": "TIME/Signer07_TIME_07.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer01_08",
+      "class_name": "TIME",
+      "signer_id": "Signer01",
+      "relative_path": "TIME/Signer01_TIME_08.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer02_09",
+      "class_name": "TIME",
+      "signer_id": "Signer02",
+      "relative_path": "TIME/Signer02_TIME_09.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer03_10",
+      "class_name": "TIME",
+      "signer_id": "Signer03",
+      "relative_path": "TIME/Signer03_TIME_10.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer04_11",
+      "class_name": "TIME",
+      "signer_id": "Signer04",
+      "relative_path": "TIME/Signer04_TIME_11.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer05_12",
+      "class_name": "TIME",
+      "signer_id": "Signer05",
+      "relative_path": "TIME/Signer05_TIME_12.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer06_13",
+      "class_name": "TIME",
+      "signer_id": "Signer06",
+      "relative_path": "TIME/Signer06_TIME_13.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer07_14",
+      "class_name": "TIME",
+      "signer_id": "Signer07",
+      "relative_path": "TIME/Signer07_TIME_14.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer01_15",
+      "class_name": "TIME",
+      "signer_id": "Signer01",
+      "relative_path": "TIME/Signer01_TIME_15.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer02_16",
+      "class_name": "TIME",
+      "signer_id": "Signer02",
+      "relative_path": "TIME/Signer02_TIME_16.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer03_17",
+      "class_name": "TIME",
+      "signer_id": "Signer03",
+      "relative_path": "TIME/Signer03_TIME_17.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer04_18",
+      "class_name": "TIME",
+      "signer_id": "Signer04",
+      "relative_path": "TIME/Signer04_TIME_18.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer05_19",
+      "class_name": "TIME",
+      "signer_id": "Signer05",
+      "relative_path": "TIME/Signer05_TIME_19.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer06_20",
+      "class_name": "TIME",
+      "signer_id": "Signer06",
+      "relative_path": "TIME/Signer06_TIME_20.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer07_21",
+      "class_name": "TIME",
+      "signer_id": "Signer07",
+      "relative_path": "TIME/Signer07_TIME_21.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer01_22",
+      "class_name": "TIME",
+      "signer_id": "Signer01",
+      "relative_path": "TIME/Signer01_TIME_22.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer02_23",
+      "class_name": "TIME",
+      "signer_id": "Signer02",
+      "relative_path": "TIME/Signer02_TIME_23.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer03_24",
+      "class_name": "TIME",
+      "signer_id": "Signer03",
+      "relative_path": "TIME/Signer03_TIME_24.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer04_25",
+      "class_name": "TIME",
+      "signer_id": "Signer04",
+      "relative_path": "TIME/Signer04_TIME_25.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer05_26",
+      "class_name": "TIME",
+      "signer_id": "Signer05",
+      "relative_path": "TIME/Signer05_TIME_26.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer06_27",
+      "class_name": "TIME",
+      "signer_id": "Signer06",
+      "relative_path": "TIME/Signer06_TIME_27.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer07_28",
+      "class_name": "TIME",
+      "signer_id": "Signer07",
+      "relative_path": "TIME/Signer07_TIME_28.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer01_29",
+      "class_name": "TIME",
+      "signer_id": "Signer01",
+      "relative_path": "TIME/Signer01_TIME_29.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer02_30",
+      "class_name": "TIME",
+      "signer_id": "Signer02",
+      "relative_path": "TIME/Signer02_TIME_30.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer03_31",
+      "class_name": "TIME",
+      "signer_id": "Signer03",
+      "relative_path": "TIME/Signer03_TIME_31.mp4"
+    },
+    {
+      "sample_id": "TIME_Signer04_32",
+      "class_name": "TIME",
+      "signer_id": "Signer04",
+      "relative_path": "TIME/Signer04_TIME_32.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer01_01",
+      "class_name": "WHERE",
+      "signer_id": "Signer01",
+      "relative_path": "WHERE/Signer01_WHERE_01.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer02_02",
+      "class_name": "WHERE",
+      "signer_id": "Signer02",
+      "relative_path": "WHERE/Signer02_WHERE_02.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer03_03",
+      "class_name": "WHERE",
+      "signer_id": "Signer03",
+      "relative_path": "WHERE/Signer03_WHERE_03.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer04_04",
+      "class_name": "WHERE",
+      "signer_id": "Signer04",
+      "relative_path": "WHERE/Signer04_WHERE_04.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer05_05",
+      "class_name": "WHERE",
+      "signer_id": "Signer05",
+      "relative_path": "WHERE/Signer05_WHERE_05.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer06_06",
+      "class_name": "WHERE",
+      "signer_id": "Signer06",
+      "relative_path": "WHERE/Signer06_WHERE_06.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer07_07",
+      "class_name": "WHERE",
+      "signer_id": "Signer07",
+      "relative_path": "WHERE/Signer07_WHERE_07.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer01_08",
+      "class_name": "WHERE",
+      "signer_id": "Signer01",
+      "relative_path": "WHERE/Signer01_WHERE_08.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer02_09",
+      "class_name": "WHERE",
+      "signer_id": "Signer02",
+      "relative_path": "WHERE/Signer02_WHERE_09.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer03_10",
+      "class_name": "WHERE",
+      "signer_id": "Signer03",
+      "relative_path": "WHERE/Signer03_WHERE_10.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer04_11",
+      "class_name": "WHERE",
+      "signer_id": "Signer04",
+      "relative_path": "WHERE/Signer04_WHERE_11.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer05_12",
+      "class_name": "WHERE",
+      "signer_id": "Signer05",
+      "relative_path": "WHERE/Signer05_WHERE_12.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer06_13",
+      "class_name": "WHERE",
+      "signer_id": "Signer06",
+      "relative_path": "WHERE/Signer06_WHERE_13.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer07_14",
+      "class_name": "WHERE",
+      "signer_id": "Signer07",
+      "relative_path": "WHERE/Signer07_WHERE_14.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer01_15",
+      "class_name": "WHERE",
+      "signer_id": "Signer01",
+      "relative_path": "WHERE/Signer01_WHERE_15.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer02_16",
+      "class_name": "WHERE",
+      "signer_id": "Signer02",
+      "relative_path": "WHERE/Signer02_WHERE_16.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer03_17",
+      "class_name": "WHERE",
+      "signer_id": "Signer03",
+      "relative_path": "WHERE/Signer03_WHERE_17.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer04_18",
+      "class_name": "WHERE",
+      "signer_id": "Signer04",
+      "relative_path": "WHERE/Signer04_WHERE_18.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer05_19",
+      "class_name": "WHERE",
+      "signer_id": "Signer05",
+      "relative_path": "WHERE/Signer05_WHERE_19.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer06_20",
+      "class_name": "WHERE",
+      "signer_id": "Signer06",
+      "relative_path": "WHERE/Signer06_WHERE_20.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer07_21",
+      "class_name": "WHERE",
+      "signer_id": "Signer07",
+      "relative_path": "WHERE/Signer07_WHERE_21.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer01_22",
+      "class_name": "WHERE",
+      "signer_id": "Signer01",
+      "relative_path": "WHERE/Signer01_WHERE_22.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer02_23",
+      "class_name": "WHERE",
+      "signer_id": "Signer02",
+      "relative_path": "WHERE/Signer02_WHERE_23.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer03_24",
+      "class_name": "WHERE",
+      "signer_id": "Signer03",
+      "relative_path": "WHERE/Signer03_WHERE_24.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer04_25",
+      "class_name": "WHERE",
+      "signer_id": "Signer04",
+      "relative_path": "WHERE/Signer04_WHERE_25.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer05_26",
+      "class_name": "WHERE",
+      "signer_id": "Signer05",
+      "relative_path": "WHERE/Signer05_WHERE_26.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer06_27",
+      "class_name": "WHERE",
+      "signer_id": "Signer06",
+      "relative_path": "WHERE/Signer06_WHERE_27.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer07_28",
+      "class_name": "WHERE",
+      "signer_id": "Signer07",
+      "relative_path": "WHERE/Signer07_WHERE_28.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer01_29",
+      "class_name": "WHERE",
+      "signer_id": "Signer01",
+      "relative_path": "WHERE/Signer01_WHERE_29.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer02_30",
+      "class_name": "WHERE",
+      "signer_id": "Signer02",
+      "relative_path": "WHERE/Signer02_WHERE_30.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer03_31",
+      "class_name": "WHERE",
+      "signer_id": "Signer03",
+      "relative_path": "WHERE/Signer03_WHERE_31.mp4"
+    },
+    {
+      "sample_id": "WHERE_Signer04_32",
+      "class_name": "WHERE",
+      "signer_id": "Signer04",
+      "relative_path": "WHERE/Signer04_WHERE_32.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer01_01",
+      "class_name": "STOP",
+      "signer_id": "Signer01",
+      "relative_path": "STOP/Signer01_STOP_01.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer02_02",
+      "class_name": "STOP",
+      "signer_id": "Signer02",
+      "relative_path": "STOP/Signer02_STOP_02.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer03_03",
+      "class_name": "STOP",
+      "signer_id": "Signer03",
+      "relative_path": "STOP/Signer03_STOP_03.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer04_04",
+      "class_name": "STOP",
+      "signer_id": "Signer04",
+      "relative_path": "STOP/Signer04_STOP_04.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer05_05",
+      "class_name": "STOP",
+      "signer_id": "Signer05",
+      "relative_path": "STOP/Signer05_STOP_05.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer06_06",
+      "class_name": "STOP",
+      "signer_id": "Signer06",
+      "relative_path": "STOP/Signer06_STOP_06.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer07_07",
+      "class_name": "STOP",
+      "signer_id": "Signer07",
+      "relative_path": "STOP/Signer07_STOP_07.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer01_08",
+      "class_name": "STOP",
+      "signer_id": "Signer01",
+      "relative_path": "STOP/Signer01_STOP_08.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer02_09",
+      "class_name": "STOP",
+      "signer_id": "Signer02",
+      "relative_path": "STOP/Signer02_STOP_09.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer03_10",
+      "class_name": "STOP",
+      "signer_id": "Signer03",
+      "relative_path": "STOP/Signer03_STOP_10.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer04_11",
+      "class_name": "STOP",
+      "signer_id": "Signer04",
+      "relative_path": "STOP/Signer04_STOP_11.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer05_12",
+      "class_name": "STOP",
+      "signer_id": "Signer05",
+      "relative_path": "STOP/Signer05_STOP_12.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer06_13",
+      "class_name": "STOP",
+      "signer_id": "Signer06",
+      "relative_path": "STOP/Signer06_STOP_13.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer07_14",
+      "class_name": "STOP",
+      "signer_id": "Signer07",
+      "relative_path": "STOP/Signer07_STOP_14.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer01_15",
+      "class_name": "STOP",
+      "signer_id": "Signer01",
+      "relative_path": "STOP/Signer01_STOP_15.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer02_16",
+      "class_name": "STOP",
+      "signer_id": "Signer02",
+      "relative_path": "STOP/Signer02_STOP_16.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer03_17",
+      "class_name": "STOP",
+      "signer_id": "Signer03",
+      "relative_path": "STOP/Signer03_STOP_17.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer04_18",
+      "class_name": "STOP",
+      "signer_id": "Signer04",
+      "relative_path": "STOP/Signer04_STOP_18.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer05_19",
+      "class_name": "STOP",
+      "signer_id": "Signer05",
+      "relative_path": "STOP/Signer05_STOP_19.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer06_20",
+      "class_name": "STOP",
+      "signer_id": "Signer06",
+      "relative_path": "STOP/Signer06_STOP_20.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer07_21",
+      "class_name": "STOP",
+      "signer_id": "Signer07",
+      "relative_path": "STOP/Signer07_STOP_21.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer01_22",
+      "class_name": "STOP",
+      "signer_id": "Signer01",
+      "relative_path": "STOP/Signer01_STOP_22.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer02_23",
+      "class_name": "STOP",
+      "signer_id": "Signer02",
+      "relative_path": "STOP/Signer02_STOP_23.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer03_24",
+      "class_name": "STOP",
+      "signer_id": "Signer03",
+      "relative_path": "STOP/Signer03_STOP_24.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer04_25",
+      "class_name": "STOP",
+      "signer_id": "Signer04",
+      "relative_path": "STOP/Signer04_STOP_25.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer05_26",
+      "class_name": "STOP",
+      "signer_id": "Signer05",
+      "relative_path": "STOP/Signer05_STOP_26.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer06_27",
+      "class_name": "STOP",
+      "signer_id": "Signer06",
+      "relative_path": "STOP/Signer06_STOP_27.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer07_28",
+      "class_name": "STOP",
+      "signer_id": "Signer07",
+      "relative_path": "STOP/Signer07_STOP_28.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer01_29",
+      "class_name": "STOP",
+      "signer_id": "Signer01",
+      "relative_path": "STOP/Signer01_STOP_29.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer02_30",
+      "class_name": "STOP",
+      "signer_id": "Signer02",
+      "relative_path": "STOP/Signer02_STOP_30.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer03_31",
+      "class_name": "STOP",
+      "signer_id": "Signer03",
+      "relative_path": "STOP/Signer03_STOP_31.mp4"
+    },
+    {
+      "sample_id": "STOP_Signer04_32",
+      "class_name": "STOP",
+      "signer_id": "Signer04",
+      "relative_path": "STOP/Signer04_STOP_32.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer01_01",
+      "class_name": "NAME",
+      "signer_id": "Signer01",
+      "relative_path": "NAME/Signer01_NAME_01.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer02_02",
+      "class_name": "NAME",
+      "signer_id": "Signer02",
+      "relative_path": "NAME/Signer02_NAME_02.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer03_03",
+      "class_name": "NAME",
+      "signer_id": "Signer03",
+      "relative_path": "NAME/Signer03_NAME_03.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer04_04",
+      "class_name": "NAME",
+      "signer_id": "Signer04",
+      "relative_path": "NAME/Signer04_NAME_04.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer05_05",
+      "class_name": "NAME",
+      "signer_id": "Signer05",
+      "relative_path": "NAME/Signer05_NAME_05.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer06_06",
+      "class_name": "NAME",
+      "signer_id": "Signer06",
+      "relative_path": "NAME/Signer06_NAME_06.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer07_07",
+      "class_name": "NAME",
+      "signer_id": "Signer07",
+      "relative_path": "NAME/Signer07_NAME_07.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer01_08",
+      "class_name": "NAME",
+      "signer_id": "Signer01",
+      "relative_path": "NAME/Signer01_NAME_08.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer02_09",
+      "class_name": "NAME",
+      "signer_id": "Signer02",
+      "relative_path": "NAME/Signer02_NAME_09.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer03_10",
+      "class_name": "NAME",
+      "signer_id": "Signer03",
+      "relative_path": "NAME/Signer03_NAME_10.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer04_11",
+      "class_name": "NAME",
+      "signer_id": "Signer04",
+      "relative_path": "NAME/Signer04_NAME_11.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer05_12",
+      "class_name": "NAME",
+      "signer_id": "Signer05",
+      "relative_path": "NAME/Signer05_NAME_12.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer06_13",
+      "class_name": "NAME",
+      "signer_id": "Signer06",
+      "relative_path": "NAME/Signer06_NAME_13.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer07_14",
+      "class_name": "NAME",
+      "signer_id": "Signer07",
+      "relative_path": "NAME/Signer07_NAME_14.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer01_15",
+      "class_name": "NAME",
+      "signer_id": "Signer01",
+      "relative_path": "NAME/Signer01_NAME_15.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer02_16",
+      "class_name": "NAME",
+      "signer_id": "Signer02",
+      "relative_path": "NAME/Signer02_NAME_16.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer03_17",
+      "class_name": "NAME",
+      "signer_id": "Signer03",
+      "relative_path": "NAME/Signer03_NAME_17.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer04_18",
+      "class_name": "NAME",
+      "signer_id": "Signer04",
+      "relative_path": "NAME/Signer04_NAME_18.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer05_19",
+      "class_name": "NAME",
+      "signer_id": "Signer05",
+      "relative_path": "NAME/Signer05_NAME_19.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer06_20",
+      "class_name": "NAME",
+      "signer_id": "Signer06",
+      "relative_path": "NAME/Signer06_NAME_20.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer07_21",
+      "class_name": "NAME",
+      "signer_id": "Signer07",
+      "relative_path": "NAME/Signer07_NAME_21.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer01_22",
+      "class_name": "NAME",
+      "signer_id": "Signer01",
+      "relative_path": "NAME/Signer01_NAME_22.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer02_23",
+      "class_name": "NAME",
+      "signer_id": "Signer02",
+      "relative_path": "NAME/Signer02_NAME_23.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer03_24",
+      "class_name": "NAME",
+      "signer_id": "Signer03",
+      "relative_path": "NAME/Signer03_NAME_24.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer04_25",
+      "class_name": "NAME",
+      "signer_id": "Signer04",
+      "relative_path": "NAME/Signer04_NAME_25.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer05_26",
+      "class_name": "NAME",
+      "signer_id": "Signer05",
+      "relative_path": "NAME/Signer05_NAME_26.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer06_27",
+      "class_name": "NAME",
+      "signer_id": "Signer06",
+      "relative_path": "NAME/Signer06_NAME_27.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer07_28",
+      "class_name": "NAME",
+      "signer_id": "Signer07",
+      "relative_path": "NAME/Signer07_NAME_28.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer01_29",
+      "class_name": "NAME",
+      "signer_id": "Signer01",
+      "relative_path": "NAME/Signer01_NAME_29.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer02_30",
+      "class_name": "NAME",
+      "signer_id": "Signer02",
+      "relative_path": "NAME/Signer02_NAME_30.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer03_31",
+      "class_name": "NAME",
+      "signer_id": "Signer03",
+      "relative_path": "NAME/Signer03_NAME_31.mp4"
+    },
+    {
+      "sample_id": "NAME_Signer04_32",
+      "class_name": "NAME",
+      "signer_id": "Signer04",
+      "relative_path": "NAME/Signer04_NAME_32.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer01_01",
+      "class_name": "GOOD",
+      "signer_id": "Signer01",
+      "relative_path": "GOOD/Signer01_GOOD_01.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer02_02",
+      "class_name": "GOOD",
+      "signer_id": "Signer02",
+      "relative_path": "GOOD/Signer02_GOOD_02.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer03_03",
+      "class_name": "GOOD",
+      "signer_id": "Signer03",
+      "relative_path": "GOOD/Signer03_GOOD_03.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer04_04",
+      "class_name": "GOOD",
+      "signer_id": "Signer04",
+      "relative_path": "GOOD/Signer04_GOOD_04.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer05_05",
+      "class_name": "GOOD",
+      "signer_id": "Signer05",
+      "relative_path": "GOOD/Signer05_GOOD_05.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer06_06",
+      "class_name": "GOOD",
+      "signer_id": "Signer06",
+      "relative_path": "GOOD/Signer06_GOOD_06.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer07_07",
+      "class_name": "GOOD",
+      "signer_id": "Signer07",
+      "relative_path": "GOOD/Signer07_GOOD_07.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer01_08",
+      "class_name": "GOOD",
+      "signer_id": "Signer01",
+      "relative_path": "GOOD/Signer01_GOOD_08.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer02_09",
+      "class_name": "GOOD",
+      "signer_id": "Signer02",
+      "relative_path": "GOOD/Signer02_GOOD_09.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer03_10",
+      "class_name": "GOOD",
+      "signer_id": "Signer03",
+      "relative_path": "GOOD/Signer03_GOOD_10.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer04_11",
+      "class_name": "GOOD",
+      "signer_id": "Signer04",
+      "relative_path": "GOOD/Signer04_GOOD_11.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer05_12",
+      "class_name": "GOOD",
+      "signer_id": "Signer05",
+      "relative_path": "GOOD/Signer05_GOOD_12.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer06_13",
+      "class_name": "GOOD",
+      "signer_id": "Signer06",
+      "relative_path": "GOOD/Signer06_GOOD_13.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer07_14",
+      "class_name": "GOOD",
+      "signer_id": "Signer07",
+      "relative_path": "GOOD/Signer07_GOOD_14.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer01_15",
+      "class_name": "GOOD",
+      "signer_id": "Signer01",
+      "relative_path": "GOOD/Signer01_GOOD_15.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer02_16",
+      "class_name": "GOOD",
+      "signer_id": "Signer02",
+      "relative_path": "GOOD/Signer02_GOOD_16.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer03_17",
+      "class_name": "GOOD",
+      "signer_id": "Signer03",
+      "relative_path": "GOOD/Signer03_GOOD_17.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer04_18",
+      "class_name": "GOOD",
+      "signer_id": "Signer04",
+      "relative_path": "GOOD/Signer04_GOOD_18.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer05_19",
+      "class_name": "GOOD",
+      "signer_id": "Signer05",
+      "relative_path": "GOOD/Signer05_GOOD_19.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer06_20",
+      "class_name": "GOOD",
+      "signer_id": "Signer06",
+      "relative_path": "GOOD/Signer06_GOOD_20.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer07_21",
+      "class_name": "GOOD",
+      "signer_id": "Signer07",
+      "relative_path": "GOOD/Signer07_GOOD_21.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer01_22",
+      "class_name": "GOOD",
+      "signer_id": "Signer01",
+      "relative_path": "GOOD/Signer01_GOOD_22.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer02_23",
+      "class_name": "GOOD",
+      "signer_id": "Signer02",
+      "relative_path": "GOOD/Signer02_GOOD_23.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer03_24",
+      "class_name": "GOOD",
+      "signer_id": "Signer03",
+      "relative_path": "GOOD/Signer03_GOOD_24.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer04_25",
+      "class_name": "GOOD",
+      "signer_id": "Signer04",
+      "relative_path": "GOOD/Signer04_GOOD_25.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer05_26",
+      "class_name": "GOOD",
+      "signer_id": "Signer05",
+      "relative_path": "GOOD/Signer05_GOOD_26.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer06_27",
+      "class_name": "GOOD",
+      "signer_id": "Signer06",
+      "relative_path": "GOOD/Signer06_GOOD_27.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer07_28",
+      "class_name": "GOOD",
+      "signer_id": "Signer07",
+      "relative_path": "GOOD/Signer07_GOOD_28.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer01_29",
+      "class_name": "GOOD",
+      "signer_id": "Signer01",
+      "relative_path": "GOOD/Signer01_GOOD_29.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer02_30",
+      "class_name": "GOOD",
+      "signer_id": "Signer02",
+      "relative_path": "GOOD/Signer02_GOOD_30.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer03_31",
+      "class_name": "GOOD",
+      "signer_id": "Signer03",
+      "relative_path": "GOOD/Signer03_GOOD_31.mp4"
+    },
+    {
+      "sample_id": "GOOD_Signer04_32",
+      "class_name": "GOOD",
+      "signer_id": "Signer04",
+      "relative_path": "GOOD/Signer04_GOOD_32.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer01_01",
+      "class_name": "BAD",
+      "signer_id": "Signer01",
+      "relative_path": "BAD/Signer01_BAD_01.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer02_02",
+      "class_name": "BAD",
+      "signer_id": "Signer02",
+      "relative_path": "BAD/Signer02_BAD_02.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer03_03",
+      "class_name": "BAD",
+      "signer_id": "Signer03",
+      "relative_path": "BAD/Signer03_BAD_03.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer04_04",
+      "class_name": "BAD",
+      "signer_id": "Signer04",
+      "relative_path": "BAD/Signer04_BAD_04.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer05_05",
+      "class_name": "BAD",
+      "signer_id": "Signer05",
+      "relative_path": "BAD/Signer05_BAD_05.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer06_06",
+      "class_name": "BAD",
+      "signer_id": "Signer06",
+      "relative_path": "BAD/Signer06_BAD_06.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer07_07",
+      "class_name": "BAD",
+      "signer_id": "Signer07",
+      "relative_path": "BAD/Signer07_BAD_07.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer01_08",
+      "class_name": "BAD",
+      "signer_id": "Signer01",
+      "relative_path": "BAD/Signer01_BAD_08.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer02_09",
+      "class_name": "BAD",
+      "signer_id": "Signer02",
+      "relative_path": "BAD/Signer02_BAD_09.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer03_10",
+      "class_name": "BAD",
+      "signer_id": "Signer03",
+      "relative_path": "BAD/Signer03_BAD_10.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer04_11",
+      "class_name": "BAD",
+      "signer_id": "Signer04",
+      "relative_path": "BAD/Signer04_BAD_11.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer05_12",
+      "class_name": "BAD",
+      "signer_id": "Signer05",
+      "relative_path": "BAD/Signer05_BAD_12.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer06_13",
+      "class_name": "BAD",
+      "signer_id": "Signer06",
+      "relative_path": "BAD/Signer06_BAD_13.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer07_14",
+      "class_name": "BAD",
+      "signer_id": "Signer07",
+      "relative_path": "BAD/Signer07_BAD_14.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer01_15",
+      "class_name": "BAD",
+      "signer_id": "Signer01",
+      "relative_path": "BAD/Signer01_BAD_15.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer02_16",
+      "class_name": "BAD",
+      "signer_id": "Signer02",
+      "relative_path": "BAD/Signer02_BAD_16.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer03_17",
+      "class_name": "BAD",
+      "signer_id": "Signer03",
+      "relative_path": "BAD/Signer03_BAD_17.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer04_18",
+      "class_name": "BAD",
+      "signer_id": "Signer04",
+      "relative_path": "BAD/Signer04_BAD_18.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer05_19",
+      "class_name": "BAD",
+      "signer_id": "Signer05",
+      "relative_path": "BAD/Signer05_BAD_19.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer06_20",
+      "class_name": "BAD",
+      "signer_id": "Signer06",
+      "relative_path": "BAD/Signer06_BAD_20.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer07_21",
+      "class_name": "BAD",
+      "signer_id": "Signer07",
+      "relative_path": "BAD/Signer07_BAD_21.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer01_22",
+      "class_name": "BAD",
+      "signer_id": "Signer01",
+      "relative_path": "BAD/Signer01_BAD_22.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer02_23",
+      "class_name": "BAD",
+      "signer_id": "Signer02",
+      "relative_path": "BAD/Signer02_BAD_23.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer03_24",
+      "class_name": "BAD",
+      "signer_id": "Signer03",
+      "relative_path": "BAD/Signer03_BAD_24.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer04_25",
+      "class_name": "BAD",
+      "signer_id": "Signer04",
+      "relative_path": "BAD/Signer04_BAD_25.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer05_26",
+      "class_name": "BAD",
+      "signer_id": "Signer05",
+      "relative_path": "BAD/Signer05_BAD_26.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer06_27",
+      "class_name": "BAD",
+      "signer_id": "Signer06",
+      "relative_path": "BAD/Signer06_BAD_27.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer07_28",
+      "class_name": "BAD",
+      "signer_id": "Signer07",
+      "relative_path": "BAD/Signer07_BAD_28.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer01_29",
+      "class_name": "BAD",
+      "signer_id": "Signer01",
+      "relative_path": "BAD/Signer01_BAD_29.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer02_30",
+      "class_name": "BAD",
+      "signer_id": "Signer02",
+      "relative_path": "BAD/Signer02_BAD_30.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer03_31",
+      "class_name": "BAD",
+      "signer_id": "Signer03",
+      "relative_path": "BAD/Signer03_BAD_31.mp4"
+    },
+    {
+      "sample_id": "BAD_Signer04_32",
+      "class_name": "BAD",
+      "signer_id": "Signer04",
+      "relative_path": "BAD/Signer04_BAD_32.mp4"
+    },
+    {
+      "sample_id": "ME_Signer01_01",
+      "class_name": "ME",
+      "signer_id": "Signer01",
+      "relative_path": "ME/Signer01_ME_01.mp4"
+    },
+    {
+      "sample_id": "ME_Signer02_02",
+      "class_name": "ME",
+      "signer_id": "Signer02",
+      "relative_path": "ME/Signer02_ME_02.mp4"
+    },
+    {
+      "sample_id": "ME_Signer03_03",
+      "class_name": "ME",
+      "signer_id": "Signer03",
+      "relative_path": "ME/Signer03_ME_03.mp4"
+    },
+    {
+      "sample_id": "ME_Signer04_04",
+      "class_name": "ME",
+      "signer_id": "Signer04",
+      "relative_path": "ME/Signer04_ME_04.mp4"
+    },
+    {
+      "sample_id": "ME_Signer05_05",
+      "class_name": "ME",
+      "signer_id": "Signer05",
+      "relative_path": "ME/Signer05_ME_05.mp4"
+    },
+    {
+      "sample_id": "ME_Signer06_06",
+      "class_name": "ME",
+      "signer_id": "Signer06",
+      "relative_path": "ME/Signer06_ME_06.mp4"
+    },
+    {
+      "sample_id": "ME_Signer07_07",
+      "class_name": "ME",
+      "signer_id": "Signer07",
+      "relative_path": "ME/Signer07_ME_07.mp4"
+    },
+    {
+      "sample_id": "ME_Signer01_08",
+      "class_name": "ME",
+      "signer_id": "Signer01",
+      "relative_path": "ME/Signer01_ME_08.mp4"
+    },
+    {
+      "sample_id": "ME_Signer02_09",
+      "class_name": "ME",
+      "signer_id": "Signer02",
+      "relative_path": "ME/Signer02_ME_09.mp4"
+    },
+    {
+      "sample_id": "ME_Signer03_10",
+      "class_name": "ME",
+      "signer_id": "Signer03",
+      "relative_path": "ME/Signer03_ME_10.mp4"
+    },
+    {
+      "sample_id": "ME_Signer04_11",
+      "class_name": "ME",
+      "signer_id": "Signer04",
+      "relative_path": "ME/Signer04_ME_11.mp4"
+    },
+    {
+      "sample_id": "ME_Signer05_12",
+      "class_name": "ME",
+      "signer_id": "Signer05",
+      "relative_path": "ME/Signer05_ME_12.mp4"
+    },
+    {
+      "sample_id": "ME_Signer06_13",
+      "class_name": "ME",
+      "signer_id": "Signer06",
+      "relative_path": "ME/Signer06_ME_13.mp4"
+    },
+    {
+      "sample_id": "ME_Signer07_14",
+      "class_name": "ME",
+      "signer_id": "Signer07",
+      "relative_path": "ME/Signer07_ME_14.mp4"
+    },
+    {
+      "sample_id": "ME_Signer01_15",
+      "class_name": "ME",
+      "signer_id": "Signer01",
+      "relative_path": "ME/Signer01_ME_15.mp4"
+    },
+    {
+      "sample_id": "ME_Signer02_16",
+      "class_name": "ME",
+      "signer_id": "Signer02",
+      "relative_path": "ME/Signer02_ME_16.mp4"
+    },
+    {
+      "sample_id": "ME_Signer03_17",
+      "class_name": "ME",
+      "signer_id": "Signer03",
+      "relative_path": "ME/Signer03_ME_17.mp4"
+    },
+    {
+      "sample_id": "ME_Signer04_18",
+      "class_name": "ME",
+      "signer_id": "Signer04",
+      "relative_path": "ME/Signer04_ME_18.mp4"
+    },
+    {
+      "sample_id": "ME_Signer05_19",
+      "class_name": "ME",
+      "signer_id": "Signer05",
+      "relative_path": "ME/Signer05_ME_19.mp4"
+    },
+    {
+      "sample_id": "ME_Signer06_20",
+      "class_name": "ME",
+      "signer_id": "Signer06",
+      "relative_path": "ME/Signer06_ME_20.mp4"
+    },
+    {
+      "sample_id": "ME_Signer07_21",
+      "class_name": "ME",
+      "signer_id": "Signer07",
+      "relative_path": "ME/Signer07_ME_21.mp4"
+    },
+    {
+      "sample_id": "ME_Signer01_22",
+      "class_name": "ME",
+      "signer_id": "Signer01",
+      "relative_path": "ME/Signer01_ME_22.mp4"
+    },
+    {
+      "sample_id": "ME_Signer02_23",
+      "class_name": "ME",
+      "signer_id": "Signer02",
+      "relative_path": "ME/Signer02_ME_23.mp4"
+    },
+    {
+      "sample_id": "ME_Signer03_24",
+      "class_name": "ME",
+      "signer_id": "Signer03",
+      "relative_path": "ME/Signer03_ME_24.mp4"
+    },
+    {
+      "sample_id": "ME_Signer04_25",
+      "class_name": "ME",
+      "signer_id": "Signer04",
+      "relative_path": "ME/Signer04_ME_25.mp4"
+    },
+    {
+      "sample_id": "ME_Signer05_26",
+      "class_name": "ME",
+      "signer_id": "Signer05",
+      "relative_path": "ME/Signer05_ME_26.mp4"
+    },
+    {
+      "sample_id": "ME_Signer06_27",
+      "class_name": "ME",
+      "signer_id": "Signer06",
+      "relative_path": "ME/Signer06_ME_27.mp4"
+    },
+    {
+      "sample_id": "ME_Signer07_28",
+      "class_name": "ME",
+      "signer_id": "Signer07",
+      "relative_path": "ME/Signer07_ME_28.mp4"
+    },
+    {
+      "sample_id": "ME_Signer01_29",
+      "class_name": "ME",
+      "signer_id": "Signer01",
+      "relative_path": "ME/Signer01_ME_29.mp4"
+    },
+    {
+      "sample_id": "ME_Signer02_30",
+      "class_name": "ME",
+      "signer_id": "Signer02",
+      "relative_path": "ME/Signer02_ME_30.mp4"
+    },
+    {
+      "sample_id": "ME_Signer03_31",
+      "class_name": "ME",
+      "signer_id": "Signer03",
+      "relative_path": "ME/Signer03_ME_31.mp4"
+    },
+    {
+      "sample_id": "ME_Signer04_32",
+      "class_name": "ME",
+      "signer_id": "Signer04",
+      "relative_path": "ME/Signer04_ME_32.mp4"
+    }
+  ]
+}
