@@ -287,3 +287,34 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-023.
   - Project owner review and merge of PRs.
   - Proceed to SANKET-024 (Hand landmark extraction via MediaPipe).
+
+
+---
+
+### 2026-10-29 — SANKET-024: MediaPipe 3D Hand Landmark Extraction
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-024 (Issue #26)
+- **Completed Work**:
+  - Implemented 3D hand landmark extraction engine in `src/sanket/vision/landmarks.py` powered by MediaPipe Tasks Vision (`HandLandmarker`), extracting $21 \times 3$ coordinates $(x, y, z)$ for dominant and non-dominant hands with confidence scoring.
+  - Developed `FrameLandmarks` and `SequenceLandmarks` data structures supporting 1D flat vector flattening (`to_flat_vector()`, length 126) and 2D temporal matrix representation (`to_flat_matrix()`, shape $(T, 126)$).
+  - Implemented robust missing hand detection handling with multiple temporal imputation strategies (`impute_missing`): zero-padding (`zero`), temporal carry-forward with backfill (`carry_forward`), and linear temporal interpolation (`linear`).
+  - Implemented compressed archive serialization and deserialization (`save_landmarks_npz`, `load_landmarks_npz`) storing coordinate arrays and metadata in `.npz` format.
+  - Implemented automated model cache resolver and downloader (`ensure_hand_landmarker_model`) to acquire official `hand_landmarker.task` bundles seamlessly.
+  - Developed end-to-end operational CLI utility in `scripts/extract_landmarks.py` supporting single-clip and batch directory landmark extraction, configurable imputation, and optional flattened `.npy` export.
+  - Updated `.gitignore` to ignore `*.task` binary model files.
+  - Updated `requirements.txt` and `pyproject.toml` dependencies to include `mediapipe>=0.10.0`.
+  - Authored comprehensive test suite in `tests/test_landmarks.py` with 17 new tests covering coordinate flattening, temporal imputation strategies, `.npz` serialization round-trips, model caching, MediaPipe extractor integration, and CLI execution (72/72 tests passing repo-wide with 91% coverage on `landmarks.py`).
+- **Decisions**:
+  - Adopted MediaPipe Tasks Vision (`HandLandmarker`) for modern CPU inference with TFLite XNNPACK acceleration.
+  - Bound hand coordinates to normalized $[0.0, 1.0]$ screen space with relative $z$ depth, generating 126 features per frame ($21 \times 3 \times 2$ hands).
+  - Preserved complete zero-padding for permanently absent hands (e.g. one-handed signs) while providing carry-forward imputation for transient tracking failures.
+- **Experiments**:
+  - Evaluated MediaPipe HandLandmarker on synthetic video frames and verified 100% extraction pipeline integration with SANKET-023 video preprocessor.
+- **Results**:
+  - 3D hand landmark extraction subsystem operational and fully tested (72/72 unit tests passed).
+- **Next Actions**:
+  - Submit Pull Request for SANKET-024.
+  - Review and merge open PRs (#38, #39, #40).
+  - Proceed to SANKET-025 (Pose and body landmark extraction).
