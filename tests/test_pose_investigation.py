@@ -208,6 +208,11 @@ def test_pose_extractor_mock_detection() -> None:
         mock_result = MagicMock()
         mock_result.pose_landmarks = [mock_landmarks]
 
+        if extractor._detector is None:
+            extractor._detector = MagicMock()
+            extractor._backend = "mediapipe"
+            extractor._mp = MagicMock()
+
         extractor._detector.detect = MagicMock(return_value=mock_result)
         blank = np.zeros((480, 640, 3), dtype=np.uint8)
         anchors = extractor.extract_frame(blank)
