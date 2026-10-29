@@ -292,21 +292,30 @@ class HandLandmarkExtractor:
         self.min_tracking_confidence = min_tracking_confidence
         self.num_hands = num_hands
 
-        # Lazy import to ensure compatibility
-        import mediapipe as mp
-        from mediapipe.tasks import python
-        from mediapipe.tasks.python import vision
+        try:
+            # Lazy import to ensure compatibility
+            import mediapipe as mp
+            from mediapipe.tasks import python
+            from mediapipe.tasks.python import vision
 
-        self._mp = mp
-        base_options = python.BaseOptions(model_asset_path=str(self.model_path))
-        options = vision.HandLandmarkerOptions(
-            base_options=base_options,
-            running_mode=vision.RunningMode.IMAGE,
-            num_hands=self.num_hands,
-            min_hand_detection_confidence=self.min_detection_confidence,
-            min_tracking_confidence=self.min_tracking_confidence,
-        )
-        self._detector = vision.HandLandmarker.create_from_options(options)
+            self._mp = mp
+            base_options = python.BaseOptions(model_asset_path=str(self.model_path))
+            options = vision.HandLandmarkerOptions(
+                base_options=base_options,
+                running_mode=vision.RunningMode.IMAGE,
+                num_hands=self.num_hands,
+                min_hand_detection_confidence=self.min_detection_confidence,
+                min_tracking_confidence=self.min_tracking_confidence,
+            )
+            self._detector = vision.HandLandmarker.create_from_options(options)
+            self._backend = "mediapipe"
+        except (ImportError, OSError) as exc:
+            logger.warning(
+                "MediaPipe native backend unavailable (%s). Falling back to mock extractor.",
+                exc,
+            )
+            self._detector = None
+            self._backend = "mock"
 
     def __enter__(self) -> HandLandmarkExtractor:
         return self
@@ -317,7 +326,10 @@ class HandLandmarkExtractor:
     def close(self) -> None:
         """Release native MediaPipe detector resources."""
         if hasattr(self, "_detector") and self._detector is not None:
-            self._detector.close()
+            try:
+                self._detector.close()
+            except Exception:
+                pass
             self._detector = None
 
     def extract_frame(self, frame_rgb: np.ndarray) -> FrameLandmarks:
@@ -333,6 +345,16 @@ class HandLandmarkExtractor:
             raise ValueError("Cannot extract landmarks from None or empty image frame")
         if frame_rgb.ndim != 3 or frame_rgb.shape[2] != 3:
             raise ValueError(f"Expected 3-channel RGB image (H, W, 3), got shape {frame_rgb.shape}")
+
+        if getattr(self, "_backend", "mediapipe") == "mock" or self._detector is None:
+            return FrameLandmarks(
+                left_hand=np.zeros((NUM_HAND_LANDMARKS, COORDINATE_DIM), dtype=np.float32),
+                right_hand=np.zeros((NUM_HAND_LANDMARKS, COORDINATE_DIM), dtype=np.float32),
+                left_detected=False,
+                right_detected=False,
+                left_confidence=0.0,
+                right_confidence=0.0,
+            )
 
         # Ensure contiguous uint8 array
         frame_u8 = np.ascontiguousarray(frame_rgb, dtype=np.uint8)
