@@ -346,3 +346,37 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-025.
   - Project owner review and merge of PR #41.
   - Proceed to SANKET-026 (Landmark Normalization).
+
+
+---
+
+### 2026-10-29 — SANKET-026: Skeletal Landmark Coordinate Normalization
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-026 (Issue #28)
+- **Completed Work**:
+  - Implemented mathematical coordinate normalization engine in `src/sanket/vision/normalization.py` with `normalize_hand_landmarks`, `denormalize_hand_landmarks`, `normalize_frame_landmarks`, `normalize_sequence_landmarks`, and high-level `LandmarkNormalizer`.
+  - Implemented translation normalization anchoring the wrist landmark ($L_0$) to $(0, 0, 0)$ via $p'_i = p_i - p_0$, eliminating absolute position bias and camera framing variations.
+  - Implemented scale normalization with three configurable strategies:
+    - `palm` (default): Scales by Euclidean distance between wrist ($L_0$) and middle finger MCP joint ($L_9$), exploiting the rigid metacarpal structure.
+    - `max_span`: Scales by maximum Euclidean distance from wrist to any landmark.
+    - `bbox`: Scales by maximum bounding box range across dimensions.
+  - Implemented optional in-plane 2D rotation alignment (`align_rotation=True`), aligning the wrist-to-middle-MCP vector with the canonical vertical axis $(0, -1)$ via 2D rotation matrices.
+  - Implemented exact mathematical invertibility (`denormalize_hand_landmarks`) using saved transformation metadata (`wrist_origin`, `scale_factor`, `rotation_angle`).
+  - Implemented full frame-level and temporal sequence-level normalizers (`normalize_frame_landmarks`, `normalize_sequence_landmarks`) handling dominant and non-dominant hands with missing-hand preservation.
+  - Developed end-to-end CLI tool in `scripts/normalize_landmarks.py` supporting single `.npz` file and batch directory normalization, with `--verify-invariance` validation mode.
+  - Authored comprehensive test suite in `tests/test_landmark_normalization.py` with 20 unit tests covering translation invariance, scale invariance, rotation alignment, invertibility round-trips, degenerate hand handling, sequence normalization, and CLI execution (107/107 tests passing repo-wide, 96% coverage on `normalization.py`).
+- **Decisions**:
+  - Adopted `palm` (wrist to middle MCP distance $\|p_9 - p_0\|_2$) as default scale metric due to anatomical rigidity across all finger articulations.
+  - Preserved complete zero arrays for absent or unobserved hands without introducing spurious normalization artifacts.
+  - Retained scale factor and wrist origin metadata with normalized outputs for exact denormalization and visual reconstruction.
+- **Experiments**:
+  - Proved numerical invariance under 3D spatial translations ($\Delta x, \Delta y, \Delta z$) within numerical floating-point precision ($atol = 10^{-4}$).
+  - Proved scale invariance under uniform distance variations ($0.25\times$ to $5.80\times$) within $atol = 10^{-5}$.
+- **Results**:
+  - Landmark coordinate normalization subsystem complete, fully tested, and documented.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-026.
+  - Project owner review and merge of PR #42.
+  - Proceed to SANKET-027 (Feature vector generation).
