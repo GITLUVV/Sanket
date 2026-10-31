@@ -380,3 +380,34 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-026.
   - Project owner review and merge of PR #42.
   - Proceed to SANKET-027 (Feature vector generation).
+
+
+---
+
+### 2026-10-31 — SANKET-027: Feature Vector Generation & Kinematic Modeling
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-027 (Issue #29)
+- **Completed Work**:
+  - Implemented the core feature engineering subsystem in `src/sanket/features/` converting normalized skeletal landmarks into structured, discriminative tabular vectors.
+  - Implemented 3D anatomical joint angle extraction in `src/sanket/features/geometry.py` calculating 15 flexion angles across proximal, intermediate, and distal finger phalanges, plus 4 inter-finger abduction angles ($19 \times 2 = 38$ angles for two hands) in radians $[0, \pi]$ using vector dot products.
+  - Implemented anatomical pairwise Euclidean distance calculations ($24 \times 2 = 48$ distances for two hands) capturing finger curling, span, and tip-to-palm proximity with mathematical translation invariance.
+  - Implemented inter-hand spatial interaction metrics (3 dimensions: inter-wrist, inter-index-tip, and inter-thumb-tip distances) for two-handed signs.
+  - Implemented temporal dynamics and statistical moments aggregation in `src/sanket/features/temporal.py` (`mean`, `std`, `delta`, `max_velocity`) with boolean validity masks for unobserved frames.
+  - Developed high-level `FeatureExtractor` and `FeatureVector` container in `src/sanket/features/extractor.py` generating $215$-dimensional frame vectors and $645$-dimensional pooled tabular vectors.
+  - Developed end-to-end CLI tool in `scripts/generate_features.py` supporting batch extraction, split manifest partitioning (`configs/splits/include16_signer_independent.json`), class mapping, and `--verify` programmatic self-test.
+  - Published Architecture Decision Record `docs/decisions/ADR-0002-feature-representation.md` documenting the hybrid coordinate, angular, geometric, and temporal representation (satisfying Roadmap Phase 1 Gate requirement).
+  - Authored comprehensive test suite in `tests/test_features.py` with 20 unit tests achieving 100% code coverage across `src/sanket/features/` (128/128 tests passing repo-wide).
+- **Decisions**:
+  - Selected hybrid 645-dimensional feature representation (Option 3 in ADR-0002) combining coordinates (126), angles (38), pairwise distances (48), inter-hand interaction (3), pooled over 3 temporal moments (mean, std, delta).
+  - Preserved complete zero vectors for missing hands without generating spurious angles or division-by-zero artifacts.
+- **Experiments**:
+  - Verified programmatic translation invariance of pairwise distances ($atol = 10^{-4}$).
+  - Verified determinism and numerical finiteness across synthetic multi-frame gesture sequences.
+- **Results**:
+  - Complete, reproducible feature engineering pipeline operational and verified with 100% test coverage.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-027.
+  - Project owner review and merge of PRs #42 and #43.
+  - Proceed to SANKET-028 (Baseline Random Forest model).
