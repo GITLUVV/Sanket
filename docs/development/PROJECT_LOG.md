@@ -411,3 +411,37 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-027.
   - Project owner review and merge of PRs #42 and #43.
   - Proceed to SANKET-028 (Baseline Random Forest model).
+
+
+---
+
+### 2026-10-31 — SANKET-028: Baseline Random Forest Model
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-028 (Issue #30)
+- **Completed Work**:
+  - Implemented the standardized model architecture base contract in src/sanket/models/base.py:
+    - SignModelMetrics dataclass capturing accuracy, top-3 accuracy, macro/weighted precision, recall, macro/weighted F1, per-class F1, confusion matrix, sample counts, and inference latency in milliseconds.
+    - BaseSignClassifier abstract base class defining it, predict, predict_proba, evaluate, save, and load contracts with scikit-learn compatible attributes (classes_, eature_names_, is_fitted_) and properties.
+  - Implemented RandomForestSignClassifier in src/sanket/models/random_forest.py wrapping sklearn.ensemble.RandomForestClassifier:
+    - Multiclass inference with class probability calibration and top-k ranking.
+    - Gini feature importance extraction via get_top_features(k) mapping feature indices to human-interpretable anatomical names.
+    - Grid search hyperparameter tuning over validation split (	une_hyperparameters) covering 
+_estimators, max_depth, and min_samples_split.
+    - Serialization and atomic deserialization using joblib.
+  - Implemented end-to-end training and evaluation script in scripts/train_random_forest.py supporting directory feature loading, validation tuning, synthetic 16-class benchmark demonstration (--synthetic-demo), model artifact export, Gini feature importances export, and comprehensive training reports.
+  - Authored comprehensive test suite in 	ests/test_random_forest.py with 12 tests achieving 93% code coverage across src/sanket/models/ (140/140 tests passing repo-wide).
+  - Promoted scikit-learn and joblib into core dependencies in pyproject.toml and 
+equirements.txt.
+- **Decisions**:
+  - Adopted a clean abstract base class architecture (BaseSignClassifier) to enforce contract uniformity across all upcoming Phase 1 classifiers (SVM SANKET-029, MLP SANKET-030).
+  - Selected joblib for model serialization ensuring efficient numpy array storage and rapid artifact loading.
+- **Experiments**:
+  - Benchmarked inference latency on 16-class synthetic feature vectors (~0.73 ms per sample), substantially outperforming the real-time threshold budget of <= 50 ms (Roadmap RQ5).
+- **Results**:
+  - Random Forest baseline model and training pipeline operational, verified with 93% unit test coverage and zero linting warnings.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-028.
+  - Project owner review and merge of PRs #42, #43, and #44.
+  - Proceed to SANKET-029 (Baseline SVM model).
