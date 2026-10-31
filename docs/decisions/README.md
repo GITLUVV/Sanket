@@ -7,6 +7,7 @@ This directory maintains Architecture Decision Records (ADRs) for significant ar
 | ADR | Title | Status | Date |
 | :-- | :---- | :----- | :--- |
 | [ADR-0001](ADR-0001-project-foundations.md) | Project Architecture Foundations, Sequential Gating & Modular Layout | Accepted | 2026-10-28 |
+| [ADR-0002](ADR-0002-feature-representation.md) | Feature Vector Representation for Isolated Sign Recognition | Accepted | 2026-10-31 |
 
 ## How to Propose an ADR
 1. Copy `docs/decisions/ADR_TEMPLATE.md` to a new file `ADR-XXXX-<short-title>.md`.

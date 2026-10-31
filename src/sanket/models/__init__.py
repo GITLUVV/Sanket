@@ -1,6 +1,10 @@
-"""Machine learning subsystem: baseline classifiers and temporal sequence architectures.
+"""Machine learning models subsystem: baselines and sequence classifiers."""
 
-Note: Model implementations will be developed in Phase 1 and Phase 3.
-"""
+from sanket.models.base import BaseSignClassifier, SignModelMetrics
+from sanket.models.random_forest import RandomForestSignClassifier
 
-__all__ = []
+__all__ = [
+    "BaseSignClassifier",
+    "RandomForestSignClassifier",
+    "SignModelMetrics",
+]
