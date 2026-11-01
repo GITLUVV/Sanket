@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import numpy as np
 
+from sanket.data.ingestion import APPROVED_VOCABULARY_V1
 from sanket.evaluation import SignModelEvaluator, lock_seed
 from sanket.models import (
     MLPSignClassifier,
@@ -31,24 +32,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("sanket.evaluate_model")
 
-INITIAL_16_VOCABULARY = [
-    "HELLO",
-    "THANK_YOU",
-    "YES",
-    "NO",
-    "PLEASE",
-    "WATER",
-    "FOOD",
-    "HELP",
-    "GOOD",
-    "BAD",
-    "FAMILY",
-    "FRIEND",
-    "WORK",
-    "NAME",
-    "WHERE",
-    "HOW",
-]
+INITIAL_16_VOCABULARY = APPROVED_VOCABULARY_V1
 
 
 def generate_synthetic_test_data(
