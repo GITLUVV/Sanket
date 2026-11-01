@@ -84,6 +84,6 @@ Wiki Root
 
 ## Initializing the GitHub Wiki
 Because GitHub automatically creates the wiki Git repository upon the creation of the first page via the web UI:
-1. Navigate to `https://github.com/anveshna25/Sanket/wiki`.
+1. Navigate to `https://github.com/GITLUVV/Sanket/wiki`.
 2. Click **Create the first page** to create `Home.md`.
-3. Once initialized, the wiki repository `https://github.com/anveshna25/Sanket.wiki.git` becomes active and can be synced with these drafts.
+3. Once initialized, the wiki repository `https://github.com/GITLUVV/Sanket.wiki.git` becomes active and can be synced with these drafts.

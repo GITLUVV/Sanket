@@ -42,14 +42,26 @@ Merge into main
 
 ### Branch Naming Conventions
 
-Use standardized branch names matching assigned issue IDs:
+Use standardized, issue-traceable branch names:
 
-- `feature/SANKET-XXX-description` — New features or pipeline additions
-- `fix/SANKET-XXX-description` — Bug fixes or defect resolutions
-- `research/SANKET-XXX-description` — Exploration, dataset surveys, feasibility investigations
-- `docs/SANKET-XXX-description` — Documentation, ADRs, logs, or Wiki updates
-- `refactor/SANKET-XXX-description` — Code improvements with identical external behavior
-- `chore/SANKET-XXX-description` — Tooling, dependency, or configuration maintenance
+- `feat/SANKET-XXX-description` (or `feature/SANKET-XXX-...`) - New features or pipeline additions
+- `fix/SANKET-XXX-description` - Bug fixes or defect resolutions
+- `research/SANKET-XXX-description` - Exploration, dataset surveys, feasibility investigations
+- `docs/SANKET-XXX-description` - Documentation, ADRs, logs, or Wiki updates
+- `refactor/SANKET-XXX-description` - Code improvements with identical external behavior
+- `test/SANKET-XXX-description` - Test suites, benchmarks, evaluation harnesses
+- `security/SANKET-XXX-description` - Security hardening and vulnerability fixes
+- `chore/SANKET-XXX-description` - Tooling, dependency, or configuration maintenance
+
+### Mandatory Pull Request Metadata
+
+Every Pull Request submitted to `main` must pass automated PR metadata verification (`.github/workflows/pr-metadata.yml`):
+1. **Linked GitHub Issue**: The PR description must explicitly include a closing reference (e.g. `Closes #33`).
+2. **Milestone Assigned**: Must be assigned to the active milestone (e.g. `Milestone 1 - Data & Isolated Sign Recognition`).
+3. **Four-Dimensional Labels**: Must carry at least one label from each required category (`type:*`, `area:*`, `priority:*`, `phase:*`).
+4. **Conventional Commits PR Title**: Title must follow standard formatting: `<type>(<scope>): <description> (SANKET-XXX)`.
+5. **Testing & Acceptance Criteria**: Must include executed test proof and verified acceptance criteria checkboxes.
+
 
 ---
 
