@@ -244,15 +244,41 @@ class PoseExtractor:
         self,
         model_path: str | Path | None = None,
         min_detection_confidence: float = 0.5,
+        backend: str = "auto",
+        detector: Any = None,
     ) -> None:
         """Initialize MediaPipe PoseLandmarker.
 
         Args:
             model_path: Path to pose_landmarker_lite.task bundle. If None, auto-resolved.
             min_detection_confidence: Minimum detection confidence threshold.
+            backend: Backend engine ('auto', 'mediapipe', or 'mock').
+            detector: Optional injected detector object (primarily for testing).
         """
-        self.model_path = ensure_pose_landmarker_model(model_path)
         self.min_detection_confidence = min_detection_confidence
+
+        if detector is not None:
+            self.model_path = Path(model_path) if model_path is not None else None
+            self._detector = detector
+            self._backend = "mediapipe"
+            try:
+                import mediapipe as mp
+
+                self._mp = mp
+            except (ImportError, OSError):
+                from unittest.mock import MagicMock
+
+                self._mp = MagicMock()
+            return
+
+        if backend == "mock":
+            self.model_path = None
+            self._detector = None
+            self._backend = "mock"
+            self._mp = None
+            return
+
+        self.model_path = ensure_pose_landmarker_model(model_path)
 
         try:
             import mediapipe as mp
@@ -276,6 +302,16 @@ class PoseExtractor:
             )
             self._detector = None
             self._backend = "mock"
+
+    @property
+    def backend(self) -> str:
+        """Return the active pose extraction backend ('mediapipe' or 'mock')."""
+        return self._backend
+
+    @property
+    def detector(self) -> Any:
+        """Return the underlying detector instance or None."""
+        return self._detector
 
     def __enter__(self) -> PoseExtractor:
         return self

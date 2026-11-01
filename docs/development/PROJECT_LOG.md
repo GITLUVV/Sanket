@@ -346,3 +346,102 @@ This log maintains a chronological record of significant engineering progress, a
   - Submit Pull Request for SANKET-025.
   - Project owner review and merge of PR #41.
   - Proceed to SANKET-026 (Landmark Normalization).
+
+
+---
+
+### 2026-10-29 — SANKET-026: Skeletal Landmark Coordinate Normalization
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-026 (Issue #28)
+- **Completed Work**:
+  - Implemented mathematical coordinate normalization engine in `src/sanket/vision/normalization.py` with `normalize_hand_landmarks`, `denormalize_hand_landmarks`, `normalize_frame_landmarks`, `normalize_sequence_landmarks`, and high-level `LandmarkNormalizer`.
+  - Implemented translation normalization anchoring the wrist landmark ($L_0$) to $(0, 0, 0)$ via $p'_i = p_i - p_0$, eliminating absolute position bias and camera framing variations.
+  - Implemented scale normalization with three configurable strategies:
+    - `palm` (default): Scales by Euclidean distance between wrist ($L_0$) and middle finger MCP joint ($L_9$), exploiting the rigid metacarpal structure.
+    - `max_span`: Scales by maximum Euclidean distance from wrist to any landmark.
+    - `bbox`: Scales by maximum bounding box range across dimensions.
+  - Implemented optional in-plane 2D rotation alignment (`align_rotation=True`), aligning the wrist-to-middle-MCP vector with the canonical vertical axis $(0, -1)$ via 2D rotation matrices.
+  - Implemented exact mathematical invertibility (`denormalize_hand_landmarks`) using saved transformation metadata (`wrist_origin`, `scale_factor`, `rotation_angle`).
+  - Implemented full frame-level and temporal sequence-level normalizers (`normalize_frame_landmarks`, `normalize_sequence_landmarks`) handling dominant and non-dominant hands with missing-hand preservation.
+  - Developed end-to-end CLI tool in `scripts/normalize_landmarks.py` supporting single `.npz` file and batch directory normalization, with `--verify-invariance` validation mode.
+  - Authored comprehensive test suite in `tests/test_landmark_normalization.py` with 20 unit tests covering translation invariance, scale invariance, rotation alignment, invertibility round-trips, degenerate hand handling, sequence normalization, and CLI execution (107/107 tests passing repo-wide, 96% coverage on `normalization.py`).
+- **Decisions**:
+  - Adopted `palm` (wrist to middle MCP distance $\|p_9 - p_0\|_2$) as default scale metric due to anatomical rigidity across all finger articulations.
+  - Preserved complete zero arrays for absent or unobserved hands without introducing spurious normalization artifacts.
+  - Retained scale factor and wrist origin metadata with normalized outputs for exact denormalization and visual reconstruction.
+- **Experiments**:
+  - Proved numerical invariance under 3D spatial translations ($\Delta x, \Delta y, \Delta z$) within numerical floating-point precision ($atol = 10^{-4}$).
+  - Proved scale invariance under uniform distance variations ($0.25\times$ to $5.80\times$) within $atol = 10^{-5}$.
+- **Results**:
+  - Landmark coordinate normalization subsystem complete, fully tested, and documented.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-026.
+  - Project owner review and merge of PR #42.
+  - Proceed to SANKET-027 (Feature vector generation).
+
+
+---
+
+### 2026-10-31 — SANKET-027: Feature Vector Generation & Kinematic Modeling
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-027 (Issue #29)
+- **Completed Work**:
+  - Implemented the core feature engineering subsystem in `src/sanket/features/` converting normalized skeletal landmarks into structured, discriminative tabular vectors.
+  - Implemented 3D anatomical joint angle extraction in `src/sanket/features/geometry.py` calculating 15 flexion angles across proximal, intermediate, and distal finger phalanges, plus 4 inter-finger abduction angles ($19 \times 2 = 38$ angles for two hands) in radians $[0, \pi]$ using vector dot products.
+  - Implemented anatomical pairwise Euclidean distance calculations ($24 \times 2 = 48$ distances for two hands) capturing finger curling, span, and tip-to-palm proximity with mathematical translation invariance.
+  - Implemented inter-hand spatial interaction metrics (3 dimensions: inter-wrist, inter-index-tip, and inter-thumb-tip distances) for two-handed signs.
+  - Implemented temporal dynamics and statistical moments aggregation in `src/sanket/features/temporal.py` (`mean`, `std`, `delta`, `max_velocity`) with boolean validity masks for unobserved frames.
+  - Developed high-level `FeatureExtractor` and `FeatureVector` container in `src/sanket/features/extractor.py` generating $215$-dimensional frame vectors and $645$-dimensional pooled tabular vectors.
+  - Developed end-to-end CLI tool in `scripts/generate_features.py` supporting batch extraction, split manifest partitioning (`configs/splits/include16_signer_independent.json`), class mapping, and `--verify` programmatic self-test.
+  - Published Architecture Decision Record `docs/decisions/ADR-0002-feature-representation.md` documenting the hybrid coordinate, angular, geometric, and temporal representation (satisfying Roadmap Phase 1 Gate requirement).
+  - Authored comprehensive test suite in `tests/test_features.py` with 20 unit tests achieving 100% code coverage across `src/sanket/features/` (128/128 tests passing repo-wide).
+- **Decisions**:
+  - Selected hybrid 645-dimensional feature representation (Option 3 in ADR-0002) combining coordinates (126), angles (38), pairwise distances (48), inter-hand interaction (3), pooled over 3 temporal moments (mean, std, delta).
+  - Preserved complete zero vectors for missing hands without generating spurious angles or division-by-zero artifacts.
+- **Experiments**:
+  - Verified programmatic translation invariance of pairwise distances ($atol = 10^{-4}$).
+  - Verified determinism and numerical finiteness across synthetic multi-frame gesture sequences.
+- **Results**:
+  - Complete, reproducible feature engineering pipeline operational and verified with 100% test coverage.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-027.
+  - Project owner review and merge of PRs #42 and #43.
+  - Proceed to SANKET-028 (Baseline Random Forest model).
+
+
+---
+
+### 2026-10-31 — SANKET-028: Baseline Random Forest Model
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-028 (Issue #30)
+- **Completed Work**:
+  - Implemented the standardized model architecture base contract in src/sanket/models/base.py:
+    - SignModelMetrics dataclass capturing accuracy, top-3 accuracy, macro/weighted precision, recall, macro/weighted F1, per-class F1, confusion matrix, sample counts, and inference latency in milliseconds.
+    - BaseSignClassifier abstract base class defining it, predict, predict_proba, evaluate, save, and load contracts with scikit-learn compatible attributes (classes_, eature_names_, is_fitted_) and properties.
+  - Implemented RandomForestSignClassifier in src/sanket/models/random_forest.py wrapping sklearn.ensemble.RandomForestClassifier:
+    - Multiclass inference with class probability calibration and top-k ranking.
+    - Gini feature importance extraction via get_top_features(k) mapping feature indices to human-interpretable anatomical names.
+    - Grid search hyperparameter tuning over validation split (	une_hyperparameters) covering 
+_estimators, max_depth, and min_samples_split.
+    - Serialization and atomic deserialization using joblib.
+  - Implemented end-to-end training and evaluation script in scripts/train_random_forest.py supporting directory feature loading, validation tuning, synthetic 16-class benchmark demonstration (--synthetic-demo), model artifact export, Gini feature importances export, and comprehensive training reports.
+  - Authored comprehensive test suite in 	ests/test_random_forest.py with 12 tests achieving 93% code coverage across src/sanket/models/ (140/140 tests passing repo-wide).
+  - Promoted scikit-learn and joblib into core dependencies in pyproject.toml and 
+equirements.txt.
+- **Decisions**:
+  - Adopted a clean abstract base class architecture (BaseSignClassifier) to enforce contract uniformity across all upcoming Phase 1 classifiers (SVM SANKET-029, MLP SANKET-030).
+  - Selected joblib for model serialization ensuring efficient numpy array storage and rapid artifact loading.
+- **Experiments**:
+  - Benchmarked inference latency on 16-class synthetic feature vectors (~0.73 ms per sample), substantially outperforming the real-time threshold budget of <= 50 ms (Roadmap RQ5).
+- **Results**:
+  - Random Forest baseline model and training pipeline operational, verified with 93% unit test coverage and zero linting warnings.
+- **Next Actions**:
+  - Submit Pull Request for SANKET-028.
+  - Project owner review and merge of PRs #42, #43, and #44.
+  - Proceed to SANKET-029 (Baseline SVM model).

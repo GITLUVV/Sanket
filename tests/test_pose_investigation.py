@@ -187,33 +187,36 @@ def test_pose_extractor_blank_frame() -> None:
         assert anchors.nose.shape == (3,)
         assert anchors.sternum.shape == (3,)
 
-        # Also test mock backend mode
-        extractor._backend = "mock"
-        anchors_mock = extractor.extract_frame(blank)
-        assert anchors_mock.is_detected is False
+
+def test_pose_extractor_mock_backend() -> None:
+    """Verify PoseExtractor with explicit mock backend returns un-detected anchors."""
+    with PoseExtractor(backend="mock") as extractor:
+        blank = np.zeros((480, 640, 3), dtype=np.uint8)
+        anchors = extractor.extract_frame(blank)
+        assert isinstance(anchors, PoseAnchors)
+        assert anchors.is_detected is False
+        assert anchors.confidence == 0.0
+        assert extractor.backend == "mock"
 
 
 def test_pose_extractor_mock_detection() -> None:
     """Verify PoseExtractor parsing when pose landmarks are returned."""
     from unittest.mock import MagicMock
 
-    with PoseExtractor() as extractor:
-        class MockLandmark:
-            def __init__(self, x: float, y: float, z: float) -> None:
-                self.x = x
-                self.y = y
-                self.z = z
+    class MockLandmark:
+        def __init__(self, x: float, y: float, z: float) -> None:
+            self.x = x
+            self.y = y
+            self.z = z
 
-        mock_landmarks = [MockLandmark(i * 0.01, i * 0.02, 0.0) for i in range(33)]
-        mock_result = MagicMock()
-        mock_result.pose_landmarks = [mock_landmarks]
+    mock_landmarks = [MockLandmark(i * 0.01, i * 0.02, 0.0) for i in range(33)]
+    mock_result = MagicMock()
+    mock_result.pose_landmarks = [mock_landmarks]
 
-        if extractor._detector is None:
-            extractor._detector = MagicMock()
-            extractor._backend = "mediapipe"
-            extractor._mp = MagicMock()
+    mock_detector = MagicMock()
+    mock_detector.detect.return_value = mock_result
 
-        extractor._detector.detect = MagicMock(return_value=mock_result)
+    with PoseExtractor(detector=mock_detector) as extractor:
         blank = np.zeros((480, 640, 3), dtype=np.uint8)
         anchors = extractor.extract_frame(blank)
         assert anchors.is_detected is True

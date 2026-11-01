@@ -64,6 +64,7 @@ dmypy.json
 # Machine Learning Checkpoints, Weights & Exports
 models/checkpoints/
 models/weights/
+models/baselines/
 *.pt
 *.pth
 *.pwf
