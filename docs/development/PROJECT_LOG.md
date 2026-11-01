@@ -474,3 +474,84 @@ equirements.txt.
   - All documentation, roadmap gates, experiment registries, and repository URLs reconciled with 100% test suite pass rate.
 - **Next Actions**:
   - Proceed to STAGE 4: GitHub governance, automated PR metadata validation workflow (pr-metadata.yml), and Wiki drafts.
+
+
+---
+
+### 2026-11-01 — SANKET-031: Unified Model Evaluation Pipeline & Manifest Schema
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-031 (Issue #33)
+- **Completed Work**:
+  - Implemented `src/sanket/evaluation/metrics.py` computing Top-1/3/5 accuracy, macro/weighted precision, recall, F1, multi-class MCC, and row-normalized confusion matrices.
+  - Implemented `src/sanket/evaluation/latency.py` benchmarking CPU forward-pass latency percentiles (p50, p95, p99, mean, std) and sustainable throughput (FPS).
+  - Implemented `src/sanket/evaluation/manifest.py` serializing Schema v1.0.0 experiment manifests in `docs/experiments/manifests/` with sanitized environment metadata.
+  - Implemented `src/sanket/evaluation/evaluator.py` establishing `SignModelEvaluator` with `lock_seed(42)`.
+  - Implemented evaluation CLI `scripts/evaluate_model.py`.
+  - Authored test suite `tests/test_evaluation.py` (25 tests passing).
+- **Results**:
+  - Merged via PR #46 with 100% CI pass rate.
+
+---
+
+### 2026-11-01 — SANKET-029: Baseline Support Vector Machine (SVM) Classifier
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-029 (Issue #31)
+- **Completed Work**:
+  - Implemented `SVMSignClassifier` (`src/sanket/models/svm.py`) with RBF kernel, training-partition `StandardScaler`, Platt probability calibration, and validation grid tuning.
+  - Implemented CLI `scripts/train_svm.py`.
+  - Authored experiment record `docs/experiments/EXP-0002-svm-baseline.md` and manifest `EXP-P1-002-SVM-BASELINE.json`.
+  - Added unit test suite `tests/test_svm.py` (12 tests passing).
+- **Results**:
+  - Merged via PR #47 with 100% CI pass rate.
+
+---
+
+### 2026-11-01 — SANKET-030: Baseline Multi-Layer Perceptron (MLP) Classifier
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-030 (Issue #32)
+- **Completed Work**:
+  - Implemented `MLPSignClassifier` (`src/sanket/models/mlp.py`) with 3-stage feedforward compression ($645 \to 256 \to 128 \to 64 \to 16$), ReLU activations, Adam optimization, adaptive learning rate, and validation early stopping.
+  - Implemented CLI `scripts/train_mlp.py`.
+  - Authored experiment record `docs/experiments/EXP-0003-mlp-baseline.md` and manifest `EXP-P1-003-MLP-BASELINE.json`.
+  - Added unit test suite `tests/test_mlp.py` (10 tests passing).
+- **Results**:
+  - Completed via PR #48 with all checks passing (4/4).
+
+---
+
+### 2026-11-01 — SANKET-032: Confusion Matrix & Phonological Linguistic Error Analysis
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-032 (Issue #34)
+- **Completed Work**:
+  - Implemented `ConfusionMatrixDiagnostics` (`src/sanket/evaluation/diagnostics.py`) supporting row-normalized confusion matrices ($C_{i, j}$) and 5-tier phonological error taxonomy ($E_{\mathcal{H}}$, $E_{\mathcal{L}}$, $E_{\mathcal{O}}$, $E_{\mathcal{M}}$, $E_{\text{track}}$).
+  - Implemented ISL articulatory metadata `ISL_16_PHONOLOGY` and rule-based phonological classifier `classify_phonological_error`.
+  - Implemented diagnostic CLI `scripts/analyze_errors.py` with ASCII heatmap and markdown rendering.
+  - Published comprehensive research report `docs/experiments/ERROR_ANALYSIS_PHASE1.md`.
+  - Authored unit test suite `tests/test_diagnostics.py` (13 tests passing).
+- **Results**:
+  - Completed via PR #49 with all checks passing (4/4).
+
+---
+
+### 2026-11-01 — SANKET-033: Baseline Model Comparison, ADR-0003 & Phase 1 Certification
+
+- **Phase**: Phase 1 — Data & Isolated Sign Recognition
+- **Milestone**: Milestone 1 — Data & Isolated Sign Recognition
+- **Related Issue**: SANKET-033 (Issue #35)
+- **Completed Work**:
+  - Implemented comparative benchmarking CLI in `scripts/compare_baselines.py`.
+  - Published comprehensive comparative study `docs/experiments/EXP-P1-001-baseline-comparison.md` comparing Random Forest, SVM, and MLP baselines across accuracy, macro F1, latency, throughput, and memory.
+  - Evaluated Research Questions RQ1 and RQ3 formulated in `docs/research/RESEARCH_QUESTIONS.md`.
+  - Authored Architecture Decision Record `docs/decisions/ADR-0003-baseline-classifier-selection.md` selecting `RandomForestSignClassifier` for the Phase 2 Real-Time Camera MVP.
+  - Registered ADR-0003 in `docs/decisions/README.md`.
+  - Certified Phase 1 (Data & Isolated Sign Recognition) completion (all 14 issues complete) in `docs/roadmap/SANKET_ROADMAP.md`.
+- **Results**:
+  - All Phase 1 gate criteria satisfied and officially certified.
