@@ -74,19 +74,20 @@ Build a reproducible pipeline for recognising a constrained vocabulary of isolat
 - **SANKET-026**: Landmark normalization (scale, rotation, translation invariant) (Completed -- PR #42)
 - **SANKET-027**: Feature vector generation (Completed -- PR #43)
 - **SANKET-028**: Baseline Random Forest model (Completed -- PR #44)
-- **SANKET-029**: Baseline SVM model (Pending -- Issue #31)
-- **SANKET-030**: Baseline neural network (MLP) (Pending -- Issue #32)
-- **SANKET-031**: Model evaluation pipeline (Pending -- Issue #33)
-- **SANKET-032**: Confusion matrix and error analysis (Pending -- Issue #34)
-- **SANKET-033**: Baseline model comparison (Pending -- Issue #35)
+- **SANKET-029**: Baseline SVM model (Completed -- PR #47)
+- **SANKET-030**: Baseline neural network (MLP) (Completed -- PR #48)
+- **SANKET-031**: Model evaluation pipeline (Completed -- PR #46)
+- **SANKET-032**: Confusion matrix and error analysis (Completed -- PR #49)
+- **SANKET-033**: Baseline model comparison & ADR-0003 (Completed -- PR #50)
 
 ### Deliverable
 An offline, reproducible isolated-sign recognition baseline with documented evaluation results, comparison tables, and error analyses in `docs/experiments/`.
 
 ### Phase Gate
 - [x] Signer-independent split verified without data leakage (SANKET-022, PR #38).
-- [ ] Baselines compared and evaluated on identical test set (SANKET-031, SANKET-033).
+- [x] Baselines compared and evaluated on identical test set (SANKET-031, SANKET-033, EXP-P1-001).
 - [x] Feature representation decision recorded in an ADR (ADR-0002, PR #43).
+- [x] Baseline classifier selection recorded in an ADR (ADR-0003, PR #50).
 
 ---
 
