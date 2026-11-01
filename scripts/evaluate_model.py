@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 import numpy as np
 
 from sanket.evaluation import SignModelEvaluator, lock_seed
-from sanket.models import RandomForestSignClassifier
+from sanket.models import RandomForestSignClassifier, SVMSignClassifier
 from sanket.models.base import BaseSignClassifier
 
 logging.basicConfig(
@@ -77,14 +77,12 @@ def load_model_from_file(model_path: Path) -> BaseSignClassifier:
         msg = f"Model file not found: {model_path}"
         raise FileNotFoundError(msg)
 
-    # Check model type by trying standard load methods
-    try:
-        return RandomForestSignClassifier.load(model_path)
-    except Exception as exc:
-        logger.warning(
-            "Direct RandomForestSignClassifier.load failed (%s). Attempting generic joblib load.",
-            exc,
-        )
+    # Check model type by trying specialized load methods
+    for loader in (RandomForestSignClassifier.load, SVMSignClassifier.load):
+        try:
+            return loader(model_path)
+        except Exception:
+            pass
 
     import joblib
 
