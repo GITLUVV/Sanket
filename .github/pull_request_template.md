@@ -5,7 +5,7 @@
 <!-- Explain the problem or research motivation behind this change. Why was this approach selected? -->
 
 ## Related issue
-<!-- Link the assigned SANKET issue (e.g., Closes #1, Relates to #2). -->
+<!-- Link the assigned SANKET issue (e.g., Closes #33, Relates to #31). Required for PR metadata validation. -->
 Closes #
 
 ## Implementation
@@ -15,7 +15,12 @@ Closes #
 <!-- How were these changes verified? Include unit tests executed, command outputs, or benchmark procedures. -->
 - [ ] Unit tests pass (`pytest`)
 - [ ] Code style and linting pass (`ruff check .`)
-- [ ] Manual smoke tests performed (if applicable)
+- [ ] Setup verification passes (`python scripts/verify_setup.py`)
+
+## Acceptance Criteria Verification
+<!-- Check off the verified acceptance criteria defined in the linked GitHub issue. -->
+- [ ] Acceptance criterion 1 verified
+- [ ] Acceptance criterion 2 verified
 
 ## Results
 <!-- Provide quantitative or qualitative results (e.g. test metrics, benchmark output, logs). -->
@@ -30,7 +35,7 @@ Closes #
 - [ ] No
 - [ ] Yes (detail backwards compatibility impact and migration path):
 
-## Security/privacy considerations?
+## Security & privacy considerations
 <!-- Does this PR handle camera feeds, video processing, biometric landmarks, credentials, or datasets? -->
 - [ ] Verified: No secrets, credentials, or private API keys committed.
 - [ ] Verified: No camera recordings or identifiable biometric media files included.
