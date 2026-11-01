@@ -52,10 +52,10 @@ Establish the engineering, documentation, dataset governance, security, and rese
 A fully structured, secure, and documented project foundation with a clearly defined initial research problem, evaluation protocol, and vocabulary baseline.
 
 ### Phase Gate
-- [ ] Milestone 0 issues completed and merged via reviewed PRs.
-- [ ] Automated CI and branch protection verified on `main`.
-- [ ] Dataset licensing approved by project owner in `DATASET_REGISTER.md`.
-- [ ] Initial isolated vocabulary frozen with owner sign-off.
+- [x] Milestone 0 issues completed and merged via reviewed PRs (PRs #13--#18).
+- [x] Automated CI and branch protection verified on main (Ruleset 26011645).
+- [x] Dataset licensing approved by project owner in DATASET_REGISTER.md.
+- [x] Initial isolated vocabulary frozen with owner sign-off (docs/research/INITIAL_VOCABULARY.md).
 
 ---
 
@@ -65,28 +65,28 @@ A fully structured, secure, and documented project foundation with a clearly def
 Build a reproducible pipeline for recognising a constrained vocabulary of isolated ISL signs using offline frame and landmark processing.
 
 ### Issues
-- **SANKET-020**: Dataset ingestion pipeline
-- **SANKET-021**: Dataset inspection and label analysis
-- **SANKET-022**: Train/validation/test split strategy (Signer-Independent)
-- **SANKET-023**: Image/video preprocessing
-- **SANKET-024**: Hand landmark extraction (MediaPipe Hands)
-- **SANKET-025**: Pose/body landmark investigation (MediaPipe Pose)
-- **SANKET-026**: Landmark normalization (scale, rotation, translation invariant)
-- **SANKET-027**: Feature vector generation
-- **SANKET-028**: Baseline Random Forest model
-- **SANKET-029**: Baseline SVM model
-- **SANKET-030**: Baseline neural network (MLP)
-- **SANKET-031**: Model evaluation pipeline
-- **SANKET-032**: Confusion matrix and error analysis
-- **SANKET-033**: Baseline model comparison
+- **SANKET-020**: Dataset ingestion pipeline (Completed -- PR #36)
+- **SANKET-021**: Dataset inspection and label analysis (Completed -- PR #37)
+- **SANKET-022**: Train/validation/test split strategy (Signer-Independent) (Completed -- PR #38)
+- **SANKET-023**: Image/video preprocessing (Completed -- PR #39)
+- **SANKET-024**: Hand landmark extraction (MediaPipe Hands) (Completed -- PR #40)
+- **SANKET-025**: Pose/body landmark investigation (MediaPipe Pose) (Completed -- PR #41)
+- **SANKET-026**: Landmark normalization (scale, rotation, translation invariant) (Completed -- PR #42)
+- **SANKET-027**: Feature vector generation (Completed -- PR #43)
+- **SANKET-028**: Baseline Random Forest model (Completed -- PR #44)
+- **SANKET-029**: Baseline SVM model (Pending -- Issue #31)
+- **SANKET-030**: Baseline neural network (MLP) (Pending -- Issue #32)
+- **SANKET-031**: Model evaluation pipeline (Pending -- Issue #33)
+- **SANKET-032**: Confusion matrix and error analysis (Pending -- Issue #34)
+- **SANKET-033**: Baseline model comparison (Pending -- Issue #35)
 
 ### Deliverable
 An offline, reproducible isolated-sign recognition baseline with documented evaluation results, comparison tables, and error analyses in `docs/experiments/`.
 
 ### Phase Gate
-- [ ] Signer-independent split verified without data leakage.
-- [ ] Baselines compared and evaluated on identical test set.
-- [ ] Feature representation decision recorded in an ADR.
+- [x] Signer-independent split verified without data leakage (SANKET-022, PR #38).
+- [ ] Baselines compared and evaluated on identical test set (SANKET-031, SANKET-033).
+- [x] Feature representation decision recorded in an ADR (ADR-0002, PR #43).
 
 ---
 

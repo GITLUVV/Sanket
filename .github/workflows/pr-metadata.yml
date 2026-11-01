@@ -1,0 +1,70 @@
+name: PR Metadata Validation
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+      - milestoned
+      - demilestoned
+
+permissions:
+  pull-requests: read
+  contents: read
+
+jobs:
+  validate-pr-metadata:
+    name: Validate PR Metadata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Title, Milestone, Labels, and Body
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const errors = [];
+
+            // 1. Verify PR Title Convention
+            const titleRegex = /^(feat|fix|research|docs|test|security|refactor|chore)(\([a-z0-9_-]+\))?: .+/;
+            if (!titleRegex.test(pr.title)) {
+              errors.push(`PR Title "${pr.title}" does not follow Conventional Commits (e.g. "feat(models): implement SVM baseline (SANKET-029)").`);
+            }
+
+            // 2. Verify Milestone
+            if (!pr.milestone) {
+              errors.push('PR is missing a Milestone. Please assign the appropriate Milestone.');
+            }
+
+            // 3. Verify Classification Labels
+            const labels = (pr.labels || []).map(l => l.name);
+            const hasType = labels.some(l => l.startsWith('type:'));
+            const hasArea = labels.some(l => l.startsWith('area:'));
+            const hasPriority = labels.some(l => l.startsWith('priority:'));
+            const hasPhase = labels.some(l => l.startsWith('phase:'));
+
+            if (!hasType) errors.push('PR is missing a "type:*" label (e.g. type:feature, type:research).');
+            if (!hasArea) errors.push('PR is missing an "area:*" label (e.g. area:ml, area:vision).');
+            if (!hasPriority) errors.push('PR is missing a "priority:*" label (e.g. priority:P0, priority:P1).');
+            if (!hasPhase) errors.push('PR is missing a "phase:*" label (e.g. phase:1).');
+
+            // 4. Verify Linked Issue Closing Reference in Body
+            const body = pr.body || '';
+            const issueRegex = /(closes|fixes|resolves)\s+#\d+/i;
+            if (!issueRegex.test(body)) {
+              errors.push('PR body does not contain an issue closing reference (e.g. "Closes #33").');
+            }
+
+            // 5. Verify Testing Section in Body
+            if (!/testing/i.test(body)) {
+              errors.push('PR body is missing a "Testing" verification section.');
+            }
+
+            if (errors.length > 0) {
+              core.setFailed("PR Metadata Validation Failed:\n" + errors.map(e => " - " + e).join("\n"));
+            } else {
+              core.info("PR Metadata Validation Passed successfully!");
+            }
