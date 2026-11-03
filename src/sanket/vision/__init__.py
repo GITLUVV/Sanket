@@ -1,5 +1,14 @@
 """Vision subsystem: camera input, frame preprocessing, and landmark extraction."""
 
+from sanket.vision.capture import (
+    BaseVideoCapture,
+    CameraCapture,
+    CameraNotFoundError,
+    CapturedFrame,
+    CaptureError,
+    MockVideoCapture,
+    find_available_cameras,
+)
 from sanket.vision.landmarks import (
     COORDINATE_DIM,
     HAND_FEATURE_DIM,
@@ -44,13 +53,19 @@ from sanket.vision.preprocessing import (
 
 __all__ = [
     "ANCHOR_NAMES",
+    "BaseVideoCapture",
     "COORDINATE_DIM",
+    "CameraCapture",
+    "CameraNotFoundError",
+    "CaptureError",
+    "CapturedFrame",
     "FrameLandmarks",
     "HAND_FEATURE_DIM",
     "HandBodyRelativeFeatures",
     "HandLandmarkExtractor",
     "LandmarkNormalizer",
     "MIDDLE_MCP_IDX",
+    "MockVideoCapture",
     "NUM_HAND_LANDMARKS",
     "NUM_POSE_ANCHORS",
     "PoseAnchors",
@@ -66,6 +81,7 @@ __all__ = [
     "denormalize_hand_landmarks",
     "ensure_hand_landmarker_model",
     "ensure_pose_landmarker_model",
+    "find_available_cameras",
     "get_video_metadata",
     "letterbox_resize",
     "load_landmarks_npz",
