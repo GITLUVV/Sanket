@@ -2,7 +2,7 @@
 
 - **Status**: Accepted
 - **Date**: 2026-10-28
-- **Deciders**: Anveshna (Project Owner), Antigravity (AI Assistant)
+- **Deciders**: Anveshna (Project Owner), Sanket Core Team
 - **Related Issue**: SANKET-001, SANKET-004, SANKET-007
 
 ---

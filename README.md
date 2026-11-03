@@ -63,7 +63,8 @@ flowchart LR
 - **[Testing & Benchmarking Guide](TESTING.md)**: Testing pyramid, synthetic data fixtures, coverage, and latency profiling.
 - **[Contributing Guidelines](CONTRIBUTING.md)**: Contribution standards, issue linking, and human merge control.
 - **[Security Policy](SECURITY.md)**: Vulnerability disclosure, least-privilege CI, and biometric privacy mandate.
-- **[AI Operational Manual (AGENTS.md)](AGENTS.md)**: Operational constraints, modular rules, and reusable agent skills.
+- **[Documentation Format Guide](docs/FORMAT.md)**: Formatting, typography, and attribution standards for repository documents.
+- **[Contributor & Agent Guide (AGENTS.md)](AGENTS.md)**: Operational constraints, modular rules, and reusable agent skills.
 
 ### Technical Documentation (`docs/technical/`)
 - **[Accessible Design System](docs/technical/DESIGN_SYSTEM.md)**: High-contrast color palette, video HUD layout, and subtitles.

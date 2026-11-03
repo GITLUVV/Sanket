@@ -1,6 +1,6 @@
-# AGENTS.md — SANKET AI Engineering Operational Manual
+# AGENTS.md — SANKET Contributor & Agent Guide
 
-> **Authoritative Operational Guide for AI Assistants, Pair Programmers, and Autonomous Agents**  
+> **Operational Guidelines and Constraints for Automated Agents and Contributors**  
 > *SANKET (संकेत) — AI-Assisted Indian Sign Language Accessibility System (`https://github.com/GITLUVV/Sanket`)*
 
 ---
@@ -23,6 +23,7 @@ SANKET is an open-source, privacy-preserving, low-latency Indian Sign Language (
 4. **Third-Party Dataset Licensing**: Never download, ingest, or process external datasets without verifying entries in `docs/datasets/DATASET_REGISTER.md` and confirming documented owner-approval.
 5. **Deterministic Mathematics**: Always lock pseudo-random seeds (`seed=42`, `random_state=42`) across all split generators, feature extractors, and model training routines.
 6. **Zero Quality Regressions**: All 206+ unit tests must pass (`pytest -q`) and code style must produce zero errors (`ruff check .`) before any PR is submitted.
+7. **No Tool Self-Attribution**: Do not cite AI tools or IDEs (e.g., Antigravity, Copilot) as contributors, deciders, or co-authors in ADRs or documentation.
 
 ---
 
@@ -51,12 +52,12 @@ Consult these specialized rule files when executing tasks in specific domains:
 
 Do not load every document into context at once. Consult only when needed:
 
+- **Documentation Format Guide**: [`docs/FORMAT.md`](docs/FORMAT.md)
 - **Architecture Details**: [`ARCHITECTURE.md`](ARCHITECTURE.md) & [`docs/architecture/SYSTEM_OVERVIEW.md`](docs/architecture/SYSTEM_OVERVIEW.md)
 - **Technology Stack**: [`TECH_STACK.md`](TECH_STACK.md)
 - **Developer Workflow**: [`DEVELOPMENT.md`](DEVELOPMENT.md) & [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - **Coding & Typing Guidelines**: [`CODING_STANDARDS.md`](CODING_STANDARDS.md)
 - **Testing Protocols**: [`TESTING.md`](TESTING.md) & [`docs/research/EVALUATION_METHODOLOGY.md`](docs/research/EVALUATION_METHODOLOGY.md)
 - **Technical Decisions**: [`docs/decisions/`](docs/decisions/) (`ADR-0001`, `ADR-0002`, `ADR-0003`)
-- **Master Roadmap**: [`docs/roadmap/SANKET_ROADMAP.md`](docs/roadmap/SANKET_ROADMAP.md)
+- **Master Roadmap & Issues**: [`docs/roadmap/SANKET_ROADMAP.md`](docs/roadmap/SANKET_ROADMAP.md)
 - **Project History & Audit**: [`docs/development/PROJECT_LOG.md`](docs/development/PROJECT_LOG.md) & [`docs/audits/PROJECT_RECOVERY_AUDIT.md`](docs/audits/PROJECT_RECOVERY_AUDIT.md)
-

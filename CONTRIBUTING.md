@@ -68,7 +68,7 @@ Every Pull Request submitted to `main` must pass automated PR metadata verificat
 ## 3. Human Merge Control Rules
 
 - **All Pull Requests must be reviewed and merged by the project owner.**
-- Automated AI assistants and contributors must create the branch, implement changes, and submit a detailed Pull Request.
+- Contributors and automated tools must create the branch, implement changes, and submit a detailed Pull Request.
 - **Never independently merge Pull Requests.** The project owner controls progression.
 - Work should proceed **one issue at a time**:
   ```text
