@@ -4,7 +4,10 @@ Provides uniform temporal frame subsampling, aspect-ratio-preserving
 letterbox resizing, coordinate unletterboxing, and batch video decoding.
 """
 
+import collections
 import logging
+import threading
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -442,3 +445,260 @@ class VideoPreprocessor:
         np.save(str(dest), tensor)
         logger.info("Saved preprocessed tensor of shape %s to %s", tensor.shape, dest)
         return dest
+
+
+class RealtimePreprocessor:
+    """Low-latency per-frame preprocessor for real-time video streaming pipelines.
+
+    Performs optional horizontal mirroring (selfie mode), aspect-ratio-preserving
+    letterbox resizing to optimal MediaPipe input dimensions (default 640x480),
+    and zero-copy/minimal-overhead BGR to RGB color conversion.
+    """
+
+    def __init__(
+        self,
+        target_size: tuple[int, int] = (640, 480),
+        mirror: bool = True,
+        to_rgb: bool = True,
+        pad_color: tuple[int, int, int] = (0, 0, 0),
+    ) -> None:
+        """Initialize the real-time preprocessor.
+
+        Args:
+            target_size: Target (width, height) resolution. Defaults to (640, 480).
+            mirror: Whether to horizontally flip frames for intuitive selfie view.
+            to_rgb: Whether to convert OpenCV BGR format to RGB.
+            pad_color: Background color tuple for letterbox padding borders.
+        """
+        if target_size[0] <= 0 or target_size[1] <= 0:
+            raise ValueError(f"target_size dimensions must be positive, got {target_size}")
+
+        self.target_size = target_size
+        self.mirror = mirror
+        self.to_rgb = to_rgb
+        self.pad_color = pad_color
+
+    def process_frame(
+        self,
+        frame: np.ndarray,
+    ) -> tuple[np.ndarray, dict[str, Any]]:
+        """Process a single video frame for downstream landmark extraction.
+
+        Args:
+            frame: Input image array of shape (H, W, C) or (H, W).
+
+        Returns:
+            A tuple of:
+                - preprocessed_frame: Standardized array with shape (target_h, target_w, C).
+                - transform_metadata: Dictionary detailing scale, padding offsets,
+                  and mirror flags for downstream coordinate unletterboxing.
+
+        Raises:
+            ValueError: If the frame is None or empty.
+        """
+        if frame is None or frame.size == 0:
+            raise ValueError("Cannot process empty or None frame")
+
+        orig_h, orig_w = frame.shape[:2]
+        target_w, target_h = self.target_size
+
+        # Compute aspect-preserving scale factor
+        scale = min(target_w / orig_w, target_h / orig_h)
+        new_w = max(1, int(round(orig_w * scale)))
+        new_h = max(1, int(round(orig_h * scale)))
+
+        # 1. Aspect-ratio-preserving resize
+        interpolation = cv2.INTER_AREA if scale < 1.0 else cv2.INTER_LINEAR
+        resized = cv2.resize(frame, (new_w, new_h), interpolation=interpolation)
+
+        # 2. Optional horizontal mirror flip (performed on downscaled buffer for sub-1ms speed)
+        if self.mirror:
+            working_frame = cv2.flip(resized, 1)
+        else:
+            working_frame = resized
+
+        # 3. Color conversion BGR -> RGB (on smaller resized frame before padding)
+        if self.to_rgb and working_frame.ndim == 3 and working_frame.shape[2] == 3:
+            working_frame = cv2.cvtColor(working_frame, cv2.COLOR_BGR2RGB)
+
+        # 4. Calculate symmetric padding and pad to target_size
+        pad_w = target_w - new_w
+        pad_h = target_h - new_h
+        pad_left = pad_w // 2
+        pad_right = pad_w - pad_left
+        pad_top = pad_h // 2
+        pad_bottom = pad_h - pad_top
+
+        final_frame = cv2.copyMakeBorder(
+            working_frame,
+            pad_top,
+            pad_bottom,
+            pad_left,
+            pad_right,
+            borderType=cv2.BORDER_CONSTANT,
+            value=self.pad_color,
+        )
+
+        meta: dict[str, Any] = {
+            "scale": float(scale),
+            "pad_left": int(pad_left),
+            "pad_right": int(pad_right),
+            "pad_top": int(pad_top),
+            "pad_bottom": int(pad_bottom),
+            "original_shape": (int(orig_h), int(orig_w)),
+            "resized_shape": (int(new_h), int(new_w)),
+            "target_size": (int(target_w), int(target_h)),
+            "mirrored": self.mirror,
+            "raw_shape": (int(orig_h), int(orig_w)),
+        }
+        return final_frame, meta
+        return final_frame, meta
+
+
+class FrameBuffer:
+    """Thread-safe bounded circular frame buffer for real-time video streaming.
+
+    Stores timestamped video frames in a bounded FIFO queue without memory expansion.
+    Enables atomic frame ingestion from background capture threads and non-blocking
+    sliding-window sequence extraction for temporal sign recognition models.
+    """
+
+    def __init__(self, capacity: int = 60) -> None:
+        """Initialize the circular frame buffer.
+
+        Args:
+            capacity: Maximum number of frames to store (default 60).
+
+        Raises:
+            ValueError: If capacity is less than 1.
+        """
+        if capacity < 1:
+            raise ValueError(f"capacity must be at least 1, got {capacity}")
+
+        self._capacity = capacity
+        self._deque: collections.deque[tuple[np.ndarray, float]] = collections.deque(
+            maxlen=capacity
+        )
+        self._lock = threading.Lock()
+
+    @property
+    def capacity(self) -> int:
+        """Maximum capacity of the circular buffer."""
+        return self._capacity
+
+    def __len__(self) -> int:
+        """Current number of frames stored in the buffer."""
+        with self._lock:
+            return len(self._deque)
+
+    def is_full(self) -> bool:
+        """Check if the buffer is currently at full capacity."""
+        with self._lock:
+            return len(self._deque) == self._capacity
+
+    def is_ready(self, min_frames: int = 30) -> bool:
+        """Check if the buffer contains at least min_frames.
+
+        Args:
+            min_frames: Minimum required frame count (default 30).
+
+        Returns:
+            True if buffer length >= min_frames, False otherwise.
+        """
+        with self._lock:
+            return len(self._deque) >= min_frames
+
+    def push(
+        self,
+        frame: np.ndarray,
+        timestamp_ms: float | None = None,
+    ) -> None:
+        """Push a frame into the bounded circular buffer.
+
+        If the buffer is full, the oldest frame is automatically evicted.
+
+        Args:
+            frame: Image array to append.
+            timestamp_ms: Optional timestamp in milliseconds. Defaults to current time.
+
+        Raises:
+            ValueError: If frame is None or empty.
+        """
+        if frame is None or frame.size == 0:
+            raise ValueError("Cannot push empty or None frame into buffer")
+
+        if timestamp_ms is None:
+            timestamp_ms = time.perf_counter() * 1000.0
+
+        with self._lock:
+            self._deque.append((frame, float(timestamp_ms)))
+
+    def get_recent(self, n_frames: int = 1) -> list[tuple[np.ndarray, float]]:
+        """Retrieve the most recent n_frames with timestamps.
+
+        Args:
+            n_frames: Number of recent frames to retrieve.
+
+        Returns:
+            List of (frame, timestamp_ms) tuples, ordered oldest to newest.
+
+        Raises:
+            ValueError: If n_frames is not positive.
+        """
+        if n_frames <= 0:
+            raise ValueError(f"n_frames must be positive, got {n_frames}")
+
+        with self._lock:
+            available = len(self._deque)
+            take = min(available, n_frames)
+            if take == 0:
+                return []
+            # Slice the rightmost 'take' elements
+            start_idx = available - take
+            items = [self._deque[i] for i in range(start_idx, available)]
+            return items
+
+    def get_window(self, window_size: int = 30) -> list[np.ndarray]:
+        """Retrieve the most recent window_size frames as a list.
+
+        Args:
+            window_size: Number of frames to retrieve.
+
+        Returns:
+            List of numpy frame arrays, ordered chronologically.
+
+        Raises:
+            ValueError: If window_size is not positive.
+        """
+        items = self.get_recent(window_size)
+        return [frame for frame, _ in items]
+
+    def get_tensor(self, window_size: int = 30) -> np.ndarray:
+        """Retrieve the most recent window_size frames stacked into a tensor.
+
+        Args:
+            window_size: Desired temporal window length.
+
+        Returns:
+            Numpy array of shape (T, H, W, C) or (T, H, W).
+
+        Raises:
+            ValueError: If window_size is not positive or if buffer contains
+                fewer than window_size frames.
+        """
+        with self._lock:
+            available = len(self._deque)
+            if available < window_size:
+                raise ValueError(
+                    f"Buffer contains {available} frames, fewer than requested window {window_size}"
+                )
+            start_idx = available - window_size
+            frames = [self._deque[i][0] for i in range(start_idx, available)]
+
+        return np.stack(frames, axis=0)
+
+    def clear(self) -> None:
+        """Clear all frames from the buffer atomically."""
+        with self._lock:
+            self._deque.clear()
+
