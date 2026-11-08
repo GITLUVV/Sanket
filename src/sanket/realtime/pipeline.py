@@ -236,7 +236,7 @@ class RealtimePipeline:
         # 3. Extract Streaming Landmarks
         norm_landmarks: NormalizedFrameLandmarks | None = None
         try:
-            norm_landmarks = self.landmarker.process(active_frame, timestamp_ms=ts_ms)
+            norm_landmarks = self.landmarker.process_frame(active_frame, timestamp_ms=ts_ms)
         except Exception as e:
             logger.debug("Landmark extraction error: %s", e)
 
