@@ -132,14 +132,15 @@ class RealtimePipeline:
         # 3. Streaming Landmark Extractor
         self.landmarker = StreamingHandLandmarker()
 
-        # 4. Inference Engine (instantiate if model or model_path provided)
-        if model is not None or self.config.model_path is not None:
+        # 4. Inference Engine (instantiate with candidate models or defaults)
+        try:
             self.engine = RealtimeInferenceEngine(
                 model=model,
                 model_path=self.config.model_path,
                 min_confidence_threshold=self.config.min_confidence,
             )
-        else:
+        except Exception as e:
+            logger.warning("Could not initialize RealtimeInferenceEngine: %s", e)
             self.engine = None
 
         # 5. Temporal Smoother
