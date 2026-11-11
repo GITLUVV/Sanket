@@ -1,0 +1,47 @@
+{
+  "experiment_id": "EXP-P2-001-realtime-mvp",
+  "timestamp": "2026-11-08 11:48:58 UTC",
+  "duration_seconds": 10.289788299938664,
+  "hardware": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python_version": "3.12.10"
+  },
+  "throughput_fps": 28.863567582024054,
+  "fps_target_met": true,
+  "latency_target_met": true,
+  "latency": {
+    "min_ms": 10.395999997854233,
+    "p50_ms": 13.321799924597144,
+    "p90_ms": 30.058460007421676,
+    "p95_ms": 33.88557997532189,
+    "p99_ms": 41.13383991643794,
+    "max_ms": 81.4890000037849,
+    "mean_ms": 17.21724882010082,
+    "std_ms": 8.56550509094136
+  },
+  "stages": {
+    "capture_ms": 16.483513808492507,
+    "preprocessing_ms": 0.44669292793493176,
+    "landmark_extraction_ms": 15.962075083422466,
+    "feature_inference_ms": 0.0032508425941370953,
+    "smoothing_gating_ms": 0.0032097695439251184,
+    "hud_render_ms": 0.7723794641719522
+  },
+  "memory": {
+    "initial_mb": 0.0,
+    "peak_mb": 30.114410400390625,
+    "final_mb": 26.618593215942383,
+    "growth_mb": 26.618593215942383,
+    "leak_detected": false
+  },
+  "stability": {
+    "total_frames": 297,
+    "dropped_frames": 0,
+    "drop_rate_pct": 0.0,
+    "state_transitions": 0,
+    "flicker_rate_pct": 0.0
+  },
+  "certified": true,
+  "metadata": {}
+}
