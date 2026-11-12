@@ -56,6 +56,13 @@ from sanket.vision.streaming_landmarks import (
     NormalizedFrameLandmarks,
     StreamingHandLandmarker,
 )
+from sanket.vision.temporal import (
+    ResampledTrajectory,
+    TemporalTrajectoryInterpolator,
+    compute_temporal_derivatives,
+    interpolate_array_1d_temporal,
+    uniform_temporal_subsample,
+)
 
 __all__ = [
     "ANCHOR_NAMES",
@@ -79,20 +86,24 @@ __all__ = [
     "PoseAnchors",
     "PoseExtractor",
     "RealtimePreprocessor",
+    "ResampledTrajectory",
     "SequenceLandmarks",
     "StreamingHandLandmarker",
     "TOTAL_FEATURE_DIM",
+    "TemporalTrajectoryInterpolator",
     "VideoMetadata",
     "VideoPreprocessor",
     "WRIST_IDX",
     "compute_relative_spatial_features",
     "compute_sternum",
+    "compute_temporal_derivatives",
     "compute_temporal_indices",
     "denormalize_hand_landmarks",
     "ensure_hand_landmarker_model",
     "ensure_pose_landmarker_model",
     "find_available_cameras",
     "get_video_metadata",
+    "interpolate_array_1d_temporal",
     "letterbox_resize",
     "load_landmarks_npz",
     "normalize_frame_landmarks",
@@ -101,5 +112,6 @@ __all__ = [
     "read_video_frames",
     "sample_video_frames",
     "save_landmarks_npz",
+    "uniform_temporal_subsample",
     "unletterbox_coordinates",
 ]
