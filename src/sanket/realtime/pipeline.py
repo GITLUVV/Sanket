@@ -260,29 +260,30 @@ class RealtimePipeline:
         if self.engine is not None and has_hands and norm_landmarks is not None:
             try:
                 # Use normalized flat features
-                raw_pred = self.engine.predict(norm_landmarks, timestamp_ms=ts_ms)
+                raw_pred = self.engine.predict([norm_landmarks], timestamp_ms=ts_ms)
             except Exception as e:
-                logger.debug("Inference step error: %s", e)
+                logger.warning("Inference step error: %s", e)
 
         # 5. Temporal Prediction Smoothing
         smoothed_pred: SmoothedPrediction | None = None
         if raw_pred is not None:
-            smoothed_pred = self.smoother.update(raw_pred)
+            try:
+                smoothed_pred = self.smoother.process(raw_pred, timestamp_ms=ts_ms)
+            except Exception as e:
+                logger.warning("Smoother step error: %s", e)
 
         # 6. Confidence Calibration & OOV Gating
         calibrated_pred: CalibratedPrediction | None = None
-        if smoothed_pred is not None:
-            calibrated_pred = self.calibrator.evaluate(
-                smoothed_pred,
-                landmarks=norm_landmarks,
-                timestamp_ms=ts_ms,
-            )
-        elif raw_pred is not None:
-            calibrated_pred = self.calibrator.evaluate(
-                raw_pred,
-                landmarks=norm_landmarks,
-                timestamp_ms=ts_ms,
-            )
+        target_pred = smoothed_pred if smoothed_pred is not None else raw_pred
+        if target_pred is not None:
+            try:
+                calibrated_pred = self.calibrator.evaluate(
+                    target_pred,
+                    landmarks=norm_landmarks,
+                    timestamp_ms=ts_ms,
+                )
+            except Exception as e:
+                logger.warning("Calibrator step error: %s", e)
 
         # 7. Update Text Subtitle History
         if calibrated_pred is not None:

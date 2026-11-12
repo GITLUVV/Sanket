@@ -105,3 +105,50 @@ class TestRealtimePipelineIntegration:
         with pipeline:
             assert pipeline._is_running is True
         assert pipeline._is_running is False
+
+    def test_pipeline_step_with_detected_hands_yields_prediction(self) -> None:
+        """Verify that when hand landmarks are detected, pipeline produces prediction."""
+        from unittest.mock import MagicMock
+
+        from sanket.vision.landmarks import FrameLandmarks
+        from sanket.vision.streaming_landmarks import NormalizedFrameLandmarks
+
+        model, label_map = _create_mock_model()
+        config = PipelineConfig(
+            use_mock=True,
+            mock_pattern="solid",
+            headless=True,
+            width=320,
+            height=240,
+        )
+        pipeline = RealtimePipeline(config=config, model=model, label_map=label_map)
+
+        # Mock landmarker to return detected hand landmarks
+        raw_lm = FrameLandmarks(
+            left_hand=np.zeros((21, 3), dtype=np.float32),
+            right_hand=np.zeros((21, 3), dtype=np.float32),
+            left_detected=True,
+            right_detected=False,
+            left_confidence=0.95,
+            right_confidence=0.0,
+        )
+        norm_lm = NormalizedFrameLandmarks(
+            raw_landmarks=raw_lm,
+            left_hand_normalized=np.random.randn(21, 3).astype(np.float32),
+            right_hand_normalized=np.zeros((21, 3), dtype=np.float32),
+            left_metadata={},
+            right_metadata={},
+            timestamp_ms=100.0,
+        )
+
+        pipeline.landmarker.process_frame = MagicMock(return_value=norm_lm)
+
+        with pipeline:
+            frame, pred = pipeline.step(timeout_s=1.0)
+            assert frame is not None
+            # Prediction must be produced without being swallowed by an exception
+            assert pred is not None
+            assert isinstance(pred, CalibratedPrediction)
+            assert hasattr(pred, "gloss")
+            assert hasattr(pred, "is_valid_sign")
+            assert pipeline.telemetry.processed_frames == 1
