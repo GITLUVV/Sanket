@@ -37,6 +37,11 @@ class SmoothedPrediction:
     timestamp_ms: float
     metadata: dict[str, Any] = field(default_factory=dict)
 
+    @property
+    def gloss(self) -> str:
+        """Alias for active_gloss for uniform downstream interface compatibility."""
+        return self.active_gloss
+
 
 class TemporalPredictionSmoother:
     """Online temporal filtering and hysteresis state machine for real-time sign predictions.

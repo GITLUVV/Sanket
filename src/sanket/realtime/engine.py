@@ -155,13 +155,13 @@ class RealtimeInferenceEngine:
 
     def extract_features(
         self,
-        frames: list[NormalizedFrameLandmarks] | SequenceLandmarks,
+        frames: list[NormalizedFrameLandmarks] | NormalizedFrameLandmarks | SequenceLandmarks,
     ) -> np.ndarray:
-        """Extract a single 645-dimensional feature row from a sequence of frames.
+        """Extract a single 645-dimensional feature row from a sequence or single frame.
 
         Args:
-            frames: List of NormalizedFrameLandmarks from streaming landmarker or
-                SequenceLandmarks object.
+            frames: Single NormalizedFrameLandmarks, list of NormalizedFrameLandmarks,
+                or SequenceLandmarks object.
 
         Returns:
             2D numpy array of shape (1, 645) and dtype float32.
@@ -174,9 +174,14 @@ class RealtimeInferenceEngine:
                 raise ValueError("Cannot extract features from empty frame sequence.")
             seq = frames
         else:
-            if len(frames) == 0:
+            if isinstance(frames, NormalizedFrameLandmarks):
+                frame_list = [frames]
+            else:
+                frame_list = list(frames)
+
+            if len(frame_list) == 0:
                 raise ValueError("Cannot extract features from empty frame sequence.")
-            t = len(frames)
+            t = len(frame_list)
             left_hands = np.zeros((t, 21, 3), dtype=np.float32)
             right_hands = np.zeros((t, 21, 3), dtype=np.float32)
             left_det = np.zeros(t, dtype=bool)
@@ -184,7 +189,7 @@ class RealtimeInferenceEngine:
             left_conf = np.zeros(t, dtype=np.float32)
             right_conf = np.zeros(t, dtype=np.float32)
 
-            for i, f in enumerate(frames):
+            for i, f in enumerate(frame_list):
                 left_hands[i] = f.left_hand_normalized
                 right_hands[i] = f.right_hand_normalized
                 left_det[i] = f.left_detected
@@ -206,13 +211,19 @@ class RealtimeInferenceEngine:
 
     def predict(
         self,
-        frames: list[NormalizedFrameLandmarks] | SequenceLandmarks | np.ndarray,
+        frames: (
+            list[NormalizedFrameLandmarks]
+            | NormalizedFrameLandmarks
+            | SequenceLandmarks
+            | np.ndarray
+        ),
         timestamp_ms: float | None = None,
     ) -> InferenceResult:
         """Execute end-to-end feature extraction and model prediction.
 
         Args:
-            frames: Sequence of normalized frames, SequenceLandmarks, or precomputed (1, 645) array.
+            frames: Sequence of normalized frames, single NormalizedFrameLandmarks,
+                SequenceLandmarks, or precomputed (1, 645) array.
             timestamp_ms: Optional millisecond timestamp. If None, derived from time.perf_counter().
 
         Returns:
