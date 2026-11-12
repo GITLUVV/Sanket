@@ -3,12 +3,20 @@
 from sanket.models.base import BaseSignClassifier, SignModelMetrics
 from sanket.models.mlp import MLPSignClassifier
 from sanket.models.random_forest import RandomForestSignClassifier
+from sanket.models.recurrent import (
+    RecurrentCellType,
+    RecurrentModelConfig,
+    RecurrentSignClassifier,
+)
 from sanket.models.svm import SVMSignClassifier
 
 __all__ = [
     "BaseSignClassifier",
     "MLPSignClassifier",
     "RandomForestSignClassifier",
+    "RecurrentCellType",
+    "RecurrentModelConfig",
+    "RecurrentSignClassifier",
     "SVMSignClassifier",
     "SignModelMetrics",
 ]
